@@ -34,6 +34,7 @@
           '';
           fontPaths = map (font: "${font}/share/fonts") [ founderFonts mathFonts ];
           typstPackages = import ./typst-packages.nix;
+          pdfPython = pkgs.python3.withPackages (p: [ p.pypdf ]);
           src = builtins.path {
             path = ./.;
             name = "kaoyan-math-sources";
@@ -52,8 +53,9 @@
             inherit src fontPaths;
             emojiFont = null;
             unstable_typstPackages = typstPackages;
-            nativeBuildInputs = [ pkgs.python3 ];
+            nativeBuildInputs = [ pdfPython ];
             buildPhaseTypstCommand = ''
+              python3 scripts/test-booklet.py
               python3 scripts/build-pdfs.py --output "$out" --jobs 4
             '';
             installPhaseCommand = "true";
@@ -65,7 +67,7 @@
             inherit fontPaths;
             emojiFont = null;
             TYPST_PACKAGE_CACHE_PATH = typixLib.fetchTypstPackages typstPackages;
-            packages = [ pkgs.python3 pkgs.gh ];
+            packages = [ pdfPython pkgs.gh ];
           };
         };
     in {

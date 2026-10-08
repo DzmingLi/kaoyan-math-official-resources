@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31.11.1
-      - name: Build all PDFs with locked fonts and Typst packages
+      - name: Build reading and booklet PDFs with locked fonts and Typst packages
         run: nix build .#pdfs --out-link result --print-build-logs
       - name: Verify release files
         run: |
@@ -64,7 +64,7 @@ jobs:
         with:
           name: release-pdfs
           path: release
-      - name: Verify downloaded PDFs and archives
+      - name: Verify downloaded reading PDFs, booklet PDFs and archives
         run: |
           cd release
           sha256sum --check SHA256SUMS

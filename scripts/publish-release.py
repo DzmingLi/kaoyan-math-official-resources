@@ -17,6 +17,12 @@ def gh(*args):
     return result.stdout
 
 
+def release_files(records):
+    return ({r['pdf'] for r in records} | {r['booklet']['pdf'] for r in records}
+            | {'manifest.json', 'PRINTING.txt',
+               'past-exams.zip', 'past-exams-print.zip'})
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', type=Path, required=True)
@@ -26,10 +32,9 @@ def main():
     repo = os.environ['GH_REPO']
     tag = 'pdf-latest'
     records = json.loads((directory / 'manifest.json').read_text())
-    expected = {r['pdf'] for r in records}
-    expected |= {'manifest.json', 'SHA256SUMS'}
-    expected.add('past-exams.zip')
-    actual = {p.name for p in directory.iterdir() if p.is_file()}
+    expected = release_files(records)
+    actual = {p.name for p in directory.iterdir()
+              if p.is_file() and p.name != 'SHA256SUMS'}
     if actual != expected:
         raise SystemExit(f'Release file mismatch: missing={expected-actual}, extra={actual-expected}')
     # Never let a queued older build overwrite a newer default-branch build.
@@ -40,9 +45,10 @@ def main():
         return
     releases = json.loads(gh('api', f'repos/{repo}/releases?per_page=100'))
     existing = next((r for r in releases if r['tag_name'] == tag), None)
-    notes = (f'由提交 {commit} 自动生成，共 {len(records)} 份 PDF。\n\n'
-             '各 PDF 可单独下载；past-exams.zip 提供全部真题批量下载。'
-             'manifest.json 记录源文件对应关系，SHA256SUMS 提供校验。\n')
+    notes = (f'由提交 {commit} 自动生成，共 {len(records)} 份阅读版及 {len(records)} 份小册子打印版 PDF。\n\n'
+             '各 PDF 可单独下载；past-exams.zip 为阅读版，past-exams-print.zip 为打印版。'
+             '文件名以 -print.pdf 结尾的文件按 ISO B4 横向拼版，100% 实际大小、双面短边翻转；详见 PRINTING.txt。'
+             'manifest.json 记录源文件对应关系。\n')
     with tempfile.TemporaryDirectory() as tmp:
         body = Path(tmp) / 'notes.txt'
         body.write_text(notes)

@@ -8,6 +8,8 @@ import subprocess
 import sys
 import zipfile
 
+from booklet import PRINTING_INSTRUCTIONS, build_booklet
+
 ROOTS = ('历年真题',)
 SUBJECTS = {'数学一试卷': '1', '数学二试卷': '2', '数学三试卷': '3',
             '数学四试卷': '4', '数学五试卷': '5', '数学MBA试卷': 'mba'}
@@ -46,8 +48,13 @@ def main():
         result = subprocess.run(['typst', 'compile', '--ignore-system-fonts', '--root', str(root), str(source), str(target)], capture_output=True, text=True)
         if result.returncode:
             raise RuntimeError(f'{relative}\n{result.stderr}')
+        print_target = output / (stem + '-print.pdf')
+        layout = build_booklet(target, print_target)
         return {'source': relative.as_posix(), 'pdf': target.name,
-                'sha256': hashlib.sha256(target.read_bytes()).hexdigest()}
+                'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
+                'booklet': {'pdf': print_target.name,
+                            'sha256': hashlib.sha256(print_target.read_bytes()).hexdigest(),
+                            **layout}}
 
     records = []
     failed = False
@@ -64,23 +71,32 @@ def main():
                 failed = True
     if failed:
         raise SystemExit('Build failed; no release manifest or archives produced.')
+    if args.only:
+        print(f'Preview built in {output}; release metadata unchanged.', flush=True)
+        return
     records.sort(key=lambda r: r['source'])
     (output / 'manifest.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
-    if not args.only:
-        for group in ROOTS:
-            with zipfile.ZipFile(output / 'past-exams.zip', 'w', compression=zipfile.ZIP_DEFLATED) as archive:
-                for record in records:
-                    if record['source'].startswith(group + '/'):
-                        info = zipfile.ZipInfo(record['pdf'], date_time=(1980, 1, 1, 0, 0, 0))
-                        info.compress_type = zipfile.ZIP_DEFLATED
-                        info.external_attr = 0o100644 << 16
-                        archive.writestr(info, (output / record['pdf']).read_bytes())
-    checksums = []
-    for file in sorted(output.iterdir()):
-        if file.is_file() and file.name != 'SHA256SUMS':
-            checksums.append(f'{hashlib.sha256(file.read_bytes()).hexdigest()}  {file.name}')
+    (output / 'PRINTING.txt').write_text(PRINTING_INSTRUCTIONS, encoding='utf-8')
+    managed = [r['pdf'] for r in records] + [r['booklet']['pdf'] for r in records]
+    managed += ['manifest.json', 'PRINTING.txt']
+    for printing in (False, True):
+        archive_name = 'past-exams' + ('-print' if printing else '') + '.zip'
+        managed.append(archive_name)
+        with zipfile.ZipFile(output / archive_name, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            for record in records:
+                filename = record['booklet']['pdf'] if printing else record['pdf']
+                info = zipfile.ZipInfo(filename, date_time=(1980, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.external_attr = 0o100644 << 16
+                archive.writestr(info, (output / filename).read_bytes())
+            if printing:
+                info = zipfile.ZipInfo('PRINTING.txt', date_time=(1980, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.external_attr = 0o100644 << 16
+                archive.writestr(info, PRINTING_INSTRUCTIONS.encode('utf-8'))
+    checksums = [f'{hashlib.sha256((output / name).read_bytes()).hexdigest()}  {name}' for name in sorted(managed)]
     (output / 'SHA256SUMS').write_text('\n'.join(checksums) + '\n')
-    print(f'Built {len(records)} PDFs in {output}', flush=True)
+    print(f'Built {len(records)} reading PDFs and {len(records)} booklet PDFs in {output}', flush=True)
 
 
 if __name__ == '__main__':
