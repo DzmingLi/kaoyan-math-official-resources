@@ -40,8 +40,8 @@ def main():
     def build(source):
         relative = source.relative_to(root)
         paper, edition = source.stem.rsplit('-', 1)
-        edition = {'题目': 'questions', '解析': 'solutions'}[edition]
-        stem = f'{relative.parts[1]}-math-{SUBJECTS[paper]}-{edition}'
+        suffix = {'题目': '', '解析': '-answers'}[edition]
+        stem = f'{relative.parts[1]}-math{SUBJECTS[paper]}{suffix}'
         target = output / (stem + '.pdf')
         result = subprocess.run(['typst', 'compile', '--ignore-system-fonts', '--root', str(root), str(source), str(target)], capture_output=True, text=True)
         if result.returncode:

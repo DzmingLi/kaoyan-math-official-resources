@@ -59,7 +59,7 @@ def main():
         assets = json.loads(gh('release', 'view', tag, '--json', 'assets'))['assets']
         for asset in assets:
             if asset['name'] not in actual:
-                gh('release', 'delete-asset', tag, asset['name'], '--yes')
+                gh('release', 'delete-asset', '--yes', '--', tag, asset['name'])
 
 
 if __name__ == '__main__':
