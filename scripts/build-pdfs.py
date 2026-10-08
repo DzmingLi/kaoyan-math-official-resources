@@ -9,13 +9,13 @@ import sys
 import zipfile
 
 ROOTS = ('历年真题',)
-SUBJECTS = {'试卷一': '1', '试卷二': '2', '试卷三': '3', '试卷四': '4',
-            '试卷五': '5', '试卷MBA': 'mba', 'MBA试卷': 'mba'}
+SUBJECTS = {'数学一试卷': '1', '数学二试卷': '2', '数学三试卷': '3',
+            '数学四试卷': '4', '数学五试卷': '5', '数学MBA试卷': 'mba'}
 
 
 def sources(root):
     return sorted(p for group in ROOTS for p in (root / group).rglob('*.typ')
-                  if p.name.endswith(('-题目.typ', '-解析.typ'))
+                  if p.stem.removesuffix('参考解答') in SUBJECTS
                   and not {'preview', 'backups', '.build'}.intersection(p.relative_to(root).parts))
 
 
@@ -39,8 +39,8 @@ def main():
 
     def build(source):
         relative = source.relative_to(root)
-        paper, edition = source.stem.rsplit('-', 1)
-        suffix = {'题目': '', '解析': '-answers'}[edition]
+        paper = source.stem.removesuffix('参考解答')
+        suffix = '-answers' if source.stem.endswith('参考解答') else ''
         stem = f'{relative.parts[1]}-math{SUBJECTS[paper]}{suffix}'
         target = output / (stem + '.pdf')
         result = subprocess.run(['typst', 'compile', '--ignore-system-fonts', '--root', str(root), str(source), str(target)], capture_output=True, text=True)
