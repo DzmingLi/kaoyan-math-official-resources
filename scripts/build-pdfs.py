@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 import subprocess
 import sys
-import zipfile
 
 from booklet import PRINTING_INSTRUCTIONS, build_booklet
 
@@ -70,7 +69,7 @@ def main():
                 print(error, file=sys.stderr, flush=True)
                 failed = True
     if failed:
-        raise SystemExit('Build failed; no release manifest or archives produced.')
+        raise SystemExit('Build failed; no release manifest produced.')
     if args.only:
         print(f'Preview built in {output}; release metadata unchanged.', flush=True)
         return
@@ -79,21 +78,6 @@ def main():
     (output / 'PRINTING.txt').write_text(PRINTING_INSTRUCTIONS, encoding='utf-8')
     managed = [r['pdf'] for r in records] + [r['booklet']['pdf'] for r in records]
     managed += ['manifest.json', 'PRINTING.txt']
-    for printing in (False, True):
-        archive_name = 'past-exams' + ('-print' if printing else '') + '.zip'
-        managed.append(archive_name)
-        with zipfile.ZipFile(output / archive_name, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
-            for record in records:
-                filename = record['booklet']['pdf'] if printing else record['pdf']
-                info = zipfile.ZipInfo(filename, date_time=(1980, 1, 1, 0, 0, 0))
-                info.compress_type = zipfile.ZIP_DEFLATED
-                info.external_attr = 0o100644 << 16
-                archive.writestr(info, (output / filename).read_bytes())
-            if printing:
-                info = zipfile.ZipInfo('PRINTING.txt', date_time=(1980, 1, 1, 0, 0, 0))
-                info.compress_type = zipfile.ZIP_DEFLATED
-                info.external_attr = 0o100644 << 16
-                archive.writestr(info, PRINTING_INSTRUCTIONS.encode('utf-8'))
     checksums = [f'{hashlib.sha256((output / name).read_bytes()).hexdigest()}  {name}' for name in sorted(managed)]
     (output / 'SHA256SUMS').write_text('\n'.join(checksums) + '\n')
     print(f'Built {len(records)} reading PDFs and {len(records)} booklet PDFs in {output}', flush=True)

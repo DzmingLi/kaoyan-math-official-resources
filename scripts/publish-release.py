@@ -18,9 +18,7 @@ def gh(*args):
 
 
 def release_files(records):
-    return ({r['pdf'] for r in records} | {r['booklet']['pdf'] for r in records}
-            | {'manifest.json', 'PRINTING.txt',
-               'past-exams.zip', 'past-exams-print.zip'})
+    return {r['pdf'] for r in records} | {r['booklet']['pdf'] for r in records}
 
 
 def main():
@@ -34,7 +32,7 @@ def main():
     records = json.loads((directory / 'manifest.json').read_text())
     expected = release_files(records)
     actual = {p.name for p in directory.iterdir()
-              if p.is_file() and p.name != 'SHA256SUMS'}
+              if p.is_file() and p.name not in {'SHA256SUMS', 'manifest.json', 'PRINTING.txt'}}
     if actual != expected:
         raise SystemExit(f'Release file mismatch: missing={expected-actual}, extra={actual-expected}')
     # Never let a queued older build overwrite a newer default-branch build.
@@ -46,9 +44,8 @@ def main():
     releases = json.loads(gh('api', f'repos/{repo}/releases?per_page=100'))
     existing = next((r for r in releases if r['tag_name'] == tag), None)
     notes = (f'由提交 {commit} 自动生成，共 {len(records)} 份阅读版及 {len(records)} 份小册子打印版 PDF。\n\n'
-             '各 PDF 可单独下载；past-exams.zip 为阅读版，past-exams-print.zip 为打印版。'
-             '文件名以 -print.pdf 结尾的文件按 ISO B4 横向拼版，100% 实际大小、双面短边翻转；详见 PRINTING.txt。'
-             'manifest.json 记录源文件对应关系。\n')
+             '各 PDF 可单独下载。'
+             '文件名以 -print.pdf 结尾的文件按 ISO B4 横向拼版，100% 实际大小、双面短边翻转；不要再次启用小册子拼版。\n')
     with tempfile.TemporaryDirectory() as tmp:
         body = Path(tmp) / 'notes.txt'
         body.write_text(notes)

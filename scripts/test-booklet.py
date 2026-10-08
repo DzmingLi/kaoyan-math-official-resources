@@ -132,8 +132,7 @@ class ReleaseTests(unittest.TestCase):
         module = runpy.run_path(str(Path(__file__).with_name('publish-release.py')))
         records = [{'pdf': 'reading.pdf', 'booklet': {'pdf': 'booklet.pdf'}}]
         self.assertEqual(module['release_files'](records), {
-            'reading.pdf', 'booklet.pdf', 'manifest.json', 'PRINTING.txt',
-            'past-exams.zip', 'past-exams-print.zip',
+            'reading.pdf', 'booklet.pdf',
         })
 
 
