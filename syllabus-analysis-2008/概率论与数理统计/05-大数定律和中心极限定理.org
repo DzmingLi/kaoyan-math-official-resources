@@ -1,0 +1,74 @@
+#+TITLE: 大数定律和中心极限定理
+#+TYPST_MATH: t
+
+* 考试内容解析
+
+** （一）切比雪夫不等式
+
+设随机变量 \(X\) 的方差 \(D(X)\) 存在，则对于任意给定的正数 \(epsilon\)，总有
+\[P{abs(X-E(X))>=epsilon}<=D(X)/epsilon^2,\]
+或
+\[P{abs(X-E(X))<epsilon}>=1-D(X)/epsilon^2.\]
+
+** （二）大数定律
+
+*** 1. 依概率收敛
+
+设 \(X_1,X_2,dots,X_n,dots\) 是一个随机变量序列，\(a\) 是一个常数。如果对于任意给定的正数 \(epsilon\)，有
+\[lim_(n->infinity) P{abs(X_n-a)<epsilon}=1,\]
+则称随机变量序列 \(X_1,X_2,dots,X_n,dots\) 依概率收敛于 \(a\)，记作
+\[X_n arrow(P) a.\]
+如果两个随机变量序列 \(X_n arrow(P) a,Y_n arrow(P) b\)，函数 \(g(a,b)\) 在点 \((a,b)\) 连续，则
+\[g(X_n,Y_n)arrow(P)g(a,b).\]
+
+*** 2. 切比雪夫大数定律
+
+设 \(X_1,X_2,dots,X_n,dots\) 是由两两不相关（或两两独立）的随机变量所构成的序列，分别具有数学期望
+\[E(X_1),E(X_2),dots,E(X_n),dots\]
+和方差
+\[D(X_1),D(X_2),dots,D(X_n),dots,\]
+并且方差有公共上界，即存在正数 \(M\)，使得
+\[D(X_n)<=M, quad n=1,2,dots,\]
+则对于任意给定的正数 \(epsilon\)，总有
+\[lim_(n->infinity) P{abs(1/n sum_(k=1)^n X_k-1/n sum_(k=1)^n E(X_k))<epsilon}=1.\]
+
+*** 3. 独立同分布的切比雪夫大数定律
+
+设随机变量 \(X_1,X_2,dots,X_n,dots\) 相互独立（即对任意正整数 \(k>1\)，随机变量 \(X_1,X_2,dots,X_k\) 是相互独立的），服从相同的分布，具有数学期望 \(E(X_n)=mu\) 和方差 \(D(X_n)=sigma^2 (n=1,2,dots)\)，则对于任意给定的正数 \(epsilon\)，总有
+\[lim_(n->infinity) P{abs(1/n sum_(k=1)^n X_k-mu)<epsilon}=1.\]
+即随机变量序列 \(overline(X)_n=1/n sum_(k=1)^n X_k arrow(P) mu\)。
+
+*** 4. 伯努利大数定律
+
+设在每次试验中事件 \(A\) 发生的概率 \(P(A)=p\)，在 \(n\) 次独立重复试验中，事件 \(A\) 发生的频率为 \(f_n(A)\)，则对于任意正数 \(epsilon\)，总有
+\[lim_(n->infinity) P{abs(f_n(A)-p)<epsilon}=1.\]
+伯努利大数定律表明：在相同条件下进行大量（\(n\) 次）独立重复试验时，随机事件 \(A\) 发生的频率 \(f_n(A)\) 稳定在事件 \(A\) 的概率 \(P(A)\) 附近，因此在试验次数 \(n\) 充分大时，可以用频率 \(f_n(A)\) 作为概率 \(P(A)\) 的近似值。如果随机事件的概率 \(P(A)\) 很小，则事件 \(A\) 发生的频率也很小，由此可知在一次试验中事件 \(A\) 几乎不可能发生。这也是人们在长期实践中总结出来的经验，称为实际推断原理或小概率事件的实际不可能原理，有着广泛的应用。如果随机事件的概率接近于1，则在一次试验中这一事件几乎一定发生。
+
+*** 5. 辛钦大数定律
+
+设随机变量 \(X_1,X_2,dots,X_n,dots\) 相互独立，服从同一分布，具有数学期望 \(E(X_n)=mu (n=1,2,dots)\)，则对于任意给定的正数 \(epsilon\)，总有
+\[lim_(n->infinity) P{abs(1/n sum_(k=1)^n X_k-mu)<epsilon}=1.\]
+
+** （三）中心极限定理
+
+*** 1. 棣莫弗—拉普拉斯中心极限定理
+
+设随机变量 \(X_n\) 服从参数为 \(n\) 和 \(p\) 的二项分布，即 \(X_n tilde B(n,p) (0<p<1,n=1,2,dots)\)，则对于任意实数 \(x\)，有
+\[lim_(n->infinity) P{(X_n-n p)/sqrt(n p(1-p))<=x}=Phi(x).\]
+在定理的条件下，对于任意整数 \(k (0<=k<=n)\)，当 \(n\) 充分大时，有
+\[C_n^k p^k(1-p)^(n-k) approx 1/sqrt(2 pi n p(1-p))e^(-(k-n p)^2/(2 n p(1-p)))=1/sqrt(n p(1-p))phi((k-n p)/sqrt(n p(1-p))).\]
+对于任意整数 \(k_1\) 和 \(k_2 (0<=k_1<k_2<=n)\)，当 \(n\) 充分大时，有
+\[sum_(k=k_1)^(k_2) C_n^k p^k(1-p)^(n-k) approx integral_a^b phi(x) dif x=Phi(b)-Phi(a),\]
+对于任意有限区间 \([c,d]\)，当 \(n\) 充分大时，有
+\[P{c<(X_n-n p)/sqrt(n p(1-p))<=d}approx integral_c^d phi(x) dif x=Phi(d)-Phi(c).\]
+其中 \(a=(k_1-n p)/sqrt(n p(1-p)),b=(k_2-n p)/sqrt(n p(1-p))\)，\(phi(x)\) 和 \(Phi(x)\) 分别为服从标准正态分布的随机变量的概率密度和分布函数。第一个结果称为局部极限定理，后两个结果称为积分极限定理。
+
+*** 2. 列维—林德伯格中心极限定理（独立同分布的中心极限定理）
+
+设随机变量 \(X_1,X_2,dots,X_n,dots\) 相互独立，服从同一分布，具有数学期望和方差
+\[E(X_n)=mu, quad D(X_n)=sigma^2>0, quad n=1,2,dots,\]
+则对于任意实数 \(x\)，有
+\[lim_(n->infinity) P{(sum_(k=1)^n X_k-n mu)/(sqrt(n)sigma)<=x}=Phi(x).\]
+在定理的条件下，当 \(n\) 充分大时，\(sum_(k=1)^n X_k\) 的标准化随机变量
+\[(sum_(k=1)^n X_k-n mu)/(sqrt(n)sigma)=(1/n sum_(k=1)^n X_k-mu)/(sigma/sqrt(n))\]
+近似服从标准正态分布 \(N(0,1)\)。

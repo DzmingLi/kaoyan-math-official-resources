@@ -1,0 +1,200 @@
+#+TITLE: 多维随机变量及其分布
+#+TYPST_MATH: t
+
+* 考试内容解析
+
+** （一）二维随机变量及其分布函数
+
+*** 1. 二维随机变量
+
+设 \(X=X(omega),Y=Y(omega)\) 是定义在样本空间 \(Omega\) 上的两个随机变量，则称向量 \((X,Y)\) 为二维随机变量（或随机向量）。
+
+*** 2. 二维随机变量的分布函数和边缘分布函数
+
+（1）二维随机变量的分布函数　设 \((X,Y)\) 是二维随机变量，对于任意实数 \(x\) 和 \(y\)，称二元函数
+\[F(x,y)=P{X<=x,Y<=y}, quad x,y in RR\]
+为二维随机变量 \((X,Y)\) 的分布函数或随机变量 \(X\) 和 \(Y\) 的联合分布函数。
+
+二维随机变量 \((X,Y)\) 的分布函数具有如下性质：
+
+① 对于任意 \(x,y in RR\)，有
+\[0<=F(x,y)<=1,\]
+\[F(-infinity,y)=lim_(x->-infinity) F(x,y)=0,\]
+\[F(x,-infinity)=lim_(y->-infinity) F(x,y)=0,\]
+\[F(-infinity,-infinity)=lim_(x->-infinity,y->-infinity) F(x,y)=0,\]
+\[F(+infinity,+infinity)=lim_(x->+infinity,y->+infinity) F(x,y)=1.\]
+
+② \(F(x,y)\) 分别关于 \(x\) 和关于 \(y\) 右连续，即
+\[F(x^+,y)=F(x,y), quad F(x,y^+)=F(x,y), quad x,y in RR.\]
+
+③ \(F(x,y)\) 分别关于 \(x\) 单调不减、关于 \(y\) 单调不减。
+
+④ 随机点 \((X,Y)\) 落在矩形域 \(G={(x,y)|x_1<x<=x_2,y_1<y<=y_2}\) 上的概率为
+\[P{(X,Y)in G}=P{x_1<X<=x_2,y_1<Y<=y_2}\
+=F(x_2,y_2)-F(x_2,y_1)-F(x_1,y_2)+F(x_1,y_1).\]
+
+（2）二维随机变量的边缘分布函数　设二维随机变量 \((X,Y)\) 的分布函数为 \(F(x,y)\)，分别称函数
+\[F_X(x)=F(x,+infinity)=lim_(y->+infinity) F(x,y)\]
+和
+\[F_Y(y)=F(+infinity,y)=lim_(x->+infinity) F(x,y)\]
+为 \((X,Y)\) 关于 \(X\) 和关于 \(Y\) 的边缘分布函数。
+
+** （二）二维离散型随机变量的概率分布、边缘分布和条件分布
+
+*** 1. 二维离散型随机变量的概率分布
+
+如果二维随机变量 \((X,Y)\) 可能取的值为 \((x_i,y_j) (i,j=1,2,dots)\)，则称 \((X,Y)\) 为二维离散型随机变量。如果 \((X,Y)\) 取值 \((x_i,y_j)\) 的概率为
+\[P{X=x_i,Y=y_j}=p_(i j), quad i,j=1,2,dots,\]
+其中 \(p_(i j)>=0 (i,j=1,2,dots)\)，且 \(sum_(i=1)^infinity sum_(j=1)^infinity p_(i j)=1\)，则称上式为二维离散型随机变量 \((X,Y)\) 的概率分布或随机变量 \(X\) 和 \(Y\) 的联合概率分布。
+
+*** 2. 边缘概率分布
+
+设二维离散型随机变量 \((X,Y)\) 的概率分布为
+\[P{X=x_i,Y=y_j}=p_(i j), quad i,j=1,2,dots,\]
+则分别称
+\[P{X=x_i}=sum_(j=1)^infinity p_(i j)=p_(i dot), quad i=1,2,dots\]
+和
+\[P{Y=y_j}=sum_(i=1)^infinity p_(i j)=p_(dot j), quad j=1,2,dots\]
+为 \((X,Y)\) 关于 \(X\) 和关于 \(Y\) 的边缘概率分布。
+
+*** 3. 条件概率分布
+
+设二维离散型随机变量 \((X,Y)\) 的概率分布为
+\[P{X=x_i,Y=y_j}=p_(i j), quad i,j=1,2,dots,\]
+对于给定的 \(j\)，如果 \(P{Y=y_j}>0 (j=1,2,dots)\)，则称
+\[P{X=x_i|Y=y_j}=(P{X=x_i,Y=y_j})/(P{Y=y_j})=p_(i j)/p_(dot j), quad i=1,2,dots\]
+为在 \(Y=y_j\) 条件下随机变量 \(X\) 的条件概率分布。对于给定的 \(i\)，如果 \(P{X=x_i}>0 (i=1,2,dots)\)，则称
+\[P{Y=y_j|X=x_i}=(P{X=x_i,Y=y_j})/(P{X=x_i})=p_(i j)/p_(i dot), quad j=1,2,dots\]
+为在 \(X=x_i\) 条件下随机变量 \(Y\) 的条件概率分布。
+
+** （三）二维连续型随机变量的概率密度、边缘密度和条件密度
+
+*** 1. 二维连续型随机变量的概率密度
+
+设二维随机变量 \((X,Y)\) 的分布函数为 \(F(x,y)\)，如果存在非负函数 \(f(x,y)\)，使得对于任意实数 \(x\) 和 \(y\)，都有
+\[F(x,y)=integral_(-infinity)^x integral_(-infinity)^y f(u,v) dif u dif v,\]
+则称 \((X,Y)\) 为二维连续型随机变量，函数 \(f(x,y)\) 称为 \((X,Y)\) 的概率密度或随机变量 \(X\) 和 \(Y\) 的联合概率密度。
+
+二维随机变量 \((X,Y)\) 的概率密度 \(f(x,y)\) 具有如下性质：
+
+① \(f(x,y)>=0\)。
+
+② \(integral_(-infinity)^(+infinity) integral_(-infinity)^(+infinity) f(x,y) dif x dif y=1\)。
+
+③ 如果 \(f(x,y)\) 在点 \((x,y)\) 处连续，则有
+\[f(x,y)=(partial^2 F(x,y))/(partial x partial y).\]
+
+④ 随机点 \((X,Y)\) 落在 \(x O y\) 平面上区域 \(G\) 内的概率为
+\[P{(X,Y)in G}=integral.double_G f(x,y) dif x dif y.\]
+
+*** 2. 二维连续型随机变量的边缘概率密度
+
+设二维连续型随机变量 \((X,Y)\) 的概率密度为 \(f(x,y)\)，则分别称
+\[f_X(x)=integral_(-infinity)^(+infinity) f(x,y) dif y, quad x in RR\]
+和
+\[f_Y(y)=integral_(-infinity)^(+infinity) f(x,y) dif x, quad y in RR\]
+为 \((X,Y)\) 关于 \(X\) 和关于 \(Y\) 的边缘概率密度。
+
+*** 3. 二维连续型随机变量的条件概率密度
+
+（1）条件分布函数　设 \((X,Y)\) 是二维随机变量，\(y\) 是给定的实数。如果对于任意给定的正数 \(epsilon\)，有 \(P{y<Y<=y+epsilon}>0\)，且极限
+\[lim_(epsilon->0^+) P{X<=x|y<Y<=y+epsilon}=lim_(epsilon->0^+) (P{X<=x,y<Y<=y+epsilon})/(P{y<Y<=y+epsilon}), quad x in RR\]
+存在，则称此极限为在条件 \(Y=y\) 下 \(X\) 的条件分布函数，记作 \(F_(X|Y)(x|y)\) 或 \(P{X<=x|Y=y}\)。类似地可定义 \(F_(Y|X)(y|x)\)。
+
+（2）条件概率密度　设二维连续型随机变量 \((X,Y)\) 的概率密度为 \(f(x,y)\)，对于给定实数 \(y\)，边缘概率密度 \(f_Y(y)\) 大于0，则称 \(f(x,y)/f_Y(y)\) 为在条件 \(Y=y\) 下 \(X\) 的条件概率密度；对于给定实数 \(x\)，边缘概率密度 \(f_X(x)\) 大于0，则称 \(f(x,y)/f_X(x)\) 为在条件 \(X=x\) 下 \(Y\) 的条件概率密度，分别记作 \(f_(X|Y)(x|y)\) 和 \(f_(Y|X)(y|x)\)，即
+\[f_(X|Y)(x|y)=f(x,y)/f_Y(y), quad f_(Y|X)(y|x)=f(x,y)/f_X(x).\]
+对于二维连续型随机变量 \((X,Y)\) 的条件分布函数 \(F_(X|Y)(x|y)\) 和 \(F_(Y|X)(y|x)\)，有
+\[F_(X|Y)(x|y)=integral_(-infinity)^x f(t,y)/f_Y(y) dif t, quad F_(Y|X)(y|x)=integral_(-infinity)^y f(x,t)/f_X(x) dif t.\]
+
+** （四）随机变量的独立性
+
+设二维随机变量 \((X,Y)\) 的分布函数为 \(F(x,y)\)，关于 \(X\) 和关于 \(Y\) 的分布函数分别为 \(F_X(x)\) 和 \(F_Y(y)\)。如果对于任意实数 \(x\) 和 \(y\)，有
+\[F(x,y)=F_X(x)F_Y(y),\]
+则称随机变量 \(X\) 和 \(Y\) 相互独立。
+
+如果 \((X,Y)\) 是二维离散型随机变量，则随机变量 \(X\) 和 \(Y\) 相互独立的充分必要条件是
+\[P{X=x_i,Y=y_j}=P{X=x_i}P{Y=y_j}, quad i,j=1,2,dots,\]
+即 \(p_(i j)=p_(i dot)p_(dot j) (i,j=1,2,dots)\)。
+
+如果 \((X,Y)\) 是二维连续型随机变量，则随机变量 \(X\) 和 \(Y\) 相互独立的充分必要条件是
+\[f(x,y)=f_X(x)f_Y(y),\]
+\((x,y)\) 为 \(f(x,y),f_X(x),f_Y(y)\) 的连续点。
+
+** （五）二维均匀分布和二维正态分布
+
+*** 1. 二维均匀分布
+
+如果二维连续型随机变量 \((X,Y)\) 的概率密度为
+\[f(x,y)=cases(1/A & quad (x,y)in G,0 & quad "其他"),\]
+其中 \(G\) 是 \(x O y\) 平面上的有界区域，\(A\) 为 \(G\) 的面积，则称 \((X,Y)\) 在区域 \(G\) 上服从均匀分布。
+
+*** 2. 二维正态分布
+
+如果二维连续型随机变量 \((X,Y)\) 的概率密度为
+\[f(x,y)=1/(2 pi sigma_1 sigma_2 sqrt(1-rho^2))exp{-1/(2(1-rho^2))[(x-mu_1)^2/sigma_1^2-(2 rho(x-mu_1)(y-mu_2))/(sigma_1 sigma_2)+(y-mu_2)^2/sigma_2^2]}, quad x,y in RR,\]
+其中 \(mu_1,mu_2,sigma_1>0,sigma_2>0,-1<rho<1\) 均为常数，则称 \((X,Y)\) 服从参数为 \(mu_1,mu_2,sigma_1,sigma_2\) 和 \(rho\) 的二维正态分布，记作
+\[(X,Y)tilde N(mu_1,mu_2;sigma_1^2,sigma_2^2;rho).\]
+也称 \((X,Y)\) 为二维正态随机变量。
+
+在二维正态随机变量 \((X,Y)\) 的概率密度中，参数 \(mu_1\) 和 \(sigma_1^2\) 是随机变量 \(X\) 的数学期望和方差，\(mu_2\) 和 \(sigma_2^2\) 是随机变量 \(Y\) 的数学期望和方差，\(rho\) 是随机变量 \(X\) 和 \(Y\) 的相关系数（见随机变量的数字特征）。
+
+如果 \((X,Y)tilde N(mu_1,mu_2;sigma_1^2,sigma_2^2;rho)\)，则 \((X,Y)\) 关于 \(X\) 和关于 \(Y\) 的边缘分布都是正态分布，且 \(X tilde N(mu_1,sigma_1^2),Y tilde N(mu_2,sigma_2^2)\)；随机变量 \(X\) 和 \(Y\) 相互独立的充分必要条件是 \(rho=0\)。
+
+** （六）两个随机变量函数的分布
+
+设二维连续型随机变量 \((X,Y)\) 的概率密度为 \(f(x,y)\)，则随机变量的函数 \(Z=g(X,Y)\) 的分布函数为
+\[F_Z(z)=P{Z<=z}=integral.double_(g(x,y)<=z) f(x,y) dif x dif y.\]
+如果 \(Z=X+Y\)，则 \(Z\) 的分布函数为
+\[F_Z(z)=P{X+Y<=z}=integral.double_(x+y<=z) f(x,y) dif x dif y\
+=integral_(-infinity)^(+infinity) dif x integral_(-infinity)^(z-x) f(x,y) dif y\
+"（或" integral_(-infinity)^(+infinity) dif y integral_(-infinity)^(z-y) f(x,y) dif x "）",\]
+由此可得 \(Z=X+Y\) 的概率密度为
+\[f_Z(z)=integral_(-infinity)^(+infinity) f(x,z-x) dif x\]
+或
+\[f_Z(z)=integral_(-infinity)^(+infinity) f(z-y,y) dif y.\]
+如果随机变量 \(X\) 和 \(Y\) 相互独立，\((X,Y)\) 关于 \(X\) 和关于 \(Y\) 的边缘概率密度分别为 \(f_X(x)\) 和 \(f_Y(y)\)，则上式可化为
+\[f_Z(z)=integral_(-infinity)^(+infinity) f_X(x)f_Y(z-x) dif x\]
+或
+\[f_Z(z)=integral_(-infinity)^(+infinity) f_X(z-y)f_Y(y) dif y.\]
+这两个公式称为卷积公式，记为 \(f_X ast f_Y\)，即
+\[f_X ast f_Y=integral_(-infinity)^(+infinity) f_X(x)f_Y(z-x) dif x=integral_(-infinity)^(+infinity) f_X(z-y)f_Y(y) dif y.\]
+设随机变量 \(X\) 和 \(Y\) 相互独立，且 \(X tilde N(mu_1,sigma_1^2),Y tilde N(mu_2,sigma_2^2)\)，则随机变量 \(Z=X+Y\) 服从正态分布，且
+\[Z=X+Y tilde N(mu_1+mu_2,sigma_1^2+sigma_2^2).\]
+对于不全为零的常数 \(k_1,k_2\)，随机变量 \(W=k_1 X+k_2 Y\) 服从正态分布，且
+\[W=k_1 X+k_2 Y tilde N(k_1 mu_1+k_2 mu_2,k_1^2 sigma_1^2+k_2^2 sigma_2^2).\]
+设随机变量 \(X\) 和 \(Y\) 相互独立，分别具有分布函数 \(F_X(x)\) 和 \(F_Y(y)\)，则随机变量 \(M=max(X,Y)\) 和 \(N=min(X,Y)\) 的分布函数分别为
+\[F_(max)(z)=P{M<=z}=F_X(z)F_Y(z),\]
+\[F_(min)(z)=P{N<=z}=1-[1-F_X(z)][1-F_Y(z)].\]
+
+** （七）\(n\) 维随机变量
+
+以上关于二维随机变量的结论，可以推广到 \(n (n>2)\) 维随机变量。
+
+设随机试验 \(E\) 的样本空间为 \(Omega\)，\(X_1=X_1(omega),X_2=X_2(omega),dots,X_n=X_n(omega) (omega in Omega)\) 是定义在 \(Omega\) 上的随机变量，则称 \(n\) 维向量 \((X_1,X_2,dots,X_n)\) 为 \(n\) 维随机向量或 \(n\) 维随机变量。称 \(n\) 元函数
+\[F(x_1,x_2,dots,x_n)=P{X_1<=x_1,X_2<=x_2,dots,X_n<=x_n}\]
+（\(-infinity<x_i<+infinity,i=1,2,dots,n\)）为 \(n\) 维随机变量 \((X_1,X_2,dots,X_n)\) 的分布函数或随机变量 \(X_1,X_2,dots,X_n\) 的联合分布函数。
+
+如果存在非负函数 \(f(x_1,x_2,dots,x_n)\)，使得对于任意实数 \(x_1,x_2,dots,x_n\)，有
+\[F(x_1,x_2,dots,x_n)=integral_(-infinity)^(x_n) integral_(-infinity)^(x_(n-1)) dots integral_(-infinity)^(x_1) f(t_1,t_2,dots,t_n) dif t_1 dif t_2 dots dif t_n,\]
+则称 \(f(x_1,x_2,dots,x_n)\) 为 \(n\) 维随机变量 \((X_1,X_2,dots,X_n)\) 的概率密度。
+
+关于 \(X_1,X_2,dots,X_n\) 中任意 \(k (1<=k<n)\) 个随机变量 \(X_(i_1),X_(i_2),dots,X_(i_k)\) 的边缘分布函数为
+\[F_(X_(i_1),X_(i_2),dots,X_(i_k))(x_(i_1),x_(i_2),dots,x_(i_k))=P{X_(i_1)<=x_(i_1),X_(i_2)<=x_(i_2),dots,X_(i_k)<=x_(i_k)}.\]
+如果对于任意的 \(x_1,x_2,dots,x_n in RR\)，有
+\[F(x_1,x_2,dots,x_n)=F_(X_1)(x_1)F_(X_2)(x_2)dots F_(X_n)(x_n),\]
+则称随机变量 \(X_1,X_2,dots,X_n\) 相互独立。随机变量 \(X_1,X_2,dots,X_n\) 相互独立的一个充分必要条件是
+\[f(x_1,x_2,dots,x_n)=f_(X_1)(x_1)f_(X_2)(x_2)dots f_(X_n)(x_n),\]
+其中 \(f_(X_i)(x_i)\) 是 \((X_1,X_2,dots,X_n)\) 关于 \(X_i\) 的边缘概率密度，
+\[f_(X_i)(x_i)=integral_(-infinity)^(+infinity) dots integral_(-infinity)^(+infinity) f(x_1,x_2,dots,x_i,dots,x_n) dif x_1 dif x_2 dots dif x_(i-1) dif x_(i+1) dots dif x_n, quad i=1,2,dots,n.\]
+设 \((X_1,X_2,dots,X_m)\) 的分布函数为 \(F_1(x_1,x_2,dots,x_m)\)，\((Y_1,Y_2,dots,Y_n)\) 的分布函数为 \(F_2(y_1,y_2,dots,y_n)\)，\((X_1,dots,X_m,Y_1,dots,Y_n)\) 的联合分布函数为 \(F(x_1,dots,x_m,y_1,dots,y_n)\)，如果对于任意实数 \(x_1,x_2,dots,x_m,y_1,y_2,dots,y_n\)，有
+\[F(x_1,dots,x_m,y_1,dots,y_n)=F_1(x_1,dots,x_m)F_2(y_1,dots,y_n),\]
+则称 \((X_1,X_2,dots,X_m)\) 和 \((Y_1,Y_2,dots,Y_n)\) 相互独立，由此可得 \(X_i (i=1,2,dots,m)\) 和 \(Y_j (j=1,2,dots,n)\) 相互独立；对于连续函数 \(g(t_1,t_2,dots,t_m)\) 和 \(h(t_1,t_2,dots,t_n)\)，随机变量 \(g(X_1,X_2,dots,X_m)\) 和 \(h(Y_1,Y_2,dots,Y_n)\) 相互独立。
+
+设 \(X_i tilde N(mu_i,sigma_i^2) (i=1,2,dots,n)\)，且它们相互独立，\(k_1,k_2,dots,k_n\) 是不全为零的常数，则随机变量 \(Z=sum_(i=1)^n k_i X_i\) 仍然服从正态分布，且有
+\[Z=sum_(i=1)^n k_i X_i tilde N(sum_(i=1)^n k_i mu_i,sum_(i=1)^n k_i^2 sigma_i^2).\]
+设随机变量 \(X_1,X_2,dots,X_n\) 相互独立，分布函数分别为 \(F_(X_1)(x_1),F_(X_2)(x_2),dots,F_(X_n)(x_n)\)，则随机变量 \(M=max(X_1,X_2,dots,X_n)\) 和 \(N=min(X_1,X_2,dots,X_n)\) 的分布函数分别为
+\[F_(max)(z)=F_(X_1)(z)F_(X_2)(z)dots F_(X_n)(z),\]
+\[F_(min)(z)=1-[1-F_(X_1)(z)][1-F_(X_2)(z)]dots[1-F_(X_n)(z)], quad z in RR.\]
+如果 \(X_1,X_2,dots,X_n\) 还具有相同的分布函数 \(F(x)\)，则有
+\[F_(max)(z)=[F(z)]^n,\]
+\[F_(min)(z)=1-[1-F(z)]^n, quad z in RR.\]

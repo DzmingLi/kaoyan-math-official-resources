@@ -1,0 +1,344 @@
+#+TITLE: 无穷级数（数学二不要求）
+#+TYPST_MATH: t
+
+* 考试内容解析
+
+** （一）数项级数
+
+*** 1. 数项级数的概念和性质
+
+（1）基本概念
+
+定义7.1　设 \({u_n}\) 是一个数列，则称表达式
+\[sum_(n=1)^infinity u_n=u_1+u_2+u_3+dots quad (7.1)\]
+为一个数项级数，简称级数，\(u_n\) 称为数项级数（7.1）的通项，\(S_n=sum_(k=1)^n u_k\) 称为数项级数（7.1）的前 \(n\) 项部分和。
+
+定义7.2　若数项级数 \(sum_(n=1)^infinity u_n\) 的部分和数列 \({S_n}\) 有极限，则称级数 \(sum_(n=1)^infinity u_n\) 收敛，极限值 \(lim_(n->infinity)S_n\) 称为此级数的和，即 \(sum_(n=1)^infinity u_n=lim_(n->infinity)S_n=lim_(n->infinity)sum_(k=1)^n u_k\)。当 \(lim_(n->infinity)S_n\) 不存在时，则称级数 \(sum_(n=1)^infinity u_n\) 发散。
+
+利用收敛定义，易知当 \(|q|<1\) 时，几何级数 \(sum_(n=0)^infinity q^n\) 收敛，和为 \(1/(1-q)\)；当 \(|q|>=1\) 时，几何级数发散。
+
+定理7.1　（级数收敛的必要条件）若级数 \(sum_(n=1)^infinity u_n\) 收敛，则 \(lim_(n->infinity)u_n=0\)。
+
+（2）收敛级数的性质
+
+1° 数乘　若级数 \(sum_(n=1)^infinity u_n\) 收敛，\(alpha\) 是任意实数，则级数 \(sum_(n=1)^infinity alpha u_n\) 收敛，且 \(sum_(n=1)^infinity alpha u_n=alpha sum_(n=1)^infinity u_n\)。
+
+2° 加法　若级数 \(sum_(n=1)^infinity u_n,sum_(n=1)^infinity v_n\) 均收敛，则级数 \(sum_(n=1)^infinity(u_n+v_n)\) 收敛，且
+\[sum_(n=1)^infinity(u_n+v_n)=sum_(n=1)^infinity u_n+sum_(n=1)^infinity v_n.\]
+
+注　由级数 \(sum_(n=1)^infinity(u_n+v_n)\) 收敛，得不到级数 \(sum_(n=1)^infinity u_n,sum_(n=1)^infinity v_n\) 收敛。例如级数 \(sum_(n=1)^infinity(-1)^n\) 和 \(sum_(n=1)^infinity(-1)^(n-1)\)。
+
+3° 改变级数 \(sum_(n=1)^infinity u_n\) 的任意有限项的值不影响其敛散性。
+
+4° 重组　收敛级数加括号后所形成的级数仍收敛，且和的值不变。
+
+注　也就是说，由加括号后所形成的级数发散就能推出原级数发散。此性质类似于有限个数的加法所满足的结合律。注意此性质的反面并不成立，即一个级数加括号后所形成的级数收敛并不能保证原级数收敛。
+
+*** 2. 正项级数
+
+（1）正项级数概念与特点
+
+定义7.3　通项非负的级数称为正项级数。
+
+正项级数的特点　正项级数 \(sum_(n=1)^infinity u_n\) 的部分和数列 \({S_n}\) 是一单调递增数列。
+
+定理7.2　（正项级数收敛的充分必要条件）正项级数 \(sum_(n=1)^infinity u_n\) 收敛的充分必要条件是其部分和数列 \({S_n}\) 有上界。
+
+当 \(p>1\) 时，\(p\) 级数 \(sum_(n=1)^infinity 1/n^p\) 收敛；当 \(p<=1\) 时，\(p\) 级数发散。
+
+（2）正项级数的判别法
+
+定理7.3　（比较判别法）若存在 \(N>0\)，使得当 \(n>N\) 时，\(0<=u_n<=v_n\)，则
+
+（1）当级数 \(sum_(n=1)^infinity v_n\) 收敛时，级数 \(sum_(n=1)^infinity u_n\) 收敛；
+
+（2）当级数 \(sum_(n=1)^infinity u_n\) 发散时，级数 \(sum_(n=1)^infinity v_n\) 发散。
+
+定理7.4　（比阶判别法）设 \(u_n>=0\)，且 \(lim_(n->infinity)n^p u_n=C\)，则
+
+（1）当 \(0<=C<+infinity\)，且 \(p>1\) 时，级数 \(sum_(n=1)^infinity u_n\) 收敛；
+
+（2）当 \(0<C<=+infinity\)，且 \(p<=1\) 时，级数 \(sum_(n=1)^infinity u_n\) 发散。
+
+注　当 \(u_n>=0\) 时，级数 \(sum_(n=1)^infinity u_n\) 的敛散性可以由无穷小量 \(u_n\)（\(n->infinity\)）的阶来判断。
+
+定理7.5　（比值判别法，D’Alembert判别法）设 \(u_n>0\)，且 \(lim_(n->infinity)u_(n+1)/u_n=C\)，则
+
+（1）当 \(C<1\) 时，级数 \(sum_(n=1)^infinity u_n\) 收敛；
+
+（2）当 \(C>1\) 时，级数 \(sum_(n=1)^infinity u_n\) 发散，且 \(lim_(n->infinity)u_n=+infinity\)；
+
+（3）当 \(C=1\) 时，级数 \(sum_(n=1)^infinity u_n\) 的敛散性无法判断。
+
+定理7.6　（根值判别法，Cauchy根值判别法）设 \(u_n>0\)，且 \(lim_(n->infinity)root(n,u_n)=C\)，则
+
+（1）当 \(C<1\) 时，级数 \(sum_(n=1)^infinity u_n\) 收敛；
+
+（2）当 \(C>1\) 时，级数 \(sum_(n=1)^infinity u_n\) 发散，且 \(lim_(n->infinity)u_n=+infinity\)；
+
+（3）当 \(C=1\) 时，级数 \(sum_(n=1)^infinity u_n\) 的敛散性无法判断。
+
+*** 3. 交错级数
+
+定义7.4　设 \(u_n>0\)，称级数 \(sum_(n=1)^infinity(-1)^n u_n\) 为交错级数。
+
+定理7.7　（莱布尼茨（Leibniz）判别法）若 \(u_n>0\)（\(n=1,2,3,dots\)）满足
+
+（1）数列 \({u_n}\) 单调递减，即 \(u_n>=u_(n+1)\)（\(n=1,2,3,dots\)），
+
+（2）\(lim_(n->infinity)u_n=0\)，
+
+则交错级数 \(sum_(n=1)^infinity(-1)^n u_n\) 收敛，且 \(|sum_(n=1)^infinity(-1)^n u_n-sum_(k=1)^n(-1)^k u_k|<=u_(n+1)\)。
+
+定理7.7中的两个条件又称为莱布尼茨条件。
+
+*** 4. 任意项级数
+
+（1）绝对收敛与条件收敛
+
+定义7.5　若级数 \(sum_(n=1)^infinity|u_n|\) 收敛，则称级数 \(sum_(n=1)^infinity u_n\) 绝对收敛；若级数 \(sum_(n=1)^infinity u_n\) 收敛，但级数 \(sum_(n=1)^infinity|u_n|\) 发散，则称级数 \(sum_(n=1)^infinity u_n\) 条件收敛。
+
+注　绝对收敛级数可以重排，即绝对收敛级数重排后所得级数的敛散性与和不变。这类似于有限个数加法的交换律。
+
+（2）任意项级数的判别法
+
+定理7.8　（绝对值判别法）若级数 \(sum_(n=1)^infinity|u_n|\) 收敛，则级数 \(sum_(n=1)^infinity u_n\) 收敛。即绝对收敛的级数一定收敛。
+
+** （二）幂级数
+
+*** 1. 函数项级数的有关概念
+
+定义7.6　设函数 \(u_n(x)\)（\(n=1,2,3,dots\)）都在 \(D\) 上有定义，则称表达式
+\[sum_(n=1)^infinity u_n(x)=u_1(x)+u_2(x)+u_3(x)+dots\]
+为定义在 \(D\) 上的一个函数项级数，\(u_n(x)\) 称为通项，\(S_n(x)=sum_(k=1)^n u_k(x)\) 称为部分和函数。
+
+定义7.7　设 \(sum_(n=1)^infinity u_n(x)\) 是定义在 \(D\) 上的一个函数项级数，\(x_0 in D\)，若数项级数 \(sum_(n=1)^infinity u_n(x_0)\) 收敛，则称 \(x_0\) 是 \(sum_(n=1)^infinity u_n(x)\) 的一个收敛点。所有收敛点构成的集合称为级数的收敛域。
+
+定义7.8　设函数项级数 \(sum_(n=1)^infinity u_n(x)\) 的收敛域为 \(I\)，则任给 \(x in I\)，存在唯一的实数 \(S(x)\)，使得 \(S(x)=sum_(n=1)^infinity u_n(x)\) 成立。定义域为 \(I\) 的函数 \(S(x)\) 称为级数 \(sum_(n=1)^infinity u_n(x)\) 的和函数。
+
+注　求函数项级数的收敛域时，主要是利用收敛域的定义及有关的数项级数的判别法。
+
+*** 2. 幂级数的有关概念
+
+（1）幂级数的定义
+
+定义7.9　设 \({a_n}\)（\(n=0,1,2,3,dots\)）是一实数列，则称形如 \(sum_(n=0)^infinity a_n(x-x_0)^n\) 的函数项级数为 \(x_0\) 处的幂级数。
+
+\(x_0=0\) 时的幂级数为 \(sum_(n=0)^infinity a_n x^n\)。
+
+（2）幂级数的收敛半径
+
+定理7.9　（阿贝尔（Abel）定理）若幂级数 \(sum_(n=0)^infinity a_n x^n\) 在 \(x_0!=0\) 处收敛，则当 \(|x|<|x_0|\) 时，\(sum_(n=0)^infinity a_n x^n\) 绝对收敛。
+
+推论7.1　若幂级数 \(sum_(n=0)^infinity a_n x^n\) 在 \(x_1\) 处发散，则当 \(|x|>|x_1|\) 时，\(sum_(n=0)^infinity a_n x^n\) 发散。
+
+推论7.2　若幂级数 \(sum_(n=0)^infinity a_n x^n\) 在 \(x_0!=0\) 处收敛，在 \(x_1\) 处发散，则存在唯一的实数 \(R>0\)，使得
+
+（1）当 \(|x|<R\) 时，\(sum_(n=0)^infinity a_n x^n\) 绝对收敛；
+
+（2）当 \(|x|>R\) 时，\(sum_(n=0)^infinity a_n x^n\) 发散。
+
+定义7.10　若 \(R>=0\) 满足条件：
+
+（1）当 \(|x|<R\) 时，\(sum_(n=0)^infinity a_n x^n\) 绝对收敛；
+
+（2）当 \(|x|>R\) 时，\(sum_(n=0)^infinity a_n x^n\) 发散，
+
+则称 \(R\) 为幂级数 \(sum_(n=0)^infinity a_n x^n\) 的收敛半径，开区间 \((-R,R)\) 称为 \(sum_(n=0)^infinity a_n x^n\) 的收敛区间。
+
+推论7.2说明，在 \(sum_(n=0)^infinity a_n x^n\) 既有非零收敛点，又有发散点时，它的收敛半径是存在且唯一的。
+
+当 \(sum_(n=0)^infinity a_n x^n\) 没有非零收敛点时，规定其收敛半径为零；当 \(sum_(n=0)^infinity a_n x^n\) 没有发散点时，规定其收敛半径为 \(+infinity\)。
+
+另外，由收敛半径的定义还可以知道，使得幂级数条件收敛的点只能是其收敛区间的端点。
+
+（3）收敛半径的求法
+
+根据收敛半径的定义，我们一般用正项级数的比值判别法或根值判别法来求幂级数收敛半径的值。
+
+例如，对于级数 \(sum_(n=0)^infinity a_n x^n\)，若 \(a_n!=0\)（即不缺项），且 \(lim_(n->infinity)|a_(n+1)/a_n|=rho!=0\)，则 \(lim_(n->infinity)|(a_(n+1)x^(n+1))/(a_n x^n)|=rho|x|\)，所以，当 \(rho|x|<1\)，即 \(|x|<1/rho\) 时，\(sum_(n=0)^infinity a_n x^n\) 绝对收敛，当 \(rho|x|>1\)，即 \(|x|>1/rho\) 时，\(sum_(n=0)^infinity a_n x^n\) 发散。因此，由收敛半径的定义便得 \(R=1/rho\)。特别地，当 \(lim_(n->infinity)|a_(n+1)/a_n|=0\) 时，\(R=+infinity\)；当 \(lim_(n->infinity)|a_(n+1)/a_n|=+infinity\) 时，\(R=0\)。
+
+对于幂级数 \(sum_(n=0)^infinity a_n x^(2n)\)，若 \(a_n!=0\)，且 \(lim_(n->infinity)|a_(n+1)/a_n|=rho!=0\)，则 \(lim_(n->infinity)|(a_(n+1)x^(2(n+1)))/(a_n x^(2n))|=rho x^2\)，所以，当 \(rho x^2<1\)，即 \(|x|<1/sqrt(rho)\) 时，\(sum_(n=0)^infinity a_n x^(2n)\) 绝对收敛，当 \(rho x^2>1\)，即 \(|x|>1/sqrt(rho)\) 时，\(sum_(n=0)^infinity a_n x^(2n)\) 发散。因此，根据收敛半径的定义又便得 \(R=1/sqrt(rho)\)。特别地，当 \(lim_(n->infinity)|a_(n+1)/a_n|=0\) 时，\(R=+infinity\)；当 \(lim_(n->infinity)|a_(n+1)/a_n|=+infinity\) 时，\(R=0\)。
+
+对于幂级数 \(sum_(n=0)^infinity a_n x^n\)，上述方法可以写成以下定理。
+
+定理7.10　设幂级数 \(sum_(n=0)^infinity a_n x^n\) 的系数 \(a_n\) 满足 \(a_n!=0\)，且 \(lim_(n->infinity)|a_(n+1)/a_n|=rho\)，则其收敛半径为 \(R=1/rho\)。
+
+类似地还有以下定理。
+
+定理7.11　设幂级数 \(sum_(n=0)^infinity a_n x^n\) 的系数 \(a_n\) 满足 \(lim_(n->infinity)root(n,|a_n|)=rho\)，则其收敛半径为 \(R=1/rho\)。
+
+注　需注意的是，极限 \(lim_(n->infinity)|a_(n+1)/a_n|\) 或 \(lim_(n->infinity)root(n,|a_n|)\) 存在（或是无穷大）仅仅是幂级数 \(sum_(n=0)^infinity a_n x^n\) 的收敛半径为 \(R=1/rho\) 的一个充分条件。因此，由幂级数 \(sum_(n=0)^infinity a_n x^n\) 的收敛半径为 \(R\)，并不能保证 \(lim_(n->infinity)|a_(n+1)/a_n|=1/R\) 或 \(lim_(n->infinity)root(n,|a_n|)=1/R\)。
+
+*** 3. 幂级数的性质
+
+（1）加法　若幂级数 \(sum_(n=0)^infinity a_n x^n\) 的收敛半径为 \(R_1\)，\(sum_(n=0)^infinity b_n x^n\) 的收敛半径为 \(R_2\)，则幂级数 \(sum_(n=0)^infinity(a_n+b_n)x^n\) 的收敛半径不小于 \(R=min{R_1,R_2}\)，且
+\[sum_(n=0)^infinity(a_n+b_n)x^n=sum_(n=0)^infinity a_n x^n+sum_(n=0)^infinity b_n x^n,quad x in (-R,R).\]
+
+（2）和函数的连续性　幂级数 \(sum_(n=0)^infinity a_n x^n\) 的和函数 \(S(x)\) 在其收敛域 \(I\) 上连续，即任给 \(x_0 in I\)，有
+\[lim_(x->x_0)(sum_(n=0)^infinity a_n x^n)=sum_(n=0)^infinity a_n x_0^n=sum_(n=0)^infinity(lim_(x->x_0)a_n x^n).\]
+
+（3）可积性与逐项积分公式　幂级数 \(sum_(n=0)^infinity a_n x^n\) 的和函数 \(S(x)\) 在其收敛域 \(I\) 上可积，且可逐项积分，即任给 \(x in I\)，有
+\[integral_0^x(sum_(n=0)^infinity a_n t^n)dif t=sum_(n=0)^infinity(integral_0^x a_n t^n dif t)=sum_(n=0)^infinity a_n/(n+1)x^(n+1).\]
+其中，级数 \(sum_(n=0)^infinity a_n/(n+1)x^(n+1)\) 称为 \(sum_(n=0)^infinity a_n x^n\) 的积分级数，若记 \(sum_(n=0)^infinity a_n x^n\) 的收敛半径为 \(R\)，\(sum_(n=0)^infinity a_n/(n+1)x^(n+1)\) 的收敛半径为 \(R_1\)，则 \(R<=R_1\)。
+
+（4）可导性与逐项求导公式　幂级数 \(sum_(n=0)^infinity a_n x^n\) 的和函数 \(S(x)\) 在其收敛区间 \((-R,R)\) 内可导，且可逐项求导，即任给 \(x in (-R,R)\)，有
+\[S'(x)=(sum_(n=0)^infinity a_n x^n)'=sum_(n=1)^infinity n a_n x^(n-1).\]
+其中，级数 \(sum_(n=1)^infinity n a_n x^(n-1)\) 称为 \(sum_(n=0)^infinity a_n x^n\) 的导级数，若记 \(sum_(n=1)^infinity n a_n x^(n-1)\) 的收敛半径为 \(R_2\)，则 \(R<=R_2\)。
+
+由性质（3）与（4）易知，幂级数 \(sum_(n=0)^infinity a_n x^n\)，\(sum_(n=0)^infinity a_n/(n+1)x^(n+1)\) 及 \(sum_(n=1)^infinity n a_n x^(n-1)\) 的收敛半径相等，即 \(R=R_1=R_2\)。
+
+*** 4. 函数展开成幂级数
+
+（1）概念
+
+定义7.11　设函数 \(f(x)\) 在区间 \(D\) 上有定义，\(x_0 in D\)，若
+\[f(x)=sum_(n=0)^infinity a_n(x-x_0)^n\]
+对任意的 \(x in D\) 都成立，则称 \(f(x)\) 在区间 \(D\) 上能展开成 \(x_0\) 处的幂级数。
+
+由幂级数的性质易知，若 \(f(x)\) 在区间 \(D\) 上能展开成 \(x_0\) 处的幂级数，则 \(f(x)\) 在区间 \(D\) 内存在任意阶导数。
+
+（2）展开形式的唯一性
+
+定理7.12　若函数 \(f(x)\) 在区间 \(D\) 上能展开成 \(x_0\) 处的幂级数
+\[f(x)=sum_(n=0)^infinity a_n(x-x_0)^n,\]
+则其展开系数为
+\[a_n=(f^((n))(x_0))/(n!)quad (n=0,1,2,dots).\]
+
+注　展开形式的唯一性是能利用间接展开法将函数展开成幂级数的主要理论根据。
+
+（3）泰勒级数与麦克劳林级数
+
+定义7.12　若 \(f(x)\) 在 \(x_0\) 处有定义，且在 \(x_0\) 处的各阶导数 \(f^((n))(x_0)\)（\(n=1,2,3,dots\)）都存在，则称幂级数
+\[sum_(n=0)^infinity (f^((n))(x_0))/(n!)(x-x_0)^n\]
+为 \(f(x)\) 在 \(x_0\) 处的泰勒（Taylor）级数，\(a_n=(f^((n))(x_0))/(n!)\)（\(n=0,1,2,dots\)）称为 \(f(x)\) 在 \(x_0\) 处的泰勒系数。特别地，\(x_0=0\) 处的泰勒级数 \(sum_(n=0)^infinity (f^((n))(0))/(n!)x^n\) 称为函数 \(f(x)\) 的麦克劳林（Maclaurin）级数。
+
+定理7.13　（函数展开成泰勒级数的充要条件）函数 \(f(x)\) 在 \(x_0 in D\) 处的泰勒级数在 \(D\) 上收敛到 \(f(x)\) 的充分必要条件是：\(f(x)\) 在 \(x_0\) 处的泰勒公式
+\[f(x)=sum_(k=0)^n (f^((k))(x_0))/(k!)(x-x_0)^k+R_n(x)\]
+的余项 \(R_n(x)\) 在 \(D\) 上收敛到零，即对任意的 \(x in D\)，都有 \(lim_(n->infinity)R_n(x)=0\)。
+
+定理7.14　函数 \(f(x)\) 在 \(x_0 in D\) 处的泰勒级数在 \(D\) 上收敛到 \(f(x)\) 的一个充分条件是：\(f(x)\) 的各阶导数 \(f^((n))(x)\)（\(n=1,2,3,dots\)）在 \(D\) 上一致有界，即存在 \(M>0\)，使得 \(|f^((n))(x)|<=M\) 对任意的 \(n in NN_+\) 和任意的 \(x in D\) 都成立。
+
+（4）直接展开法
+
+直接展开法指的是：利用泰勒级数的定义及泰勒级数收敛的充要条件，将函数在某个区间上直接展开成指定点的泰勒级数的方法。
+
+由直接展开法易知函数 \(e^x,ln(1+x),cos x,sin x,(1+x)^alpha\) 的麦克劳林级数展开式为：
+\[e^x=sum_(n=0)^infinity 1/(n!)x^n,quad x in (-infinity,+infinity).\]
+\[ln(1+x)=sum_(n=1)^infinity (-1)^(n-1)/n x^n,quad x in (-1,1).\]
+\[cos x=sum_(n=0)^infinity (-1)^n/((2n)!)x^(2n),quad x in (-infinity,+infinity).\]
+\[sin x=sum_(n=0)^infinity (-1)^n/((2n+1)!)x^(2n+1),quad x in (-infinity,+infinity).\]
+\[(1+x)^alpha=sum_(n=0)^infinity (alpha(alpha-1)dots(alpha-n+1))/(n!)x^n,\]
+其中，当 \(alpha<=-1\) 时，\(x in (-1,1)\)；当 \(-1<alpha<0\) 时，\(x in (-1,1]\)；当 \(alpha>0\) 时，\(x in [-1,1]\)。
+
+特别地，当 \(alpha=-1\) 时，有
+\[1/(1+x)=sum_(n=0)^infinity(-1)^n x^n,x in (-1,1).\]
+
+（5）间接展开法
+
+间接展开法指的是：通过一定运算将函数转化为其他函数，进而利用新函数的幂级数展开将原来函数展开为幂级数的方法。所用的运算主要是加法运算，数乘运算，（逐项）积分运算和（逐项）求导运算。利用的幂级数展开公式主要是一些简单函数的麦克劳林展开公式，上述几个简单函数就是常用的几个。间接展开法是将函数展开成幂级数的主要方法。
+
+*** 5. 简单幂级数的和函数及简单数项级数求和
+
+求简单幂级数的和函数的问题恰好是将简单函数展开成幂级数问题的反面。下面通过几个具体例子来说明此类问题的求解方法。
+
+（1）求幂级数 \(sum_(n=1)^infinity n x^n\) 的和函数 \(S(x)\)。
+
+令
+\[S_1(x)=sum_(n=1)^infinity n x^(n-1),\]
+则 \(S_1(x)\) 的定义域为 \((-1,1)\)，且 \(S(x)=x S_1(x)\)。任给 \(x in (-1,1)\)，由逐项积分公式得，
+\[integral_0^x S_1(t)dif t=sum_(n=1)^infinity integral_0^x n t^(n-1)dif t=sum_(n=1)^infinity x^n=x/(1-x),quad x in (-1,1).\]
+因此，
+\[S_1(x)=(x/(1-x))'=1/(1-x)^2,quad x in (-1,1),\]
+所以，
+\[S(x)=x S_1(x)=x/(1-x)^2,quad x in (-1,1).\]
+
+（2）求幂级数 \(sum_(n=1)^infinity x^(n+1)/n\) 的和函数。
+
+令
+\[S_1(x)=sum_(n=1)^infinity x^n/n,\]
+则 \(S_1(x)\) 的定义域为 \([-1,1)\)，且 \(S(x)=x S_1(x)\)。任给 \(x in (-1,1)\)，由逐项求导公式得，
+\[S'_1(x)=sum_(n=1)^infinity(x^n/n)'=sum_(n=1)^infinity x^(n-1)=1/(1-x),quad x in (-1,1).\]
+因此，
+\[S_1(x)=S_1(x)-S_1(0)=integral_0^x 1/(1-t)dif t=-ln(1-x),quad x in (-1,1).\]
+所以，
+\[S(x)=x S_1(x)=-x ln(1-x),quad x in (-1,1).\]
+由 \(S(x) in C[-1,1)\) 得，\(S(-1)=lim_(x->-1^+)S(x)=lim_(x->-1^+)[-x ln(1-x)]=ln 2\)。
+
+（3）求数项级数 \(sum_(n=0)^infinity (-1)^n/(2n+1)\) 的和。
+
+考虑幂级数 \(sum_(n=0)^infinity (-1)^n/(2n+1)x^(2n+1)\)，则其收敛域为 \([-1,1]\)。若记其和函数为 \(S(x)\)，则
+\[S(1)=sum_(n=0)^infinity (-1)^n/(2n+1),\]
+由于
+\[S(x)=S(x)-S(0)=integral_0^x S'(t)dif t \
+ =integral_0^x(sum_(n=0)^infinity(-1)^n t^(2n))dif t=integral_0^x 1/(1+t^2)dif t=arctan x,x in (-1,1).\]
+又因为 \(S(x) in C[-1,1]\)，所以
+\[S(1)=lim_(x->1^-)S(x)=lim_(x->1^-)arctan x=pi/4.\]
+故
+\[sum_(n=0)^infinity (-1)^n/(2n+1)=pi/4.\]
+
+** （三）傅里叶级数
+
+*** 1. 周期为 \(2pi\) 的傅里叶级数
+
+（1）概念
+
+定义7.13　设函数 \(f(x)\) 是周期为 \(2pi\) 的周期函数，且在 \([-pi,pi]\) 上可积，则称
+\[a_n=1/pi integral_(-pi)^pi f(x)cos n x dif x quad (n=0,1,2,dots),\]
+\[b_n=1/pi integral_(-pi)^pi f(x)sin n x dif x quad (n=1,2,3,dots),\]
+为 \(f(x)\) 的傅里叶系数；称级数
+\[a_0/2+sum_(n=1)^infinity(a_n cos n x+b_n sin n x)\]
+为 \(f(x)\) 的以 \(2pi\) 为周期的傅里叶级数，记作
+\[f(x) tilde a_0/2+sum_(n=1)^infinity(a_n cos n x+b_n sin n x).\]
+
+注　根据周期函数的性质，\(a_n=1/pi integral_alpha^(alpha+2pi)f(x)cos n x dif x,b_n=1/pi integral_alpha^(alpha+2pi)f(x)sin n x dif x\)。
+
+根据奇函数和偶函数的性质，当 \(f(x)\) 是周期为 \(2pi\) 的可积奇函数时，\(a_n=0\)（\(n=0,1,2,dots\)），\(b_n=2/pi integral_0^pi f(x)sin n x dif x\)（\(n=1,2,3,dots\)），此时 \(f(x)\) 的以 \(2pi\) 为周期的傅里叶级数为
+\[f(x) tilde sum_(n=1)^infinity b_n sin n x,\]
+称为正弦级数。
+
+类似地，当 \(f(x)\) 是周期为 \(2pi\) 的可积偶函数时，其以 \(2pi\) 为周期的傅里叶级数为
+\[f(x) tilde a_0/2+sum_(n=1)^infinity a_n cos n x,\]
+称为余弦级数。其中 \(a_n=2/pi integral_0^pi f(x)cos n x dif x\)（\(n=0,1,2,dots\)）。
+
+（2）傅里叶级数的收敛性
+
+定理7.15　（狄里克雷（Dirichlet）收敛定理）设 \(f(x)\) 是周期为 \(2pi\) 的可积函数，且满足条件：
+
+（1）在 \([-pi,pi]\) 上 \(f(x)\) 连续或只有有限个第一类间断点；
+
+（2）在 \([-pi,pi]\) 上 \(f(x)\) 只有有限个单调区间，
+
+则 \(f(x)\) 的以 \(2pi\) 为周期的傅里叶级数收敛，且
+\[S(x)=a_0/2+sum_(n=1)^infinity(a_n cos n x+b_n sin n x)=1/2[f(x+0)+f(x-0)].\]
+
+注　在 \(f(x)\) 的连续点处，\(S(x)\) 与 \(f(x)\) 的值相等；在 \(f(x)\) 的第一类间断点处，\(S(x)\) 的值等于 \(f(x)\) 在此点的左、右极限的平均值。
+
+*** 2. 周期为 \(2l\) 的傅里叶级数
+
+定义7.14　设函数 \(f(x)\) 是周期为 \(2l\) 的周期函数，且在 \([-l,l]\) 上可积，则称
+\[a_n=1/l integral_(-l)^l f(x)cos (n pi)/l x dif x quad (n=0,1,2,dots),\]
+\[b_n=1/l integral_(-l)^l f(x)sin (n pi)/l x dif x quad (n=1,2,3,dots),\]
+为 \(f(x)\) 的以 \(2l\) 为周期的傅里叶系数；称级数
+\[a_0/2+sum_(n=1)^infinity(a_n cos (n pi)/l x+b_n sin (n pi)/l x)\]
+为 \(f(x)\) 的以 \(2l\) 为周期的傅里叶级数，记作
+\[f(x) tilde a_0/2+sum_(n=1)^infinity(a_n cos (n pi)/l x+b_n sin (n pi)/l x).\]
+
+注　周期为 \(2l\) 的傅里叶级数的收敛性结论与周期为 \(2pi\) 的傅里叶级数一样。
+
+*** 3. 只在 \([0,l]\) 上有定义的函数的傅里叶级数展开
+
+定义在 \([0,l]\) 上的函数可以有多种方式展开成三角级数，但常用的方式只有三种，即周期奇延拓、周期偶延拓、周期延拓。三种延拓方式得到的三角级数展开式分别为：
+
+（1）正弦级数展开
+\[f(x) tilde sum_(n=1)^infinity b_n sin (n pi)/l x,quad x in [0,l],\]
+\[b_n=2/l integral_0^l f(x)sin (n pi)/l x dif x quad (n=1,2,3,dots).\]
+
+（2）余弦级数展开
+\[f(x) tilde a_0/2+sum_(n=1)^infinity a_n cos (n pi)/l x,quad x in [0,l],\]
+\[a_n=2/l integral_0^l f(x)cos (n pi)/l x dif x quad (n=0,1,2,dots).\]
+
+（3）三角级数展开
+\[f(x) tilde a_0/2+sum_(n=1)^infinity(a_n cos (2n pi)/l x+b_n sin (2n pi)/l x),x in [0,l],\]
+\[a_n=2/l integral_0^l f(x)cos (2n pi)/l x dif x quad (n=0,1,2,dots),\]
+\[b_n=2/l integral_0^l f(x)sin (2n pi)/l x dif x quad (n=1,2,3,dots).\]

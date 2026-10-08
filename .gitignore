@@ -1,0 +1,24 @@
+.DS_Store
+.preview.typ
+
+# PDF downloads and generated output are distributed through Releases.
+*.pdf
+!/archive-syllabi/**/*.pdf
+
+# Local collections are outside the repository for now.
+/topic-collections/
+/sample-exams/
+/math-dagang-2007/
+/math-dagang2007/
+.build/
+output/
+result
+result-*
+__pycache__/
+
+# Recent papers remain local until ready for publication.
+/past-exams/2024/
+/past-exams/2025/
+
+# Documentation is being rewritten locally.
+README.org
