@@ -3,7 +3,7 @@
 
 # PDF downloads and generated output are distributed through Releases.
 *.pdf
-!/《考试大纲》存档/**/*.pdf
+!/真题来源存档/**/*.pdf
 
 # Local collections are outside the repository for now.
 /topic-collections/
