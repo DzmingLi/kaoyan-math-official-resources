@@ -8,7 +8,9 @@ import subprocess
 import sys
 import zipfile
 
-ROOTS = ('past-exams',)
+ROOTS = ('历年真题',)
+SUBJECTS = {'试卷一': '1', '试卷二': '2', '试卷三': '3', '试卷四': '4',
+            '试卷五': '5', '试卷MBA': 'mba', 'MBA试卷': 'mba'}
 
 
 def sources(root):
@@ -37,7 +39,9 @@ def main():
 
     def build(source):
         relative = source.relative_to(root)
-        stem = '--'.join(relative.with_suffix('').parts)
+        paper, edition = source.stem.rsplit('-', 1)
+        edition = {'题目': 'questions', '解析': 'solutions'}[edition]
+        stem = f'{relative.parts[1]}-math-{SUBJECTS[paper]}-{edition}'
         target = output / (stem + '.pdf')
         result = subprocess.run(['typst', 'compile', '--ignore-system-fonts', '--root', str(root), str(source), str(target)], capture_output=True, text=True)
         if result.returncode:
@@ -64,7 +68,7 @@ def main():
     (output / 'manifest.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
     if not args.only:
         for group in ROOTS:
-            with zipfile.ZipFile(output / (group + '.zip'), 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            with zipfile.ZipFile(output / 'past-exams.zip', 'w', compression=zipfile.ZIP_DEFLATED) as archive:
                 for record in records:
                     if record['source'].startswith(group + '/'):
                         info = zipfile.ZipInfo(record['pdf'], date_time=(1980, 1, 1, 0, 0, 0))

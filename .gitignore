@@ -3,7 +3,7 @@
 
 # PDF downloads and generated output are distributed through Releases.
 *.pdf
-!/archive-syllabi/**/*.pdf
+!/《考试大纲》存档/**/*.pdf
 
 # Local collections are outside the repository for now.
 /topic-collections/
@@ -17,8 +17,8 @@ result-*
 __pycache__/
 
 # Recent papers remain local until ready for publication.
-/past-exams/2024/
-/past-exams/2025/
+/历年真题/2024/
+/历年真题/2025/
 
 # Documentation is being rewritten locally.
 README.org

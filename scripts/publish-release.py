@@ -11,7 +11,10 @@ import tempfile
 
 
 def gh(*args):
-    return subprocess.run(['gh', *args], check=True, capture_output=True, text=True).stdout
+    result = subprocess.run(['gh', *args], capture_output=True, text=True)
+    if result.returncode:
+        raise SystemExit(result.stderr.strip() or 'GitHub command failed')
+    return result.stdout
 
 
 def main():
