@@ -40,15 +40,17 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31.11.1
       - name: Build reading and booklet PDFs with locked fonts and Typst packages
-        run: nix build .#pdfs --out-link result --print-build-logs
-      - name: Verify release files
+        run: nix build .#pdfs --out-link results --print-build-logs
+      - name: Prepare PDFs with internal transfer checksums
         run: |
-          cd result
-          sha256sum --check SHA256SUMS
+          mkdir release
+          cp results/*.pdf release/
+          cd release
+          sha256sum -- *.pdf > SHA256SUMS
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: release-pdfs
-          path: result/*
+          path: release/*
           if-no-files-found: error
           retention-days: 7
 
@@ -64,7 +66,7 @@ jobs:
         with:
           name: release-pdfs
           path: release
-      - name: Verify downloaded reading PDFs, booklet PDFs and archives
+      - name: Verify downloaded reading and booklet PDFs
         run: |
           cd release
           sha256sum --check SHA256SUMS
@@ -73,4 +75,43 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           SOURCE_COMMIT: ${{ github.sha }}
-        run: python3 scripts/publish-release.py --directory release
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          head=$(gh api "repos/$GH_REPO/commits/$DEFAULT_BRANCH" --jq '.sha')
+          if [[ "$head" != "$SOURCE_COMMIT" ]]; then
+            echo "Default branch advanced; skip this older build."
+            exit 0
+          fi
+
+          shopt -s nullglob
+          pdfs=(release/*.pdf)
+          if (( ${#pdfs[@]} == 0 )); then
+            echo "No PDFs found."
+            exit 1
+          fi
+          pairs=$(( ${#pdfs[@]} / 2 ))
+          cat > release-notes.txt <<EOF
+          由提交 $SOURCE_COMMIT 自动生成，共 $pairs 份阅读版及 $pairs 份小册子打印版 PDF。
+
+          各 PDF 可单独下载。文件名以 -print.pdf 结尾的文件按 ISO B4 横向拼版，100% 实际大小、双面短边翻转；不要再次启用小册子拼版。
+          EOF
+
+          if gh release view pdf-latest >/dev/null 2>&1; then
+            gh api --method PATCH "repos/$GH_REPO/git/refs/tags/pdf-latest" \
+              -f "sha=$SOURCE_COMMIT" -F force=true
+            gh release edit pdf-latest --title "PDF downloads" \
+              --notes-file release-notes.txt --latest
+          else
+            gh release create pdf-latest --target "$SOURCE_COMMIT" \
+              --title "PDF downloads" --notes-file release-notes.txt --latest
+          fi
+          for ((offset=0; offset<${#pdfs[@]}; offset+=40)); do
+            gh release upload pdf-latest "${pdfs[@]:offset:40}" --clobber
+          done
+          gh release view pdf-latest --json assets --jq '.assets[].name' |
+            while IFS= read -r name; do
+              if [[ ! -f "release/$name" || "$name" != *.pdf ]]; then
+                gh release delete-asset --yes -- pdf-latest "$name"
+              fi
+            done

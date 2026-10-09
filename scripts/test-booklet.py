@@ -1,7 +1,6 @@
 """Regression tests for page order, vector fidelity and release integration."""
 
 from pathlib import Path
-import runpy
 import tempfile
 import unittest
 
@@ -125,15 +124,6 @@ class BookletPDFTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     build_booklet(self.source, self.target)
                 self.assertEqual(self.source.read_bytes(), original)
-
-
-class ReleaseTests(unittest.TestCase):
-    def test_reading_and_print_assets_are_both_expected(self):
-        module = runpy.run_path(str(Path(__file__).with_name('publish-release.py')))
-        records = [{'pdf': 'reading.pdf', 'booklet': {'pdf': 'booklet.pdf'}}]
-        self.assertEqual(module['release_files'](records), {
-            'reading.pdf', 'booklet.pdf',
-        })
 
 
 if __name__ == '__main__':

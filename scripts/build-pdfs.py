@@ -1,13 +1,11 @@
 """Compile self-contained papers that import the shared exam template."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import hashlib
-import json
 from pathlib import Path
 import subprocess
 import sys
 
-from booklet import PRINTING_INSTRUCTIONS, build_booklet
+from booklet import build_booklet
 
 ROOTS = ('历年真题',)
 SUBJECTS = {'数学一试卷': '1', '数学二试卷': '2', '数学三试卷': '3',
@@ -48,12 +46,8 @@ def main():
         if result.returncode:
             raise RuntimeError(f'{relative}\n{result.stderr}')
         print_target = output / (stem + '-print.pdf')
-        layout = build_booklet(target, print_target)
-        return {'source': relative.as_posix(), 'pdf': target.name,
-                'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
-                'booklet': {'pdf': print_target.name,
-                            'sha256': hashlib.sha256(print_target.read_bytes()).hexdigest(),
-                            **layout}}
+        build_booklet(target, print_target)
+        return target.name, print_target.name
 
     records = []
     failed = False
@@ -69,17 +63,7 @@ def main():
                 print(error, file=sys.stderr, flush=True)
                 failed = True
     if failed:
-        raise SystemExit('Build failed; no release manifest produced.')
-    if args.only:
-        print(f'Preview built in {output}; release metadata unchanged.', flush=True)
-        return
-    records.sort(key=lambda r: r['source'])
-    (output / 'manifest.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
-    (output / 'PRINTING.txt').write_text(PRINTING_INSTRUCTIONS, encoding='utf-8')
-    managed = [r['pdf'] for r in records] + [r['booklet']['pdf'] for r in records]
-    managed += ['manifest.json', 'PRINTING.txt']
-    checksums = [f'{hashlib.sha256((output / name).read_bytes()).hexdigest()}  {name}' for name in sorted(managed)]
-    (output / 'SHA256SUMS').write_text('\n'.join(checksums) + '\n')
+        raise SystemExit('Build failed.')
     print(f'Built {len(records)} reading PDFs and {len(records)} booklet PDFs in {output}', flush=True)
 
 
