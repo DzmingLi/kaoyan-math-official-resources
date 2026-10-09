@@ -7,7 +7,7 @@
 #ezexam.answer-state.update(false)
 
 
-= 一、选择题：1—8小题，每小题4分，共32分.在每小题给出的四个选项中，只有一项符合题目要求，把所选项前的字母填在题后的括号内.
+= 一、选择题：1—8小题，每小题4分，共32分. 在每小题给出的四个选项中，只有一项符合题目要求，把所选项前的字母填在题后的括号内.
 
 #ezexam.question[
 若 $lim_(x->0) (e^x+a x^2+b x)^(1/x^2)=1$，则（　）.
@@ -49,7 +49,7 @@ $integral_(-1)^0 dif x integral_(-x)^(2-x^2) (1-x y) dif y+integral_0^1 dif x in
 #choices([$r(A quad A B)=r(A)$], [$r(A quad B A)=r(A)$], [$r(A quad B)=max{r(A),r(B)}$], [$r(A quad B)=r(A^"T" B^"T")$])
 ]
 
-= 二、填空题：9—14小题，每小题4分，共24分.把答案填在题中横线上.
+= 二、填空题：9—14小题，每小题4分，共24分. 把答案填在题中横线上.
 
 #ezexam.question[
 $lim_(x->+infinity) x^2[arctan(x+1)-arctan x]=$#fillin(len: 2.97656em)[].
@@ -75,7 +75,7 @@ $integral_5^(+infinity) 1/(x^2-4x+3) dif x=$#fillin(len: 2.97656em)[].
 设 $A$ 为 3 阶矩阵，$alpha_1,alpha_2,alpha_3$ 为线性无关的向量组.若 $A alpha_1=2alpha_1+alpha_2+alpha_3$，$A alpha_2=alpha_2+2alpha_3$，$A alpha_3=-alpha_2+alpha_3$，则 $A$ 的实特征值为#fillin(len: 2.97656em)[].
 ]
 
-= 三、解答题：15—23小题，共94分.解答应写出文字说明、证明过程或演算步骤.
+= 三、解答题：15—23小题，共94分. 解答应写出文字说明、证明过程或演算步骤.
 
 #ezexam.question[
 （本题满分 10 分）

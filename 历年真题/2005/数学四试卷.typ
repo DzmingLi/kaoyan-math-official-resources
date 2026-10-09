@@ -76,7 +76,7 @@
 #choices([$lim_(n->infinity)P{(sum_(i=1)^n X_i-n lambda)/(lambda sqrt(n))<=x}=Phi(x)$.],[$lim_(n->infinity)P{(sum_(i=1)^n X_i-n lambda)/sqrt(n lambda)<=x}=Phi(x)$.],[$lim_(n->infinity)P{(lambda sum_(i=1)^n X_i-n)/sqrt(n)<=x}=Phi(x)$.],[$lim_(n->infinity)P{(sum_(i=1)^n X_i-lambda)/sqrt(n lambda)<=x}=Phi(x)$.])
 ]
 
-= 三、解答题（本题共9小题，满分94分.解答应写出文字说明、证明过程或演算步骤.）
+= 三、解答题（本题共9小题，满分94分. 解答应写出文字说明、证明过程或演算步骤.）
 
 #ezexam.question[
 （本题满分8分）

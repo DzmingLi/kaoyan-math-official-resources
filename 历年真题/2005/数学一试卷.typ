@@ -76,7 +76,7 @@
 #choices([$n overline(X) tilde N(0,1)$.],[$n S^2 tilde chi^2(n)$.],[$((n-1)overline(X))/S tilde t(n-1)$.],[$((n-1)X_1^2)/(sum_(i=2)^n X_i^2) tilde F(1,n-1)$.])
 ]
 
-= 三、解答题（本题共9小题，满分94分.解答应写出文字说明、证明过程或演算步骤.）
+= 三、解答题（本题共9小题，满分94分. 解答应写出文字说明、证明过程或演算步骤.）
 
 #ezexam.question[
 （本题满分11分）设 $D={(x,y)|x^2+y^2<=sqrt(2),x>=0,y>=0}$，$[1+x^2+y^2]$ 表示不超过 $1+x^2+y^2$ 的最大整数.计算二重积分 $integral.double_D x y[1+x^2+y^2]dif x dif y$.

@@ -7,7 +7,7 @@
 #ezexam.answer-state.update(false)
 
 
-= 一、选择题：1—8小题，每小题4分，共32分.在每小题给出的四个选项中，只有一项符合题目要求，把所选项前的字母填在题后的括号内.
+= 一、选择题：1—8小题，每小题4分，共32分. 在每小题给出的四个选项中，只有一项符合题目要求，把所选项前的字母填在题后的括号内.
 
 #ezexam.question[
 下列函数中，在 $x=0$ 处不可导的是（　）.
@@ -49,7 +49,7 @@
 #choices([$sqrt(n)(overline(X)-mu)/S tilde.op t(n)$], [$sqrt(n)(overline(X)-mu)/S tilde.op t(n-1)$], [$sqrt(n)(overline(X)-mu)/(S^*) tilde.op t(n)$], [$sqrt(n)(overline(X)-mu)/(S^*) tilde.op t(n-1)$])
 ]
 
-= 二、填空题：9—14小题，每小题4分，共24分.把答案填在题中横线上.
+= 二、填空题：9—14小题，每小题4分，共24分. 把答案填在题中横线上.
 
 #ezexam.question[
 曲线 $y=x^2+2ln x$ 在其拐点处的切线方程是#fillin(len: 2.97656em)[].
@@ -75,7 +75,7 @@ $integral e^x arcsin sqrt(1-e^(2x)) dif x=$#fillin(len: 2.97656em)[].
 随机事件 $A,B,C$ 相互独立，且 $P(A)=P(B)=P(C)=1/2$，则 $P(A C bar.v A union B)=$#fillin(len: 2.97656em)[].
 ]
 
-= 三、解答题：15—23小题，共94分.解答应写出文字说明、证明过程或演算步骤.
+= 三、解答题：15—23小题，共94分. 解答应写出文字说明、证明过程或演算步骤.
 
 #ezexam.question[
 （本题满分 10 分）
