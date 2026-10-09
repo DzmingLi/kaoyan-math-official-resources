@@ -22,6 +22,8 @@ def build_booklet(source, target):
     """Place B5 pages at their original size on ISO B4 landscape sheets."""
     reader = PdfReader(source)
     pages = list(reader.pages)
+    pages.insert(1, None)  # The cover back is blank only in the print edition.
+    pages.append(None)  # Keep the booklet back cover blank.
     pages.extend([None] * (-len(pages) % 4))
     mm = 72 / 25.4
     width, height = 353 * mm, 250 * mm

@@ -80,9 +80,6 @@
     ))
     v(45pt)
     pagebreak()
-    // 封面背面留白；零尺寸盒子确保这一页实际输出.
-    box(width: 0pt, height: 0pt)[]
-    pagebreak()
     counter(page).update(1)
   }
 
@@ -124,15 +121,4 @@
   }
   body
   [#metadata(none)<exam-body-end>]
-  context {
-    // 取正文结束处的物理页号，包含封面及其背面的留白.
-    let pages = query(<exam-body-end>).first().location().page()
-    pagebreak()
-    set page(header: none, footer: none)
-    box(width: 0pt, height: 0pt)[]
-    if calc.odd(pages) {
-      pagebreak()
-      box(width: 0pt, height: 0pt)[]
-    }
-  }
 }
