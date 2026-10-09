@@ -132,6 +132,31 @@ if accents:
     for name, record in zip(accents.TopAccentCoverage.glyphs, accents.TopAccentAttachment):
         if name in metrics:
             record.Value = metrics[name][2]
+
+# NEU italic letters have very little right-side padding. Give parentheses
+# 0.06em outside and 0.04em inside, including native sizes and assembly parts.
+# Translate the outlines only: curves, stroke widths and connector lengths stay
+# intact, and all parts of a parenthesis receive the same horizontal offset.
+glyphset = font.getGlyphSet()
+for cp, outside_left in ((ord('('), True), (ord(')'), False)):
+    name = cmap[cp]
+    names = {name}
+    index = variants.VertGlyphCoverage.glyphs.index(name)
+    construction = variants.VertGlyphConstruction[index]
+    names.update(r.VariantGlyph for r in construction.MathGlyphVariantRecord)
+    if construction.GlyphAssembly:
+        names.update(r.glyph for r in construction.GlyphAssembly.PartRecords)
+    offset = round(upem * (0.06 if outside_left else 0.04))
+    padding = round(upem * 0.10)
+    for name in names:
+        width, bearing = font['hmtx'][name]
+        pen = T2CharStringPen(width + padding, glyphset)
+        glyphset[name].draw(TransformPen(pen, (1, 0, 0, 1, offset, 0)))
+        charstrings[name] = pen.getCharString(
+            private=charstrings[name].private,
+            globalSubrs=charstrings.globalSubrs,
+        )
+        font['hmtx'][name] = (width + padding, bearing + offset)
 # Font selection uses this new family; four math styles are Unicode glyph ranges.
 for record in list(font['name'].names):
     if record.nameID in (1, 2, 3, 4, 6, 16, 17):
