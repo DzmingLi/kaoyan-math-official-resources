@@ -12,7 +12,7 @@
 #ezexam.question[
 设函数 $f(x)$ 在 $(-infinity,+infinity)$ 内连续，其 2 阶导数 $f''(x)$ 的图形如图所示，则曲线 $y=f(x)$ 的拐点个数为
 
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas(length: 1cm, {
  import draw: *
  line((-2.2,0),(2.3,0),mark:(end: ">"))

@@ -143,7 +143,7 @@ $ lim_(x->0^+)g(x)=lim_(x->0^+)(1/x-(1-pi x)/(arctan x)) \
 计算二重积分 $integral.double_D sqrt(y^2-x y)dif x dif y$，其中 $D$ 是由直线 $y=x,y=1,x=0$ 所围成的平面区域.
 #ezexam.solution(show-number: false)[
 区域 $D$ 如下图所示.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #align(center,canvas({
  import draw: *
  line((0,0),(0,3),(3,3),close:true,fill:rgb("dddddd"))

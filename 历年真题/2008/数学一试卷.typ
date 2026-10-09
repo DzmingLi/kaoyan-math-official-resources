@@ -37,7 +37,7 @@
 设 $A$ 为3阶实对称矩阵，如果二次曲面方程
 $ (x,y,z)A mat(x;y;z)=1 $
 在正交变换下的标准方程的图形如下图所示，则 $A$ 的正特征值的个数为（　）.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-3.1,0),(3.1,0),mark:(end:"stealth"))

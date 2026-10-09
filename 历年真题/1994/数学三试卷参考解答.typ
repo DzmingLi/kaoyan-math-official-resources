@@ -1,7 +1,7 @@
 #import "../template.typ": exam
 #show: exam.with(year: 1994, subject: "三", title: "1994年全国工学、经济学硕士研究生入学考试")
 #import "@preview/ezexam:0.3.1" as ezexam
-#import "@preview/cetz:0.4.2" as cetz
+#import "@preview/cetz:0.5.2" as cetz
 #ezexam.mode-state.update(ezexam.HANDOUTS)
 #let choices = ezexam.choices
 #let fillin = ezexam.fillin.with(placeholder: [])

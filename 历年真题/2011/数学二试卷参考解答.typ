@@ -209,7 +209,7 @@ $ =ln(1+n)-ln n>0, $
 
 #ezexam.question[
 （本题满分11分）一容器的内侧是由图中曲线绕 $y$ 轴旋转一周而成的曲面，该曲线由 $x^2+y^2=2y(y>=1/2)$ 与 $x^2+y^2=1(y<=1/2)$ 连接而成.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-1.4,0),(1.9,0),mark:(end:">"));line((0,-1.3),(0,2.5),mark:(end:">"))

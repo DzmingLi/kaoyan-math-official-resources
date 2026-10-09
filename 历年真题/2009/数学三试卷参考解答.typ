@@ -35,7 +35,7 @@ A.
 
 #ezexam.question[
 设函数 $y=f(x)$ 在区间 $[-1,3]$ 上的图形如下，则函数 $F(x)=integral_0^x f(t)dif t$ 的图形为
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-1.3,0),(3.4,0),mark:(end:">"));line((0,-1.5),(0,2.7),mark:(end:">"))
@@ -178,7 +178,7 @@ $ integral ln(1+sqrt((1+x)/x))dif x \
 （本题满分10分）计算二重积分 $integral.double_D(x-y)dif x dif y$，其中 $D={(x,y)|(x-1)^2+(y-1)^2<=2,y>=x}$.
 #ezexam.solution(show-number: false)[
 解法1　如下图，区域 $D$ 的极坐标表示为 $0<=r<=2(sin theta+cos theta),pi/4<=theta<=3pi/4$.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #let region-diagram(split: false) = canvas({
  import draw: *
  let r=calc.sqrt(2)

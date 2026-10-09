@@ -86,7 +86,7 @@
 （本题满分11分）
 
 如下图所示，$C_1$ 和 $C_2$ 分别是 $y=1/2(1+e^x)$ 和 $y=e^x$ 的图像，过点 $(0,1)$ 的曲线 $C_3$ 是单调增函数的图像.过 $C_2$ 上任一点 $M(x,y)$ 分别作垂直于 $x$ 轴和 $y$ 轴的直线 $l_x$ 和 $l_y$，记 $C_1,C_2$ 与 $l_x$ 所围图形的面积为 $S_1(x)$；$C_2,C_3$ 与 $l_y$ 所围图形的面积为 $S_2(y)$.如果总有 $S_1(x)=S_2(y)$，求曲线 $C_3$ 的方程 $x=phi(y)$.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #align(center,canvas({
  import draw: *
  let c1=range(61).map(i=>{let x=i/40; (x, (1+calc.exp(x))/2)})

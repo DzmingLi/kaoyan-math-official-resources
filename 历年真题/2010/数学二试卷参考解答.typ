@@ -169,7 +169,7 @@ $ psi(t)=3integral(t+t^2)dif t=3(1/2 t^2+1/3 t^3)+C_2=3/2 t^2+t^3+C_2. $
 
 #ezexam.question[
 （本题满分10分）一个高为 $l$ 的柱体形贮油罐，底面是长轴为 $2a$，短轴为 $2b$ 的椭圆.现将贮油罐平放，当油罐中油面高度为 $3/2 b$ 时（如图），计算油的质量.（长度单位为 m，质量单位为 kg，油的密度为常数 $rho$ kg/m³.）
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #let oil-diagram(axes:false) = canvas({
  import draw: *
  circle((0,0),radius:(2,1))
@@ -215,7 +215,7 @@ $ cases(a=-2,b=-2/5),quad cases(a=-2/5,b=-2),quad cases(a=-2,b=-2),quad cases(a=
 （本题满分10分）计算二重积分 $I=integral.double_D r^2 sin theta sqrt(1-r^2 cos 2theta)dif r dif theta$，其中 $D={(r,theta)|0<=r<=sec theta,0<=theta<=pi/4}$.
 #ezexam.solution(show-number: false)[
 解　由题设知，积分区域 $D$ 如图所示，将积分化为直角坐标系下的二重积分为
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({import draw: *;line((0,0),(1,0),(1,1),close:true);line((-.2,0),(1.5,0),mark:(end:">"));line((0,-.2),(0,1.5),mark:(end:">"));for t in range(1,10).map(i=>i/10){line((t,0),(1,1 - t),stroke:.3pt)};content((1.5,-.1),$x$);content((-.1,1.5),$y$);content((-.1,-.1),$O$);content((.7,.3),$D$);content((1.1,1.1),[(1,1)]);content((.35,.6),$y=x$);content((1,-.15),[1])})
 $ I=integral.double_D r^2 sin theta sqrt(1-r^2 cos^2 theta+r^2 sin^2 theta)dif r dif theta \
 =integral.double_D y sqrt(1-x^2+y^2)dif x dif y \

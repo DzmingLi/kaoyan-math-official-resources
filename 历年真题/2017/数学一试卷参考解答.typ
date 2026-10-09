@@ -35,7 +35,7 @@ D.
 
 #ezexam.question[
 甲、乙两人赛跑，计时开始时，甲在乙前方10（单位：m）处.图中，实线表示甲的速度曲线 $v=v_1(t)$（单位：m/s），虚线表示乙的速度曲线 $v=v_2(t)$，三块阴影部分面积的数值依次为10、20、3.计时开始后乙追上甲的时刻记为 $t_0$（单位：s），则（　）.
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.5.2"
 #cetz.canvas({
  import cetz.draw: *
  line((-0.25,0),(7,0),mark:(end:">")); line((0,-0.3),(0,4.1),mark:(end:">"))

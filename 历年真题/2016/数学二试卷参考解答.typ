@@ -35,7 +35,7 @@ B.
 
 #ezexam.question[
 函数 $f(x)$ 在 $(-infinity,+infinity)$ 内连续，其导函数的图形如图所示，则（　）.
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.5.2"
 #cetz.canvas({
  import cetz.draw: *
  line((-0.7,0),(4.3,0),mark:(end: ">")); line((0,-2),(0,2.1),mark:(end: ">"))

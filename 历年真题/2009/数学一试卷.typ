@@ -16,7 +16,7 @@
 
 #ezexam.question[
 如图，正方形 ${ (x,y) | |x|<=1,|y|<=1 }$ 被其对角线划分为四个区域 $D_k(k=1,2,3,4)$，$I_k=integral.double_(D_k)y cos x dif x dif y$，则 $max_(1<=k<=4){I_k}=$ #fillin(len: 1.98438em)[].
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-1,-1),(1,-1),(1,1),(-1,1),close:true)
@@ -29,7 +29,7 @@
 
 #ezexam.question[
 设函数 $y=f(x)$ 在区间 $[-1,3]$ 上的图形如下，则函数 $F(x)=integral_0^x f(t)dif t$ 的图形为
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-1.3,0),(3.4,0),mark:(end:">"));line((0,-1.5),(0,2.7),mark:(end:">"))

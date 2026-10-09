@@ -95,7 +95,7 @@ $lim_(n->infinity)sum_(i=1)^n sum_(j=1)^n n/((n+i)(n^2+j^2))=$
 
 #ezexam.question[
 （本题满分10分）一个高为 $l$ 的柱体形贮油罐，底面是长轴为 $2a$，短轴为 $2b$ 的椭圆.现将贮油罐平放，当油罐中油面高度为 $3/2 b$ 时（如图），计算油的质量.（长度单位为 m，质量单位为 kg，油的密度为常数 $rho$ kg/m³.）
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #let oil-diagram(axes:false) = canvas({
  import draw: *
  circle((0,0),radius:(2,1))

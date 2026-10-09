@@ -137,7 +137,7 @@ $ lim_(x->+infinity)(ln(e^((ln x)/x)-1))/(ln x) \
 （本题满分10分）计算二重积分 $integral.double_D(x+y)^3 dif x dif y$，其中 $D$ 由曲线 $x=sqrt(1+y^2)$ 与直线 $x+sqrt(2)y=0$ 及 $x-sqrt(2)y=0$ 围成.
 #ezexam.solution(show-number: false)[
 解　区域 $D$ 如图所示.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({import draw: *;line((-.2,0),(1.8,0),mark:(end:">"));line((0,-1.3),(0,1.4),mark:(end:">"));let r=calc.sqrt(2);line((0,0),(r,1));line((0,0),(r,-1));bezier((r,-1),(1,0),(1.1,-.7),(1,-.3));bezier((1,0),(r,1),(1,.3),(1.1,.7));for t in range(-9,10).map(i=>i/10){line((r*calc.abs(t),t),(calc.sqrt(1+t*t),t),stroke:.3pt)};line((0,1),(r,1),(r,0),stroke:(dash:"dashed"));content((-.1,-.1),$O$);content((1.8,-.1),$x$);content((-.1,1.4),$y$);content((r,1.18),[$(sqrt(2),1)$])})
 $ "原式"=integral.double_D(x^3+3x^2 y+3x y^2+y^3)dif x dif y \
 =integral.double_D(x^3+3x y^2)dif x dif y \

@@ -15,7 +15,7 @@
 
 #ezexam.question[
 如图，曲线段的方程为 $y=f(x)$，函数 $f(x)$ 在区间 $[0,a]$ 上有连续的导数，则定积分 $integral_0^a x f'(x)dif x$ 等于（　）.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  line((-0.3,0),(3.8,0),mark:(end:"stealth"));line((0,-0.3),(0,3.8),mark:(end:"stealth"))
@@ -44,7 +44,7 @@
 
 #ezexam.question[
 设函数 $f$ 连续.若 $F(u,v)=integral.double_(D_(u v)) f(x^2+y^2)/sqrt(x^2+y^2) dif x dif y$，其中区域 $D_(u v)$ 为图中阴影部分，则 $(partial F)/(partial u)=$（　）.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #canvas({
  import draw: *
  let pt(r,a)=(r*calc.cos(a),r*calc.sin(a))
