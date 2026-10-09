@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from booklet import build_booklet
+from pypdf import PdfReader, PdfWriter, Transformation
 
 ROOTS = ('历年真题',)
 SUBJECTS = {'数学一试卷': '1', '数学二试卷': '2', '数学三试卷': '3',
@@ -16,6 +16,33 @@ def sources(root):
     return sorted(p for group in ROOTS for p in (root / group).rglob('*.typ')
                   if p.stem.removesuffix('参考解答') in SUBJECTS
                   and not {'preview', 'backups', '.build'}.intersection(p.relative_to(root).parts))
+
+
+def build_booklet(source, target):
+    """Place B5 pages at their original size on ISO B4 landscape sheets."""
+    reader = PdfReader(source)
+    pages = list(reader.pages)
+    pages.extend([None] * (-len(pages) % 4))
+    mm = 72 / 25.4
+    width, height = 353 * mm, 250 * mm
+    writer = PdfWriter()
+    for i in range(len(pages) // 4):
+        for pair in ((pages[-1 - 2*i], pages[2*i]),
+                     (pages[2*i + 1], pages[-2 - 2*i])):
+            sheet = writer.add_blank_page(width=width, height=height)
+            for slot, page in enumerate(pair):
+                if page is None:
+                    continue
+                x = slot * width / 2 + (width / 2 - float(page.mediabox.width)) / 2
+                sheet.merge_transformed_page(page, Transformation().translate(
+                    tx=x - float(page.mediabox.left), ty=-float(page.mediabox.bottom)))
+            sheet.compress_content_streams()
+    writer.add_metadata({'/Title': source.stem + ' - ISO B4 booklet'})
+    writer.create_viewer_preferences()
+    writer.viewer_preferences.duplex = '/DuplexFlipShortEdge'
+    writer.viewer_preferences.print_scaling = '/None'
+    writer.viewer_preferences.pick_tray_by_pdfsize = True
+    writer.write(target)
 
 
 def main():
