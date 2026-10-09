@@ -1,31 +1,27 @@
 #+TITLE: 向量
+#+TYPST_MATH: t
 
 * 考试内容解析
 
 ** （一）向量
 
-$n$ 个有次序的数 $a_{1},a_{2},\ldots,a_{n}$ 组成的数组称为 $n$ 维向量。$n$ 维向量可以写成一行或一列，分别称为行向量和列向量，也就是 $1 \times n$ 或 $n \times 1$ 矩阵。规定行向量与列向量都按矩阵的运算规则进行运算。
+$n$ 个有次序的数 $a_1,a_2,dots,a_n$ 组成的数组称为 $n$ 维向量。$n$ 维向量可以写成一行或一列，分别称为行向量和列向量，也就是 $1 times n$ 或 $n times 1$ 矩阵。规定行向量与列向量都按矩阵的运算规则进行运算。
 
-若干个同维数的列向量（或同维数的行向量）所组成的集合叫做向量组。对于向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 和 $\beta$，若存在常数 $k_{1},k_{2},\ldots,k_{m}$，使得
+若干个同维数的列向量（或同维数的行向量）所组成的集合叫做向量组。对于向量组 $alpha_1,alpha_2,dots,alpha_m$ 和 $beta$，若存在常数 $k_1,k_2,dots,k_m$，使得
 $$
-\beta = k_{1}\alpha_{1} + k_{2}\alpha_{2} + \ldots + k_{m}\alpha_{m},
+beta=k_1 alpha_1 + k_2 alpha_2 + dots + k_m alpha_m,
 $$
-则称 $\beta$ 是向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 的线性组合，或称 $\beta$ 可由 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性表出。否则，称 $\beta$ 不能由 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性表出。
+则称 $beta$ 是向量组 $alpha_1,alpha_2,dots,alpha_m$ 的线性组合，或称 $beta$ 可由 $alpha_1,alpha_2,dots,alpha_m$ 线性表出。否则，称 $beta$ 不能由 $alpha_1,alpha_2,dots,alpha_m$ 线性表出。
 
-由于 $m$ 个 $n$ 维列向量所组成的向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 可构成一个 $n \times m$ 矩阵，
+由于 $m$ 个 $n$ 维列向量所组成的向量组 $alpha_1,alpha_2,dots,alpha_m$ 可构成一个 $n times m$ 矩阵，
 $$
-A = \left\lbrack \alpha_{1}\quad\alpha_{2}\quad\ldots\quad\alpha_{m} \right\rbrack,
+A=[alpha_1 quad alpha_2 quad dots quad alpha_m],
 $$
-所以 $n$ 维列向量 $\beta$ 可由向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$（有时也用 $A$ 记此向量组）线性表出可以写成
+所以 $n$ 维列向量 $beta$ 可由向量组 $alpha_1,alpha_2,dots,alpha_m$（有时也用 $A$ 记此向量组）线性表出可以写成
 $$
-\beta = \left\lbrack \alpha_{1}\quad\alpha_{2}\quad\ldots\quad\alpha_{m} \right\rbrack\begin{bmatrix}
-k_{1} \\
-k_{2} \\
- \vdots \\
-k_{m}
-\end{bmatrix} = A\mathbf{b},
+beta=[alpha_1 quad alpha_2 quad dots quad alpha_m]mat(delim: "[",k_1;k_2;dots.v;k_m)=A bold(b),
 $$
-其中 $\mathbf{b} = \begin{bmatrix} k_{1} \\ k_{2} \\ \vdots \\ k_{m} \end{bmatrix}$ 是 $m$ 维列向量。
+其中 $bold(b)=mat(delim: "[",k_1;k_2;dots.v;k_m)$ 是 $m$ 维列向量。
 
 若向量组 $A$ 的每个向量都可由向量组 $B$ 线性表出，则称向量组 $A$ 可由向量组 $B$ 线性表出。如果向量组 $A$ 与向量组 $B$ 可相互线性表出，则称这两个向量组等价。
 
@@ -33,33 +29,33 @@ $$
 
 *** 1. 向量组的线性相关与线性无关
 
-对于向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$，如果存在不全为零的数 $k_{1},k_{2},\ldots,k_{m}$，使
+对于向量组 $alpha_1,alpha_2,dots,alpha_m$，如果存在不全为零的数 $k_1,k_2,dots,k_m$，使
 $$
-k_{1}\alpha_{1} + k_{2}\alpha_{2} + \ldots + k_{m}\alpha_{m} = \mathbf{0},
+k_1 alpha_1 + k_2 alpha_2 + dots + k_m alpha_m=bold(0),
 $$
-则称此向量组线性相关，否则称其为线性无关。因此，向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性无关当且仅当 $k_{1} = k_{2} = \ldots = k_{m} = 0$ 时，上式才成立。于是在证明向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性无关时，一般设上式成立下推出 $k_{1},k_{2},\ldots,k_{m}$ 必须全等于零。
+则称此向量组线性相关，否则称其为线性无关。因此，向量组 $alpha_1,alpha_2,dots,alpha_m$ 线性无关当且仅当 $k_1=k_2=dots=k_m=0$ 时，上式才成立。于是在证明向量组 $alpha_1,alpha_2,dots,alpha_m$ 线性无关时，一般设上式成立下推出 $k_1,k_2,dots,k_m$ 必须全等于零。
 
 有关向量组线性相关性的结论：
 
-① 向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$（$m \geq 2$）线性相关（无关）的充分必要条件是其中至少有一个（任一个）向量（均不）可由其余 $m - 1$ 个向量线性表出；
+① 向量组 $alpha_1,alpha_2,dots,alpha_m$（$m>=2$）线性相关（无关）的充分必要条件是其中至少有一个（任一个）向量（均不）可由其余 $m - 1$ 个向量线性表出；
 
-② 向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性相关（无关）的充分必要条件是齐次线性方程组 $A\mathbf{x} = \mathbf{0}$ 有非零解（唯一的零解），其中 $A$ 是由列向量 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 所构成的矩阵，即 $A = \left\lbrack \alpha_{1}\quad\alpha_{2}\quad\ldots\quad\alpha_{m} \right\rbrack$。由此可知：当向量个数 $m$ 大于向量的维数时，该向量组必线性相关；
+② 向量组 $alpha_1,alpha_2,dots,alpha_m$ 线性相关（无关）的充分必要条件是齐次线性方程组 $A bold(x)=bold(0)$ 有非零解（唯一的零解），其中 $A$ 是由列向量 $alpha_1,alpha_2,dots,alpha_m$ 所构成的矩阵，即 $A=[alpha_1 quad alpha_2 quad dots quad alpha_m]$。由此可知：当向量个数 $m$ 大于向量的维数时，该向量组必线性相关；
 
-③ 若向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性无关，而向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m},\beta$ 线性相关，则 $\beta$ 可由 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性表出，且表达式唯一。也就是说，线性方程组 $A\mathbf{x} = \beta$ 有唯一解；
+③ 若向量组 $alpha_1,alpha_2,dots,alpha_m$ 线性无关，而向量组 $alpha_1,alpha_2,dots,alpha_m,beta$ 线性相关，则 $beta$ 可由 $alpha_1,alpha_2,dots,alpha_m$ 线性表出，且表达式唯一。也就是说，线性方程组 $A bold(x)=beta$ 有唯一解；
 
 ④ 若向量组中的一部分向量线性相关，则整个向量组线性相关；若整个向量组线性无关，则它的任何部分向量组必线性无关；
 
-⑤ 对于给定的一组向量 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$，若对其每个向量 $\alpha_{i}$ 都删去若干具有相同序号的分量，得到一组向量 $\beta_{1},\beta_{2},\ldots,\beta_{m}$，则当 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 线性相关时，向量组 $\beta_{1},\beta_{2},\ldots,\beta_{m}$ 必线性相关；而当 $\beta_{1},\beta_{2},\ldots,\beta_{m}$ 线性无关时，向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 必线性无关。
+⑤ 对于给定的一组向量 $alpha_1,alpha_2,dots,alpha_m$，若对其每个向量 $alpha_i$ 都删去若干具有相同序号的分量，得到一组向量 $beta_1,beta_2,dots,beta_m$，则当 $alpha_1,alpha_2,dots,alpha_m$ 线性相关时，向量组 $beta_1,beta_2,dots,beta_m$ 必线性相关；而当 $beta_1,beta_2,dots,beta_m$ 线性无关时，向量组 $alpha_1,alpha_2,dots,alpha_m$ 必线性无关。
 
 *** 2. 向量组的秩
 
 （1）极大线性无关组
 
-设有向量组 $A$，如果在 $A$ 中能选出 $r$ 个向量 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$，满足
+设有向量组 $A$，如果在 $A$ 中能选出 $r$ 个向量 $alpha_1,alpha_2,dots,alpha_r$，满足
 
-① $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 线性无关；
+① $alpha_1,alpha_2,dots,alpha_r$ 线性无关；
 
-② 向量组 $A$ 中任意 $r + 1$ 个向量（如果 $A$ 中有 $r + 1$ 个向量）都线性相关，则称向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 是向量组 $A$ 的一个极大线性无关组，简称极大无关组。
+② 向量组 $A$ 中任意 $r + 1$ 个向量（如果 $A$ 中有 $r + 1$ 个向量）都线性相关，则称向量组 $alpha_1,alpha_2,dots,alpha_r$ 是向量组 $A$ 的一个极大线性无关组，简称极大无关组。
 
 一般来说，向量组的极大线性无关组不是唯一的，但这些极大线性无关组是等价的，从而每个极大线性无关组中所含向量的个数都是 $r$，即个数 $r$ 是由原向量组唯一确定的。
 
@@ -79,156 +75,123 @@ $$
 
 将矩阵的秩看成其列向量组或行向量组的秩，并利用向量组的秩的性质，可以得到有关矩阵秩的几个重要不等式：
 
-① $r\left( A_{m \times n} + B_{m \times n} \right) \leq r\left( A_{m \times n} \right) + r\left( B_{m \times n} \right)$；
+① $r(A_(m times n) + B_(m times n))<=r(A_(m times n)) + r(B_(m times n))$；
 
-② $r\left( A_{m \times p} \right) + r\left( B_{p \times n} \right) - p \leq r\left( A_{m \times p}B_{p \times n} \right) \leq \min\left\{ r\left( A_{m \times p} \right),r\left( B_{p \times n} \right) \right\}$；
+② $r(A_(m times p)) + r(B_(p times n)) - p<=r(A_(m times p)B_(p times n))<=min{r(A_(m times p)),r(B_(p times n))}$；
 
-③ $\max\left\{ r(A),r(B) \right\} \leq r\left( \lbrack A\quad \vdots \quad B\rbrack \right) \leq r(A) + r(B)$；
+③ $max{r(A),r(B)}<=r([A quad dots.v quad B])<=r(A) + r(B)$；
 
-④ $\max\left\{ r(A),r(B) \right\} \leq r\left( \begin{bmatrix} A \\ \ldots \\ B \end{bmatrix} \right) \leq r(A) + r(B)$。
+④ $max{r(A),r(B)}<=r(mat(delim: "[",A;dots;B))<=r(A) + r(B)$。
 
 ** （三）向量空间
 
 *** 1. $n$ 维向量空间及其子空间
 
-$n$ 维向量的全体所构成的集合 ${\mathbb{R}}^{n}$ 称为 $n$ 维向量空间。
+$n$ 维向量的全体所构成的集合 $RR^n$ 称为 $n$ 维向量空间。
 
-设 $V$ 为 $n$ 维向量的非空集合，如果 $V$ 对于向量的加法与数乘两种运算是封闭的，即 $V$ 中两个向量之和及数乘 $V$ 中向量所得到的向量仍属于 $V$，则称集合 $V$ 为 $n$ 维向量空间 ${\mathbb{R}}^{n}$ 的子空间，简称为向量空间。
+设 $V$ 为 $n$ 维向量的非空集合，如果 $V$ 对于向量的加法与数乘两种运算是封闭的，即 $V$ 中两个向量之和及数乘 $V$ 中向量所得到的向量仍属于 $V$，则称集合 $V$ 为 $n$ 维向量空间 $RR^n$ 的子空间，简称为向量空间。
 
-由向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{m}$ 所生成的向量空间为
+由向量组 $alpha_1,alpha_2,dots,alpha_m$ 所生成的向量空间为
 $$
-V = \left\{ \mathbf{x} = \lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \ldots + \lambda_{m}\alpha_{m}|\lambda_{1},\lambda_{2},\ldots,\lambda_{m} \in {\mathbb{R}} \right\}.
+V={bold(x)=lambda_1 alpha_1 + lambda_2 alpha_2 + dots + lambda_m alpha_m|lambda_1,lambda_2,dots,lambda_m in RR}.
 $$
 
 *** 2. 基、维数及坐标的概念
 
-设 $V$ 是向量空间，如果 $V$ 中有 $r$ 个向量 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$，满足
+设 $V$ 是向量空间，如果 $V$ 中有 $r$ 个向量 $alpha_1,alpha_2,dots,alpha_r$，满足
 
-① $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 线性无关，
+① $alpha_1,alpha_2,dots,alpha_r$ 线性无关，
 
-② $V$ 中任一向量都可由 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 线性表出，则称向量组 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 为向量空间 $V$ 的一个基，称 $r$ 为向量空间 $V$ 的维数，并称 $V$ 为 $r$ 维向量空间。
+② $V$ 中任一向量都可由 $alpha_1,alpha_2,dots,alpha_r$ 线性表出，则称向量组 $alpha_1,alpha_2,dots,alpha_r$ 为向量空间 $V$ 的一个基，称 $r$ 为向量空间 $V$ 的维数，并称 $V$ 为 $r$ 维向量空间。
 
-若 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 是 $r$ 维向量空间 $V$ 的一个基，则 $V$ 中任一向量 $\xi$ 都可由这个基唯一地线性表出：
+若 $alpha_1,alpha_2,dots,alpha_r$ 是 $r$ 维向量空间 $V$ 的一个基，则 $V$ 中任一向量 $xi$ 都可由这个基唯一地线性表出：
 $$
-\xi = x_{1}\alpha_{1} + x_{2}\alpha_{2} + \ldots + x_{r}\alpha_{r},
+xi=x_1 alpha_1 + x_2 alpha_2 + dots + x_r alpha_r,
 $$
-称有序数组 $x_{1},x_{2},\ldots,x_{r}$ 为向量 $\xi$ 在基 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 下的坐标。从而 $V$ 可表示为
+称有序数组 $x_1,x_2,dots,x_r$ 为向量 $xi$ 在基 $alpha_1,alpha_2,dots,alpha_r$ 下的坐标。从而 $V$ 可表示为
 $$
-V = \left\{ \xi = x_{1}\alpha_{1} + x_{2}\alpha_{2} + \ldots + x_{r}\alpha_{r}|x_{1},x_{2},\ldots,x_{r} \in {\mathbb{R}} \right\}.
+V={xi=x_1 alpha_1 + x_2 alpha_2 + dots + x_r alpha_r|x_1,x_2,dots,x_r in RR}.
 $$
 
 *** 3. 基变换与坐标变换
 
-向量空间的基一般不是唯一的，设 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 与 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 是 $r$ 维向量空间 $V$ 的两个基，从而 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 可由 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 线性表出，设为
+向量空间的基一般不是唯一的，设 $alpha_1,alpha_2,dots,alpha_r$ 与 $beta_1,beta_2,dots,beta_r$ 是 $r$ 维向量空间 $V$ 的两个基，从而 $beta_1,beta_2,dots,beta_r$ 可由 $alpha_1,alpha_2,dots,alpha_r$ 线性表出，设为
 $$
-\begin{cases}
-\beta_{1} = p_{11}\alpha_{1} + p_{21}\alpha_{2} + \ldots + p_{r1}\alpha_{r} \\
-\beta_{2} = p_{12}\alpha_{1} + p_{22}\alpha_{2} + \ldots + p_{r2}\alpha_{r} \\
-\ldots \\
-\beta_{r} = p_{1r}\alpha_{1} + p_{2r}\alpha_{2} + \ldots + p_{rr}\alpha_{r}
-\end{cases},
+cases(beta_1=p_(11)alpha_1 + p_(21)alpha_2 + dots + p_(r 1)alpha_r,beta_2=p_(12)alpha_1 + p_(22)alpha_2 + dots + p_(r 2)alpha_r,dots,beta_r=p_(1r)alpha_1 + p_(2r)alpha_2 + dots + p_(r r)alpha_r),
 $$
 或利用向量和矩阵的形式，将其记为
 $$
-\left\lbrack \beta_{1}\quad\beta_{2}\quad\ldots\quad\beta_{r} \right\rbrack = \left\lbrack \alpha_{1}\quad\alpha_{2}\quad\ldots\quad\alpha_{r} \right\rbrack P,\quad(＊)
+[beta_1 quad beta_2 quad dots quad beta_r]=[alpha_1 quad alpha_2 quad dots quad alpha_r]P,quad ("＊")
 $$
 其中 $P$ 是 $r$ 阶方阵：
 $$
-P = \begin{bmatrix}
-p_{11} & p_{12} & \ldots & p_{1r} \\
-p_{21} & p_{22} & \ldots & p_{2r} \\
- \vdots & \vdots & & \vdots \\
-p_{r1} & p_{r2} & \ldots & p_{rr}
-\end{bmatrix},
+P=mat(delim: "[",p_(11),p_(12),dots,p_(1r);p_(21),p_(22),dots,p_(2r);dots.v,dots.v,,dots.v;p_(r 1),p_(r 2),dots,p_(r r)),
 $$
-则称上述关系式（＊）为由基 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 到基 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 的基变换公式，并称矩阵 $P$ 为由基 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 到基 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 的过渡矩阵。由于 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 线性无关，所以过渡矩阵 $P$ 必可逆。
+则称上述关系式（＊）为由基 $alpha_1,alpha_2,dots,alpha_r$ 到基 $beta_1,beta_2,dots,beta_r$ 的基变换公式，并称矩阵 $P$ 为由基 $alpha_1,alpha_2,dots,alpha_r$ 到基 $beta_1,beta_2,dots,beta_r$ 的过渡矩阵。由于 $beta_1,beta_2,dots,beta_r$ 线性无关，所以过渡矩阵 $P$ 必可逆。
 
-设 $\xi$ 是 $r$ 维向量空间 $V$ 中的任一向量，它在基 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 下的坐标为 $x_{1},x_{2},\ldots,x_{r}$，而在基 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 下的坐标为 $y_{1},y_{2},\ldots,y_{r}$，则有坐标变换公式
+设 $xi$ 是 $r$ 维向量空间 $V$ 中的任一向量，它在基 $alpha_1,alpha_2,dots,alpha_r$ 下的坐标为 $x_1,x_2,dots,x_r$，而在基 $beta_1,beta_2,dots,beta_r$ 下的坐标为 $y_1,y_2,dots,y_r$，则有坐标变换公式
 $$
-\begin{bmatrix}
-x_{1} \\
-x_{2} \\
- \vdots \\
-x_{r}
-\end{bmatrix} = P\begin{bmatrix}
-y_{1} \\
-y_{2} \\
- \vdots \\
-y_{r}
-\end{bmatrix}\quad\text{ 或 }\quad\begin{bmatrix}
-y_{1} \\
-y_{2} \\
- \vdots \\
-y_{r}
-\end{bmatrix} = P^{- 1}\begin{bmatrix}
-x_{1} \\
-x_{2} \\
- \vdots \\
-x_{r}
-\end{bmatrix},
+mat(delim: "[",x_1;x_2;dots.v;x_r)=P mat(delim: "[",y_1;y_2;dots.v;y_r)quad "或" quad mat(delim: "[",y_1;y_2;dots.v;y_r)=P^(-1)mat(delim: "[",x_1;x_2;dots.v;x_r),
 $$
-其中 $P$ 是由基 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 到基 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 的过渡矩阵。
+其中 $P$ 是由基 $alpha_1,alpha_2,dots,alpha_r$ 到基 $beta_1,beta_2,dots,beta_r$ 的过渡矩阵。
 
 ** （四）向量的内积和线性无关向量组的正交规范化
 
 *** 1. 向量的内积、正交基与规范正交基
 
-设有 $n$ 维向量 $\mathbf{x} = \left\lbrack x_{1},x_{2},\ldots,x_{n} \right\rbrack^{\mathrm{T}},\mathbf{y} = \left\lbrack y_{1},y_{2},\ldots,y_{n} \right\rbrack^{\mathrm{T}}$，则称
+设有 $n$ 维向量 $bold(x)=[x_1,x_2,dots,x_n]^upright(T),bold(y)=[y_1,y_2,dots,y_n]^upright(T)$，则称
 $$
-\left( \mathbf{x},\mathbf{y} \right) = x_{1}y_{1} + x_{2}y_{2} + \ldots + x_{n}y_{n} = \mathbf{x}^{\mathrm{T}}\mathbf{y}
+(bold(x),bold(y))=x_1 y_1 + x_2 y_2 + dots + x_n y_n=bold(x)^upright(T)bold(y)
 $$
-为向量 $\mathbf{x}$ 与 $\mathbf{y}$ 的内积。
+为向量 $bold(x)$ 与 $bold(y)$ 的内积。
 
 内积具有下列性质：
 
-① $\left( \mathbf{x},\mathbf{y} \right) = \left( \mathbf{y},\mathbf{x} \right)$；
+① $(bold(x),bold(y))=(bold(y),bold(x))$；
 
-② $\left( \lambda\mathbf{x},\mathbf{y} \right) = \lambda(\mathbf{x},\mathbf{y})$，其中 $\lambda$ 为实数；
+② $(lambda bold(x),bold(y))=lambda(bold(x),bold(y))$，其中 $lambda$ 为实数；
 
-③ $\left( \mathbf{x} + \mathbf{y},\mathbf{z} \right) = \left( \mathbf{x},\mathbf{z} \right) + \left( \mathbf{y},\mathbf{z} \right)$；
+③ $(bold(x) + bold(y),bold(z))=(bold(x),bold(z)) + (bold(y),bold(z))$；
 
-④ $\left( \mathbf{x},\mathbf{x} \right) \geq 0$，当且仅当 $\mathbf{x} = \mathbf{0}$ 时才有 $\left( \mathbf{x},\mathbf{x} \right) = 0$。
+④ $(bold(x),bold(x))>=0$，当且仅当 $bold(x)=bold(0)$ 时才有 $(bold(x),bold(x))=0$。
 
-定义 $n$ 维向量 $\mathbf{x}$ 的长度为 $\left\| \mathbf{x} \right\| = \sqrt{\left( \mathbf{x},\mathbf{x} \right)} = \sqrt{x_{1}^{2} + x_{2}^{2} + \ldots + x_{n}^{2}}$。当 $\left\| \mathbf{x} \right\| = 1$ 时，称 $\mathbf{x}$ 为单位向量。任一非零向量 $\mathbf{x} \neq \mathbf{0}$，都可将其单位化，事实上 $\frac{\mathbf{x}}{\left\| \mathbf{x} \right\|}$ 就是单位向量。
+定义 $n$ 维向量 $bold(x)$ 的长度为 $norm(bold(x))=sqrt((bold(x),bold(x)))=sqrt(x_1^2 + x_2^2 + dots + x_n^2)$。当 $norm(bold(x))=1$ 时，称 $bold(x)$ 为单位向量。任一非零向量 $bold(x)!=bold(0)$，都可将其单位化，事实上 $bold(x)/norm(bold(x))$ 就是单位向量。
 
-当 $\left( \mathbf{x},\mathbf{y} \right) = 0$ 时，称向量 $\mathbf{x}$ 与 $\mathbf{y}$ 正交。
+当 $(bold(x),bold(y))=0$ 时，称向量 $bold(x)$ 与 $bold(y)$ 正交。
 
-一组两两正交的非零向量称为正交向量组。若 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 是正交向量组，那么 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 必线性无关。当用正交向量组作向量空间的基，则称其为该向量空间的正交基。进一步，此正交基的每个向量都是单位向量，则称为规范正交基。
+一组两两正交的非零向量称为正交向量组。若 $alpha_1,alpha_2,dots,alpha_r$ 是正交向量组，那么 $alpha_1,alpha_2,dots,alpha_r$ 必线性无关。当用正交向量组作向量空间的基，则称其为该向量空间的正交基。进一步，此正交基的每个向量都是单位向量，则称为规范正交基。
 
 *** 2. 线性无关向量组的正交规范化
 
-设 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 是一组线性无关的向量，可用下述方法把 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 规范正交化。取
+设 $alpha_1,alpha_2,dots,alpha_r$ 是一组线性无关的向量，可用下述方法把 $alpha_1,alpha_2,dots,alpha_r$ 规范正交化。取
 $$
-\beta_{1} = \alpha_{1},
-$$
-$$
-\beta_{2} = \alpha_{2} - \frac{\beta_{1},\alpha_{2}}{\beta_{1},\beta_{1}}\beta_{1},
+beta_1=alpha_1,
 $$
 $$
-\ldots
+beta_2=alpha_2 - (beta_1,alpha_2)/(beta_1,beta_1)beta_1,
 $$
 $$
-\beta_{r} = \alpha_{r} - \frac{\beta_{1},\alpha_{r}}{\beta_{1},\beta_{1}}\beta_{1} - \frac{\beta_{2},\alpha_{r}}{\beta_{2},\beta_{2}}\beta_{2} - \ldots - \frac{\beta_{r - 1},\alpha_{r}}{\beta_{r - 1},\beta_{r - 1}}\beta_{r - 1},
+dots
 $$
-则 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 两两正交，且是与 $\alpha_{1},\alpha_{2},\ldots,\alpha_{r}$ 等价的。
+$$
+beta_r=alpha_r - (beta_1,alpha_r)/(beta_1,beta_1)beta_1 - (beta_2,alpha_r)/(beta_2,beta_2)beta_2 - dots - (beta_(r - 1),alpha_r)/(beta_(r - 1),beta_(r - 1))beta_(r - 1),
+$$
+则 $beta_1,beta_2,dots,beta_r$ 两两正交，且是与 $alpha_1,alpha_2,dots,alpha_r$ 等价的。
 
-再把 $\beta_{1},\beta_{2},\ldots,\beta_{r}$ 单位化：
+再把 $beta_1,beta_2,dots,beta_r$ 单位化：
 $$
-\varepsilon_{1} = \frac{\beta_{1}}{\left\| \beta_{1} \right\|},\varepsilon_{2} = \frac{\beta_{2}}{\left\| \beta_{2} \right\|},\ldots,\varepsilon_{r} = \frac{\beta_{r}}{\left\| \beta_{r} \right\|},
+epsilon_1=beta_1/norm(beta_1),epsilon_2=beta_2/norm(beta_2),dots,epsilon_r=beta_r/norm(beta_r),
 $$
-则得到一组与原向量组等价的两两正交的单位向量 $\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{r}$。这个方法称为线性无关向量组正交规范化的施密特（Schmidt）方法。
+则得到一组与原向量组等价的两两正交的单位向量 $epsilon_1,epsilon_2,dots,epsilon_r$。这个方法称为线性无关向量组正交规范化的施密特（Schmidt）方法。
 
 *** 3. 正交矩阵及其性质
 
-若 $n$ 阶矩阵 $A$ 满足 $A^{\mathrm{T}}A = E$（即 $A^{- 1} = A^{\mathrm{T}}$），则称 $A$ 为 $n$ 阶正交矩阵，这里 $E$ 是 $n$ 阶单位矩阵。
+若 $n$ 阶矩阵 $A$ 满足 $A^upright(T)A=E$（即 $A^(-1)=A^upright(T)$），则称 $A$ 为 $n$ 阶正交矩阵，这里 $E$ 是 $n$ 阶单位矩阵。
 
-由 $A^{- 1} = A^{\mathrm{T}}$ 可得 $AA^{\mathrm{T}} = E$ 和 $\left( A^{- 1} \right)^{\mathrm{T}}A^{- 1} = E$，所以若 $A$ 是正交矩阵，则 $A^{\mathrm{T}},A^{- 1}$ 都是正交矩阵。
+由 $A^(-1)=A^upright(T)$ 可得 $A A^upright(T)=E$ 和 $(A^(-1))^upright(T)A^(-1)=E$，所以若 $A$ 是正交矩阵，则 $A^upright(T),A^(-1)$ 都是正交矩阵。
 
-将 $A$ 用列向量表示为 $A = \left\lbrack \alpha_{1}\quad\alpha_{2}\quad\ldots\quad\alpha_{n} \right\rbrack$，则由 $A^{\mathrm{T}}A = E$ 得到
+将 $A$ 用列向量表示为 $A=[alpha_1 quad alpha_2 quad dots quad alpha_n]$，则由 $A^upright(T)A=E$ 得到
 $$
-\alpha_{i}^{\mathrm{T}}\alpha_{j} = \delta_{ij} = \begin{cases}
-1 & i = j \\
-0 & i \neq j.
-\end{cases}
+alpha_i^upright(T)alpha_j=delta_(i j)=cases(1 & i=j,0 & i!=j.)
 $$
-因此，方阵 $A$ 为正交矩阵的充分必要条件是 $A$ 的每个列向量都是单位向量，且两两正交。因为 $A^{\mathrm{T}}$ 的列向量是 $A$ 的行向量，所以这个结论对 $A$ 的行向量亦成立。于是，$n$ 阶正交矩阵 $A$ 的 $n$ 个列（行）向量构成 $n$ 维向量空间 ${\mathbb{R}}^{n}$ 的一个规范正交基。
+因此，方阵 $A$ 为正交矩阵的充分必要条件是 $A$ 的每个列向量都是单位向量，且两两正交。因为 $A^upright(T)$ 的列向量是 $A$ 的行向量，所以这个结论对 $A$ 的行向量亦成立。于是，$n$ 阶正交矩阵 $A$ 的 $n$ 个列（行）向量构成 $n$ 维向量空间 $RR^n$ 的一个规范正交基。

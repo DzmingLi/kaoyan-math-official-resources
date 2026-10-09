@@ -1,4 +1,5 @@
 #+TITLE: 一元函数积分学
+#+TYPST_MATH: t
 
 * 考试内容解析
 
@@ -8,7 +9,7 @@
 
 （1）原函数　设函数 $f(x)$ 在区间 $I$ 上有定义，若存在函数 $F(x)$，使得在区间 $I$ 上处处有
 $$
-F'(x) = f(x),\text{或 }dF(x) = f(x)dx,
+F'(x)=f(x),"或" dif F(x)=f(x)dif x,
 $$
 则称 $F(x)$ 是 $f(x)$ 的一个原函数。
 
@@ -16,11 +17,11 @@ $$
 
 （2）不定积分　在区间 $I$ 上，函数 $f(x)$ 的带有任意常数项的原函数称为 $f(x)$ 在区间 $I$ 上的不定积分，记作
 $$
-\int f(x)dx.
+integral f(x)dif x.
 $$
 设 $F(x)$ 是 $f(x)$ 在 $I$ 上的一个原函数，那么 $F(x) + C$ 就是 $f(x)$ 的不定积分，即
 $$
-\int f(x)dx = F(x) + C,
+integral f(x)dif x=F(x) + C,
 $$
 因此 $f(x)$ 的不定积分就是 $f(x)$ 的原函数的全体。
 
@@ -28,83 +29,81 @@ $$
 
 *** 2. 基本性质
 
-1° $\left\lbrack \int f(x)dx \right\rbrack' = f(x)$，或 $d\int f(x)dx = f(x)dx$；
+1° $[integral f(x)dif x]'=f(x)$，或 $dif integral f(x)dif x=f(x)dif x$；
 
-2° $\int F'(x)dx = F(x) + C$，或 $\int dF(x) = F(x) + C$；
+2° $integral F'(x)dif x=F(x) + C$，或 $integral dif F(x)=F(x) + C$；
 
-3° $\int\left\lbrack k_{1}f_{1}(x) \pm k_{2}f_{2}(x) \right\rbrack dx = k_{1}\int f_{1}(x)dx \pm k_{2}\int f_{2}(x)dx$。
+3° $integral[k_1 f_1 (x) plus.minus k_2 f_2 (x)]dif x=k_1 integral f_1 (x)dif x plus.minus k_2 integral f_2 (x)dif x$。
 
 *** 3. 基本积分公式
 
-1° $\int x^{\mu}dx = \frac{x^{\mu + 1}}{\mu + 1} + C$（$\mu \neq - 1$）；
+1° $integral x^mu dif x=x^(mu + 1)/(mu + 1) + C$（$mu!=-1$）；
 
-2° $\int\frac{1}{x}dx = \ln|x| + C$；
+2° $integral 1/x dif x=ln abs(x) +C$；
 
-3° $\int a^{x}dx = \frac{a^{x}}{\ln a} + C$，$\int e^{x}dx = e^{x} + C$；
+3° $integral a^x dif x=a^x/(ln a) + C$，$integral e^x dif x=e^x + C$；
 
-4° $\int\cos xdx = \sin x + C$；
+4° $integral cos x dif x=sin x + C$；
 
-5° $\int\sin xdx = - \cos x + C$；
+5° $integral sin x dif x=-cos x + C$；
 
-6° $\int\frac{dx}{\cos^{2}x} = \int\sec^{2}xdx = \tan x + C$；
+6° $integral (dif x)/(cos^2 x)=integral sec^2 x dif x=tan x + C$；
 
-7° $\int\frac{dx}{\sin^{2}x} = \int\csc^{2}xdx = - \cot x + C$；
+7° $integral (dif x)/(sin^2 x)=integral csc^2 x dif x=-cot x + C$；
 
-8° $\int\sec x\tan xdx = \sec x + C$；
+8° $integral sec x tan x dif x=sec x + C$；
 
-9° $\int\csc x\cot xdx = - \csc x + C$；
+9° $integral csc x cot x dif x=-csc x + C$；
 
-10° $\int\sec xdx = \ln|\sec x + \tan x| + C$；
+10° $integral sec x dif x=ln|sec x + tan x|+C$；
 
-11° $\int\csc xdx = \ln|\csc x - \cot x| + C$；
+11° $integral csc x dif x=ln|csc x - cot x|+C$；
 
-12° $\int\frac{dx}{a^{2} + x^{2}} = \frac{1}{a}\arctan\frac{x}{a} + C$，$\int\frac{dx}{1 + x^{2}} = \arctan x + C$；
+12° $integral (dif x)/(a^2 + x^2)=1/a arctan x/a + C$，$integral (dif x)/(1 + x^2)=arctan x + C$；
 
-13° $\int\frac{dx}{\sqrt{a^{2} - x^{2}}} = \arcsin\frac{x}{a} + C$，$\int\frac{dx}{\sqrt{1 - x^{2}}} = \arcsin x + C$；
+13° $integral (dif x)/sqrt(a^2 - x^2)=arcsin x/a + C$，$integral (dif x)/sqrt(1 - x^2)=arcsin x + C$；
 
-14° $\int\frac{dx}{a^{2} - x^{2}} = \frac{1}{2a}\ln\left| \frac{a + x}{a - x} \right| + C$。
+14° $integral (dif x)/(a^2 - x^2)=1/(2a)ln abs((a + x)/(a - x)) +C$。
 
 *** 4. 基本积分法
 
 （1）第一类换元法（凑微分法）
 
-设 $f(u)$ 具有原函数 $F(u)$，$u = \varphi(x)$ 可导，则有换元公式
+设 $f(u)$ 具有原函数 $F(u)$，$u=phi(x)$ 可导，则有换元公式
 $$
-\begin{array}{r}
-\int f\left\lbrack \varphi(x) \right\rbrack\varphi'(x)dx = \int f\left\lbrack \varphi(x) \right\rbrack d\varphi(x) = \int f(u)du \\
- = F(u) + C = F\left\lbrack \varphi(x) \right\rbrack + C.
-\end{array}
+integral f[phi(x)]phi'(x)dif x=integral f[phi(x)]dif phi(x)=integral f(u)dif u \
+ =F(u) + C=F[phi(x)]+C.
 $$
 
 （2）第二类换元法（一般换元法）
 
-设函数 $x = \varphi(t)$ 具有连续导数，且 $\varphi'(t) \neq 0$，又设 $f\left\lbrack \varphi(t) \right\rbrack\varphi'(t)$ 具有原函数 $\Phi(t)$，则有换元公式
+设函数 $x=phi(t)$ 具有连续导数，且 $phi'(t)!=0$，又设 $f[phi(t)]phi'(t)$ 具有原函数 $Phi(t)$，则有换元公式
 $$
-\int f(x)dx = \int f\left\lbrack \varphi(t) \right\rbrack\varphi'(t)dt = \Phi(t) + C = \Phi\left\lbrack \varphi^{- 1}(x) \right\rbrack + C.
+integral f(x)dif x=integral f[phi(t)]phi'(t)dif t=Phi(t) + C=Phi[phi^(-1)(x)]+C.
 $$
-一般地，当被积函数含根式 $\sqrt{a^{2} - x^{2}},\sqrt{a^{2} + x^{2}},\sqrt{x^{2} - a^{2}}$（$a > 0$）时，可分别作代换：$x = a\sin t,x = a\tan t,x = a\sec t$；当被积函数分母的最高次数高于分子的最高次数时，可作倒置换 $x = \frac{1}{t}$；当被积函数是由 $a^{x}$ 所构成的代数式时，可作指数代换：$t = a^{x}$，或 $t = e^{x}$。
+一般地，当被积函数含根式 $sqrt(a^2 - x^2),sqrt(a^2 + x^2),sqrt(x^2 - a^2)$（$a>0$）时，可分别作代换：$x=a sin t,x=a tan t,x=a sec t$；当被积函数分母的最高次数高于分子的最高次数时，可作倒置换 $x=1/t$；当被积函数是由 $a^x$ 所构成的代数式时，可作指数代换：$t=a^x$，或 $t=e^x$。
 
 （3）分部积分法
 
-设函数 $u = u(x),v = v(x)$ 具有连续导数，则有分部积分公式
+设函数 $u=u(x),v=v(x)$ 具有连续导数，则有分部积分公式
 $$
-\int udv = uv - \int vdu.
+integral u dif v=u v - integral v dif u.
 $$
-分部积分法的关键是恰当地选择 $u$ 和 $dv$，选取的原则是：（1）$v$ 要容易求得；（2）$\int vdu$ 要比 $\int udv$ 容易积分。
+分部积分法的关键是恰当地选择 $u$ 和 $dif v$，选取的原则是：（1）$v$ 要容易求得；（2）$integral v dif u$ 要比 $integral u dif v$ 容易积分。
 
 一般地形如
 $$
-\int x^{n}e^{kx}dx,\quad\int x^{n}\sin axdx,\quad\int x^{n}\cos axdx
+integral x^n e^(k x)dif x,quad integral x^n sin a x dif x,quad integral x^n cos a x dif x
 $$
-的积分，其中 $n$ 为正整数，$k,a$ 为常数，选取 $u(x) = x^{n}$，$dv = e^{kx}dx,\sin axdx,\cos axdx$。形如
+的积分，其中 $n$ 为正整数，$k,a$ 为常数，选取 $u(x)=x^n$，$dif v=e^(k x)dif x,sin a x dif x,cos a x dif x$。形如
 $$
-\int x^{n}\ln xdx,\quad\int x^{n}\arcsin xdx,\quad\int x^{n}\arctan xdx
+integral x^n ln x dif x,quad integral x^n arcsin x dif x,quad integral x^n arctan x dif x
 $$
-的积分，选取 $u(x) = \ln x,\arcsin x,\arctan x$，$dv = x^{n}dx$。形如
+的积分，选取 $u(x)=ln x,arcsin x,arctan x$，$dif v=x^n dif x$。形如
 $$
-\int e^{kx}\sin(ax + b)dx,\quad\int e^{kx}\cos(ax + b)dx,
+integral e^(k x)sin(a x + b)dif x,quad integral e^(k x)cos(a x + b)dif x,
 $$
-的积分，其中 $k,a,b$ 为常数，$u(x),dv(x)$ 可任意选取。
+的积分，其中 $k,a,b$ 为常数，$u(x),dif v(x)$ 可任意选取。
 
 *** 5. 几种特殊类型函数的积分
 
@@ -112,39 +111,35 @@ $$
 
 由于有理函数可以分解成多项式及部分分式（用待定系数法）之和，因此它的积分总可以化为多项式和如下的四种类型积分：
 $$
-\int\frac{A}{x - a}dx = A\ln\left| {x - a} \right| + C;
+integral A/(x - a)dif x=A ln abs(x - a) +C;
 $$
 $$
-\int\frac{A}{(x - a)^{n}}dx = - \frac{A}{n - 1}\frac{1}{(x - a)^{n - 1}} + C\quad(n \neq 1);
+integral A/(x - a)^n dif x=-A/(n - 1) 1/(x - a)^(n - 1) + C quad (n!=1);
 $$
 $$
-\begin{array}{r}
-\int\frac{Mx + N}{x^{2} + px + q}dx \\
- = \frac{M}{2}\int\frac{d(x^{2} + px + q)}{x^{2} + px + q} + \left( N - \frac{Mp}{2} \right)\int\frac{d(x + \frac{p}{2})}{\left( x + \frac{p}{2} \right)^{2} + \left( \sqrt{q - \frac{p^{2}}{4}} \right)^{2}} \\
- = \frac{M}{2}\ln\left| {x^{2} + px + q} \right| + \frac{N - \frac{Mp}{2}}{\sqrt{q - \frac{p^{2}}{4}}}\arctan\frac{x + \frac{p}{2}}{\sqrt{q - \frac{p^{2}}{4}}} + C,
-\end{array}
+integral (M x + N)/(x^2 + p x + q)dif x \
+ =M/2 integral (dif(x^2 + p x + q))/(x^2 + p x + q) + (N - (M p)/2)integral (dif(x + p/2))/((x + p/2)^2 + (sqrt(q - p^2/4))^2) \
+ =M/2 ln abs(x^2 + p x + q) +(N - (M p)/2)/sqrt(q - p^2/4)arctan (x + p/2)/sqrt(q - p^2/4) + C,
 $$
-其中 $p^{2} - 4q < 0$；
+其中 $p^2 - 4q<0$；
 $$
-\begin{array}{r}
-\int\frac{Mx + N}{\left( x^{2} + px + q \right)^{n}}dx \\
- = \frac{M}{2}\int\frac{d(x^{2} + px + q)}{\left( x^{2} + px + q \right)^{n}} + \left( N - \frac{Mp}{2} \right)\int\frac{d(x + \frac{p}{2})}{\left\lbrack \left( x + \frac{p}{2} \right)^{2} + \left( \sqrt{q - \frac{p^{2}}{4}} \right)^{2} \right\rbrack^{n}} \\
- = \frac{- M}{2(n - 1)\left( x^{2} + px + q \right)^{n - 1}} + \left( N - \frac{Mp}{2} \right)\int\frac{du}{\left( u^{2} + a^{2} \right)^{n}},
-\end{array}
+integral (M x + N)/(x^2 + p x + q)^n dif x \
+ =M/2 integral (dif(x^2 + p x + q))/(x^2 + p x + q)^n + (N - (M p)/2)integral (dif(x + p/2))/[(x + p/2)^2 + (sqrt(q - p^2/4))^2]^n \
+ =(-M)/(2(n - 1)(x^2 + p x + q)^(n - 1)) + (N - (M p)/2)integral (dif u)/(u^2 + a^2)^n,
 $$
-其中 $p^{2} - 4q < 0,u = x + \frac{p}{2},a = \sqrt{q - \frac{p^{2}}{4}}$，积分 $\int\frac{du}{\left( u^{2} + a^{2} \right)^{n}}$ 可用递推公式：
+其中 $p^2 - 4q<0,u=x + p/2,a=sqrt(q - p^2/4)$，积分 $integral (dif u)/(u^2 + a^2)^n$ 可用递推公式：
 $$
-\int\frac{du}{\left( u^{2} + a^{2} \right)^{n}} = \frac{u}{2(n - 1)a^{2}\left( u^{2} + a^{2} \right)^{n - 1}} + \frac{2n - 3}{2(n - 1)a^{2}}\int\frac{du}{\left( u^{2} + a^{2} \right)^{n - 1}}.
+integral (dif u)/(u^2 + a^2)^n=u/(2(n - 1)a^2 (u^2 + a^2)^(n - 1)) + (2n - 3)/(2(n - 1)a^2)integral (dif u)/(u^2 + a^2)^(n - 1).
 $$
 上述方法是有理函数积分的一般方法，但未必是最简单的方法，因此遇到有理函数的积分，应该分析被积函数的特点，选择恰当的方法，例如凑微分法等。
 
 （2）三角函数有理式的积分
 
-由 $\sin x,\cos x$ 以及常数经过有限次的四则运算所构成的函数称为三角函数有理式，记为 $R\left( \sin x,\cos x \right)$，积分 $\int R\left( \sin x,\cos x \right)dx$ 称为三角函数有理式的积分。
+由 $sin x,cos x$ 以及常数经过有限次的四则运算所构成的函数称为三角函数有理式，记为 $R(sin x,cos x)$，积分 $integral R(sin x,cos x)dif x$ 称为三角函数有理式的积分。
 
-由三角学知：$\sin x = \frac{2\tan\frac{x}{2}}{1 + \tan^{2}\frac{x}{2}},\cos x = \frac{1 - \tan^{2}\frac{x}{2}}{1 + \tan^{2}\frac{x}{2}}$。若作万能变换 $u = \tan\frac{x}{2}$，则
+由三角学知：$sin x=(2tan x/2)/(1 + tan^2 x/2),cos x=(1 - tan^2 x/2)/(1 + tan^2 x/2)$。若作万能变换 $u=tan x/2$，则
 $$
-\int R\left( \sin x,\cos x \right)dx = \int R\left( \frac{2u}{1 + u^{2}},\frac{1 - u^{2}}{1 + u^{2}} \right)\frac{2du}{1 + u^{2}},
+integral R(sin x,cos x)dif x=integral R((2u)/(1 + u^2),(1 - u^2)/(1 + u^2))(2dif u)/(1 + u^2),
 $$
 于是将三角函数有理式积分化为 $u$ 的有理函数的积分。但是这样化出的有理函数的积分往往比较繁，因此这种代换不一定是最简捷的代换。碰到此类题目时，应仔细分析被积函数特点或者利用三角学方面的知识，尽量使被积函数化简，或者利用凑微分法。
 
@@ -152,13 +147,13 @@ $$
 
 无理函数积分，一般是通过变量代换，去掉根号，化为有理函数的积分。形如
 $$
-\int R\left( x,\sqrt[n]{ax + b} \right)dx
+integral R(x,root(n,a x + b))dif x
 $$
-的积分，可作变换 $u = \sqrt[n]{ax + b}$，形如
+的积分，可作变换 $u=root(n,a x + b)$，形如
 $$
-\int R\left( x,\sqrt[n]{\frac{ax + b}{cx + e}} \right)dx
+integral R(x,root(n,(a x + b)/(c x + e)))dif x
 $$
-的积分，可作变换 $u = \sqrt[n]{\frac{ax + b}{cx + e}}$。
+的积分，可作变换 $u=root(n,(a x + b)/(c x + e))$。
 
 ** （二）定积分
 
@@ -166,194 +161,181 @@ $$
 
 （1）定积分定义
 
-设函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上有界，在 $\lbrack a,b\rbrack$ 中任意插入 $n - 1$ 个分点：
+设函数 $f(x)$ 在 $[a,b]$ 上有界，在 $[a,b]$ 中任意插入 $n - 1$ 个分点：
 $$
-a = x_{0} < x_{1} < x_{2} < \ldots < x_{n - 1} < x_{n} = b,
+a=x_0<x_1<x_2<dots<x_(n - 1)<x_n=b,
 $$
-把区间 $\lbrack a,b\rbrack$ 分成 $n$ 个小区间
+把区间 $[a,b]$ 分成 $n$ 个小区间
 $$
-\left\lbrack x_{0},x_{1} \right\rbrack,\left\lbrack x_{1},x_{2} \right\rbrack,\ldots,\left\lbrack x_{n - 1},x_{n} \right\rbrack,
+[x_0,x_1],[x_1,x_2],dots,[x_(n - 1),x_n],
 $$
 各小区间的长度依次为
 $$
-\Delta x_{1} = x_{1} - x_{0},\Delta x_{2} = x_{2} - x_{1},\ldots,\Delta x_{n} = x_{n} - x_{n - 1}.
+Delta x_1=x_1 - x_0,Delta x_2=x_2 - x_1,dots,Delta x_n=x_n - x_(n - 1).
 $$
-在每个小区间 $\left\lbrack x_{i - 1},x_{i} \right\rbrack$ 上任意取一点 $\xi_{i}$（$x_{i - 1} \leq \xi_{i} \leq x_{i}$），作函数值 $f\left( \xi_{i} \right)$ 与小区间长度 $\Delta x_{i}$ 乘积 $f\left( \xi_{i} \right)\Delta x_{i}$（$i = 1,2,\ldots,n$），并作出和
+在每个小区间 $[x_(i - 1),x_i]$ 上任意取一点 $xi_i$（$x_(i - 1)<=xi_i<=x_i$），作函数值 $f(xi_i)$ 与小区间长度 $Delta x_i$ 乘积 $f(xi_i)Delta x_i$（$i=1,2,dots,n$），并作出和
 $$
-S = \sum_{i = 1}^{n}f\left( \xi_{i} \right)\Delta x_{i},
+S=sum_(i=1)^n f(xi_i)Delta x_i,
 $$
-记 $\lambda = \max\left\{ \Delta x_{1},\Delta x_{2},\ldots,\Delta x_{n} \right\}$，如果不论对 $\lbrack a,b\rbrack$ 怎样分法，也不论在小区间 $\left\lbrack x_{i - 1},x_{i} \right\rbrack$ 上点 $\xi_{i}$ 怎样取法，只要当 $\lambda \rightarrow 0$ 时，和 $S$ 总趋于确定的极限 $I$，这时我们称函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上可积，而把极限值称为函数 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上的定积分（简称积分），记作 $\int_{a}^{b}f(x)dx$，即
+记 $lambda=max{Delta x_1,Delta x_2,dots,Delta x_n}$，如果不论对 $[a,b]$ 怎样分法，也不论在小区间 $[x_(i - 1),x_i]$ 上点 $xi_i$ 怎样取法，只要当 $lambda->0$ 时，和 $S$ 总趋于确定的极限 $I$，这时我们称函数 $f(x)$ 在 $[a,b]$ 上可积，而把极限值称为函数 $f(x)$ 在区间 $[a,b]$ 上的定积分（简称积分），记作 $integral_a^b f(x)dif x$，即
 $$
-\int_{a}^{b}f(x)dx = I = \lim\limits_{\lambda \rightarrow 0}\sum_{i = 1}^{n}f\left( \xi_{i} \right)\Delta x_{i},
+integral_a^b f(x)dif x=I=lim_(lambda->0)sum_(i=1)^n f(xi_i)Delta x_i,
 $$
-其中 $f(x)$ 叫做被积函数，$f(x)dx$ 叫做被积表达式，$x$ 叫做积分变量，$a$ 叫做积分下限，$b$ 叫做积分上限，$\lbrack a,b\rbrack$ 叫做积分区间。
+其中 $f(x)$ 叫做被积函数，$f(x)dif x$ 叫做被积表达式，$x$ 叫做积分变量，$a$ 叫做积分下限，$b$ 叫做积分上限，$[a,b]$ 叫做积分区间。
 
-（2）定积分几何意义　设 $f(x) \geq 0$，定积分 $\int_{a}^{b}f(x)dx$ 表示由曲线 $y = f(x)$，两条直线 $x = a,x = b$ 与 $x$ 轴所围成的曲边梯形的面积；若 $f(x) < 0$，由曲线 $y = f(x)$，两条直线 $x = a,x = b$ 与 $x$ 轴所围成的曲边梯形的面积为 $- \int_{a}^{b}f(x)dx$。
+（2）定积分几何意义　设 $f(x)>=0$，定积分 $integral_a^b f(x)dif x$ 表示由曲线 $y=f(x)$，两条直线 $x=a,x=b$ 与 $x$ 轴所围成的曲边梯形的面积；若 $f(x)<0$，由曲线 $y=f(x)$，两条直线 $x=a,x=b$ 与 $x$ 轴所围成的曲边梯形的面积为 $-integral_a^b f(x)dif x$。
 
-一般地，$\int_{a}^{b}f(x)dx$ 则是各小区间上曲边梯形面积的代数和。
+一般地，$integral_a^b f(x)dif x$ 则是各小区间上曲边梯形面积的代数和。
 
 （3）可积的充分条件
 
-设 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上连续，则 $f(x)$ 在 $\lbrack a,b\rbrack$ 上可积。
+设 $f(x)$ 在区间 $[a,b]$ 上连续，则 $f(x)$ 在 $[a,b]$ 上可积。
 
-设 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上有界，且只有有限个间断点，则 $f(x)$ 在 $\lbrack a,b\rbrack$ 上可积。
+设 $f(x)$ 在区间 $[a,b]$ 上有界，且只有有限个间断点，则 $f(x)$ 在 $[a,b]$ 上可积。
 
-设 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上单调有界，则 $f(x)$ 在 $\lbrack a,b\rbrack$ 上可积。
+设 $f(x)$ 在区间 $[a,b]$ 上单调有界，则 $f(x)$ 在 $[a,b]$ 上可积。
 
 *** 2. 基本性质
 
 1° 定积分只与被积函数和积分区间有关，与积分变量的记号无关，即
 $$
-\int_{a}^{b}f(x)dx = \int_{a}^{b}f(t)dt = \int_{a}^{b}f(u)du = \ldots;
+integral_a^b f(x)dif x=integral_a^b f(t)dif t=integral_a^b f(u)dif u=dots;
 $$
 
-2° $\int_{a}^{b}f(x)dx = - \int_{b}^{a}f(x)dx$，$\int_{a}^{a}f(x)dx = 0$；
+2° $integral_a^b f(x)dif x=-integral_b^a f(x)dif x$，$integral_a^a f(x)dif x=0$；
 
-3° $\int_{a}^{b}dx = b - a$；
+3° $integral_a^b dif x=b - a$；
 
-4° $\int_{a}^{b}\left\lbrack k_{1}f_{1}(x) + k_{2}f_{2}(x) \right\rbrack dx = k_{1}\int_{a}^{b}f_{1}(x)dx + k_{2}\int_{a}^{b}f_{2}(x)dx$；
+4° $integral_a^b[k_1 f_1 (x) + k_2 f_2 (x)]dif x=k_1 integral_a^b f_1 (x)dif x + k_2 integral_a^b f_2 (x)dif x$；
 
-5° $\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx$；
+5° $integral_a^b f(x)dif x=integral_a^c f(x)dif x + integral_c^b f(x)dif x$；
 
-6° 定积分比较定理　设 $f(x) \leq g(x),x \in \lbrack a,b\rbrack$，则 $\int_{a}^{b}f(x)dx \leq \int_{a}^{b}g(x)dx$；
+6° 定积分比较定理　设 $f(x)<=g(x),x in [a,b]$，则 $integral_a^b f(x)dif x<=integral_a^b g(x)dif x$；
 
-推论Ⅰ　若 $f(x) \geq 0,x \in \lbrack a,b\rbrack$，则 $\int_{a}^{b}f(x)dx \geq 0$。
+推论Ⅰ　若 $f(x)>=0,x in [a,b]$，则 $integral_a^b f(x)dif x>=0$。
 
-推论Ⅱ　$|\int_{a}^{b}f(x)dx| \leq \int_{a}^{b}|f(x)|dx$。
+推论Ⅱ　$|integral_a^b f(x)dif x|<=integral_a^b |f(x)|dif x$。
 
-7° 估值定理　设 $m \leq f(x) \leq M,x \in \lbrack a,b\rbrack$，其中 $m,M$ 是常数；则
+7° 估值定理　设 $m<=f(x)<=M,x in [a,b]$，其中 $m,M$ 是常数；则
 $$
-m(b - a) \leq \int_{a}^{b}f(x)dx \leq M(b - a);
+m(b - a)<=integral_a^b f(x)dif x<=M(b - a);
 $$
 
-8° 积分中值定理　若 $f(x)$ 在 $\lbrack a,b\rbrack$ 上连续，则在 $\lbrack a,b\rbrack$ 上至少存在一点 $\xi$，使
+8° 积分中值定理　若 $f(x)$ 在 $[a,b]$ 上连续，则在 $[a,b]$ 上至少存在一点 $xi$，使
 $$
-\int_{a}^{b}f(x)dx = f(\xi)(b - a).
+integral_a^b f(x)dif x=f(xi)(b - a).
 $$
 
 *** 3. 微积分基本公式
 
-定理1　设函数 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上连续，则变上限积分函数
+定理1　设函数 $f(x)$ 在区间 $[a,b]$ 上连续，则变上限积分函数
 $$
-\Phi(x) = \int_{a}^{x}f(t)dt
+Phi(x)=integral_a^x f(t)dif t
 $$
-在 $\lbrack a,b\rbrack$ 上具有导数，并且有
+在 $[a,b]$ 上具有导数，并且有
 $$
-\Phi'(x) = \frac{d}{dx}\int_{a}^{x}f(t)dt = f(x).
+Phi'(x)=dif/(dif x)integral_a^x f(t)dif t=f(x).
 $$
 
-定理2　若函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上连续，则函数
+定理2　若函数 $f(x)$ 在 $[a,b]$ 上连续，则函数
 $$
-\Phi(x) = \int_{a}^{x}f(t)dt
+Phi(x)=integral_a^x f(t)dif t
 $$
-就是 $f(x)$ 在 $\lbrack a,b\rbrack$ 上的一个原函数。
+就是 $f(x)$ 在 $[a,b]$ 上的一个原函数。
 
 定理3　牛顿—莱布尼茨公式
 
-设函数 $F(x)$ 是连续函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上的一个原函数，则
+设函数 $F(x)$ 是连续函数 $f(x)$ 在 $[a,b]$ 上的一个原函数，则
 $$
-\int_{a}^{b}f(x)dx = F(x)|_{a}^{b} = F(b) - F(a).
+integral_a^b f(x)dif x=F(x)|_a^b=F(b) - F(a).
 $$
 
 *** 4. 定积分的计算
 
 （1）牛顿—莱布尼茨公式
 $$
-\int_{a}^{b}f(x)dx = F(x)|_{a}^{b} = F(b) - F(a).
+integral_a^b f(x)dif x=F(x)|_a^b=F(b) - F(a).
 $$
 
 （2）定积分的换元法
 
-设函数 $f(x)$ 在区间 $\lbrack a,b\rbrack$ 上连续，函数 $x = \varphi(t)$ 满足
+设函数 $f(x)$ 在区间 $[a,b]$ 上连续，函数 $x=phi(t)$ 满足
 
-1° $\varphi(\alpha) = a,\varphi(\beta) = b$；
+1° $phi(alpha)=a,phi(beta)=b$；
 
-2° $\varphi(t)$ 在 $\lbrack\alpha,\beta\rbrack$（或 $\lbrack\beta,\alpha\rbrack$）上具有连续导数；
+2° $phi(t)$ 在 $[alpha,beta]$（或 $[beta,alpha]$）上具有连续导数；
 
-3° 当 $t \in \lbrack\alpha,\beta\rbrack$（或 $\lbrack\beta,\alpha\rbrack$）时，$x \in \lbrack a,b\rbrack$，则
+3° 当 $t in [alpha,beta]$（或 $[beta,alpha]$）时，$x in [a,b]$，则
 $$
-\int_{a}^{b}f(x)dx = \int_{\alpha}^{\beta}f\left\lbrack \varphi(t) \right\rbrack\varphi'(t)dt.
+integral_a^b f(x)dif x=integral_alpha^beta f[phi(t)]phi'(t)dif t.
 $$
 
 （3）分部积分法
 
-设函数 $u(x),v(x)$ 在区间 $\lbrack a,b\rbrack$ 上具有连续导数 $u'(x),v'(x)$，则有
+设函数 $u(x),v(x)$ 在区间 $[a,b]$ 上具有连续导数 $u'(x),v'(x)$，则有
 $$
-\int_{a}^{b}u(x)v'(x)dx = u(x)v(x)|_{a}^{b} - \int_{a}^{b}v(x)u'(x)dx.
+integral_a^b u(x)v'(x)dif x=u(x)v(x)|_a^b - integral_a^b v(x)u'(x)dif x.
 $$
 
 *** 5. 几个常用公式
 
-（1）设 $f(x)$ 在 $\lbrack - l,l\rbrack$ 上连续，则
+（1）设 $f(x)$ 在 $[-l,l]$ 上连续，则
 $$
-\begin{array}{r}
-\int_{- l}^{l}f(x)dx = \int_{0}^{l}\left\lbrack f(x) + f( - x) \right\rbrack dx \\
- = \begin{cases}
-0 & \text{ 当 }f( - x) = - f(x)\text{，即 }f(x)\text{为奇函数时；} \\
-2\int_{0}^{l}f(x)dx & \text{ 当 }f( - x) = f(x)\text{，即 }f(x)\text{为偶函数时。}
-\end{cases}
-\end{array}
+integral_(-l)^l f(x)dif x=integral_0^l[f(x) + f(-x)]dif x \
+ =cases(0 & "当" f(-x)=-f(x)"，即" f(x)"为奇函数时；",2integral_0^l f(x)dif x & "当" f(-x)=f(x)"，即" f(x)"为偶函数时。")
 $$
 
 （2）设 $f(x)$ 是以 $T$ 为周期的连续函数，$a$ 为任意实数，则
 $$
-\int_{a}^{a + T}f(x)dx = \int_{0}^{T}f(t)dt.
+integral_a^(a + T)f(x)dif x=integral_0^T f(t)dif t.
 $$
 
-（3）$\int_{0}^{\frac{\pi}{2}}\sin^{n}xdx = \int_{0}^{\frac{\pi}{2}}\cos^{n}xdx$
+（3）$integral_0^(pi/2)sin^n x dif x=integral_0^(pi/2)cos^n x dif x$
 $$
-\begin{array}{r}
- = \begin{cases}
-\frac{2m - 1}{2m} \cdot \frac{2m - 3}{2m - 2}\ldots\frac{1}{2} \cdot \frac{\pi}{2} & n = 2m \\
-\frac{2m}{2m + 1} \cdot \frac{2m - 2}{2m - 1}\ldots\frac{2}{3} & n = 2m + 1
-\end{cases} \\
- = \begin{cases}
-\frac{(2m - 1)!!}{(2m)!!} \cdot \frac{\pi}{2} & n = 2m \\
-\frac{(2m)!!}{(2m + 1)!!} & n = 2m + 1.
-\end{cases}
-\end{array}
+=cases((2m - 1)/(2m) dot (2m - 3)/(2m - 2) dots 1/2 dot pi/2 & n=2m,(2m)/(2m + 1) dot (2m - 2)/(2m - 1) dots 2/3 & n=2m + 1,) \
+ =cases(((2m - 1)!!)/((2m)!!) dot pi/2 & n=2m,((2m)!!)/((2m + 1)!!) & n=2m + 1.)
 $$
 
-（4）设 $f(x)$ 在 $\lbrack a,b\rbrack$ 上连续，则
+（4）设 $f(x)$ 在 $[a,b]$ 上连续，则
 $$
-\int_{a}^{b}f(x)dx = \int_{a}^{b}f(a + b - x)dx.
+integral_a^b f(x)dif x=integral_a^b f(a + b - x)dif x.
 $$
 
 （5）设 $f(x)$ 连续，则
 $$
-\int_{0}^{\pi}xf\left( \sin x \right)dx = \frac{\pi}{2}\int_{0}^{\pi}f\left( \sin x \right)dx = \pi\int_{0}^{\frac{\pi}{2}}f\left( \sin x \right)dx = \pi\int_{0}^{\frac{\pi}{2}}f\left( \cos x \right)dx.
+integral_0^pi x f(sin x)dif x=pi/2 integral_0^pi f(sin x)dif x=pi integral_0^(pi/2)f(sin x)dif x=pi integral_0^(pi/2)f(cos x)dif x.
 $$
 
 *** 6. 定积分的应用
 
 （1）平面图形的面积
 
-1° 由直线 $x = a,x = b$，曲线 $y = f(x),y = g(x)$［$f(x) \leq g(x)$］所围图形（见图5）的面积为
+1° 由直线 $x=a,x=b$，曲线 $y=f(x),y=g(x)$［$f(x)<=g(x)$］所围图形（见图5）的面积为
 $$
-S = \int_{a}^{b}\left\lbrack g(x) - f(x) \right\rbrack dx.
+S=integral_a^b[g(x) - f(x)]dif x.
 $$
 
-2° 由曲线 $r = r_{1}(\theta),r = r_{2}(\theta)$［$r_{1}(\theta) < r_{2}(\theta),\alpha \leq \theta \leq \beta$］所围平面图形（见图6）的面积为
+2° 由曲线 $r=r_1 (theta),r=r_2 (theta)$［$r_1 (theta)<r_2 (theta),alpha<=theta<=beta$］所围平面图形（见图6）的面积为
 $$
-S = \frac{1}{2}\int_{\alpha}^{\beta}\left\lbrack r_{2}^{2}(\theta) - r_{1}^{2}(\theta) \right\rbrack d\theta.
+S=1/2 integral_alpha^beta[r_2^2 (theta) - r_1^2 (theta)]dif theta.
 $$
 
 （2）平行截面面积已知的立体体积
 
-垂直于 $x$ 轴的平面截立体 $\Omega$ 所得的截面面积是 $x$ 的连续函数 $S(x)$（$a \leq x \leq b$）（见图7），则 $\Omega$ 的体积为
+垂直于 $x$ 轴的平面截立体 $Omega$ 所得的截面面积是 $x$ 的连续函数 $S(x)$（$a<=x<=b$）（见图7），则 $Omega$ 的体积为
 $$
-V = \int_{a}^{b}S(x)dx.
+V=integral_a^b S(x)dif x.
 $$
-特别地，由连续曲线 $y = f(x)$，直线 $x = a,x = b$ 及 $x$ 轴所围成的平面图形绕 $x$ 轴旋转一周而成的旋转体体积（见图8）为
+特别地，由连续曲线 $y=f(x)$，直线 $x=a,x=b$ 及 $x$ 轴所围成的平面图形绕 $x$ 轴旋转一周而成的旋转体体积（见图8）为
 $$
-V = \pi\int_{a}^{b}f^{2}(x)dx.
+V=pi integral_a^b f^2 (x)dif x.
 $$
 
 （3）旋转体侧面积
 
-由连续曲线 $y = f(x)$、直线 $x = a,x = b$ 与 $x$ 轴围成的平面图形绕 $x$ 轴旋转一周而成的旋转体侧面积为
+由连续曲线 $y=f(x)$、直线 $x=a,x=b$ 与 $x$ 轴围成的平面图形绕 $x$ 轴旋转一周而成的旋转体侧面积为
 $$
-S = 2\pi\int_{a}^{b}|f(x)|\sqrt{1 + f'^{2}(x)}dx.
+S=2pi integral_a^b |f(x)|sqrt(1 + f'^2 (x))dif x.
 $$
 
 #+CAPTION: 图5
@@ -371,48 +353,45 @@ $$
 
 （4）平面曲线弧长
 
-1° 设曲线弧由直角坐标方程 $y = f(x)$（$a \leq x \leq b$）给出，其中 $f(x)$ 在 $\lbrack a,b\rbrack$ 上具有连续导数，则曲线弧长为
+1° 设曲线弧由直角坐标方程 $y=f(x)$（$a<=x<=b$）给出，其中 $f(x)$ 在 $[a,b]$ 上具有连续导数，则曲线弧长为
 $$
-S = \int_{a}^{b}\sqrt{1 + f'^{2}(x)}dx.
+S=integral_a^b sqrt(1 + f'^2 (x))dif x.
 $$
 
 2° 设曲线弧由参数方程
 $$
-\begin{cases}
-x = \varphi(t) \\
-y = \psi(t)
-\end{cases},\quad(\alpha \leq t \leq \beta)
+cases(x=phi(t),y=psi(t)),quad (alpha<=t<=beta)
 $$
-给出，其中 $\varphi(t),\psi(t)$ 具有一阶连续导数，且 $\varphi'^{2}(t) + \psi'^{2}(t) \neq 0$，则曲线弧长为
+给出，其中 $phi(t),psi(t)$ 具有一阶连续导数，且 $phi'^2 (t) + psi'^2 (t)!=0$，则曲线弧长为
 $$
-S = \int_{\alpha}^{\beta}\sqrt{\varphi'^{2}(t) + \psi'^{2}(t)}dt.
+S=integral_alpha^beta sqrt(phi'^2 (t) + psi'^2 (t))dif t.
 $$
 
-3° 设曲线弧由极坐标方程 $r = r(\theta)$（$\alpha \leq \theta \leq \beta$）给出，其中 $r(\theta)$ 在 $\lbrack\alpha,\beta\rbrack$ 上具有连续导数，则曲线弧长为
+3° 设曲线弧由极坐标方程 $r=r(theta)$（$alpha<=theta<=beta$）给出，其中 $r(theta)$ 在 $[alpha,beta]$ 上具有连续导数，则曲线弧长为
 $$
-S = \int_{\alpha}^{\beta}\sqrt{r^{2}(\theta) + r'^{2}(\theta)}d\theta.
+S=integral_alpha^beta sqrt(r^2 (theta) + r'^2 (theta))dif theta.
 $$
 
 （5）变力做功
 
 1° 质点在平行于 $x$ 轴的力 $F(x)$ 作用下，沿 $x$ 轴从 $a$ 移动到 $b$，则力 $F(x)$ 所做的功是
 $$
-W = \int_{a}^{b}F(x)dx.
+W=integral_a^b F(x)dif x.
 $$
 
-2° 如图9，一容器，其顶部所在平面与 $Ox$ 轴（铅直向下）相交于原点，液体表面与 $Ox$ 轴相截于 $x = a$，底面与 $Ox$ 轴相截于 $x = b$，垂直于 $Ox$ 轴的平面截容器所得的截面面积为 $x$ 的连续函数 $S(x)$，则将容器中的液体全部抽出所做的功为
+2° 如图9，一容器，其顶部所在平面与 $O x$ 轴（铅直向下）相交于原点，液体表面与 $O x$ 轴相截于 $x=a$，底面与 $O x$ 轴相截于 $x=b$，垂直于 $O x$ 轴的平面截容器所得的截面面积为 $x$ 的连续函数 $S(x)$，则将容器中的液体全部抽出所做的功为
 $$
-W = \int_{a}^{b}\rho gxS(x)dx,
+W=integral_a^b rho g x S(x)dif x,
 $$
-其中 $\rho$ 为液体密度，$g$ 为重力加速度。
+其中 $rho$ 为液体密度，$g$ 为重力加速度。
 
 （6）液体静压力
 
-设一薄板垂直放在密度为 $\rho$ 的液体里（见图10），液体对薄板的静压力为
+设一薄板垂直放在密度为 $rho$ 的液体里（见图10），液体对薄板的静压力为
 $$
-P = \int_{a}^{b}\rho gxf(x)dx,
+P=integral_a^b rho g x f(x)dif x,
 $$
-其中 $\rho$ 为液体密度，$g$ 为重力加速度。
+其中 $rho$ 为液体密度，$g$ 为重力加速度。
 
 #+CAPTION: 图9
 [[file:../figures/图09-抽水做功.svg]]
@@ -422,9 +401,9 @@ $$
 
 （7）函数的平均值
 
-设函数 $y = f(x)$ 在区间 $\lbrack a,b\rbrack$ 上连续，则 $f(x)$ 在 $\lbrack a,b\rbrack$ 上的平均值为
+设函数 $y=f(x)$ 在区间 $[a,b]$ 上连续，则 $f(x)$ 在 $[a,b]$ 上的平均值为
 $$
-\overline{y} = \frac{1}{b - a}\int_{a}^{b}f(x)dx.
+overline(y)=1/(b - a) integral_a^b f(x)dif x.
 $$
 此外，还有计算引力等应用。
 
@@ -432,74 +411,70 @@ $$
 
 *** 1. 无穷区间上的反常积分
 
-（1）定义1　设函数 $f(x)$ 在区间 $\lbrack a, + \infty)$ 上连续，取 $b > a$，如果极限
+（1）定义1　设函数 $f(x)$ 在区间 $[a,+infinity)$ 上连续，取 $b>a$，如果极限
 $$
-\lim\limits_{b \rightarrow + \infty}\int_{a}^{b}f(x)dx
+lim_(b->+infinity)integral_a^b f(x)dif x
 $$
-存在，则称此极限值为函数 $f(x)$ 在无穷区间 $\lbrack a, + \infty)$ 上的反常积分，记作 $\int_{a}^{+ \infty}f(x)dx$，即
+存在，则称此极限值为函数 $f(x)$ 在无穷区间 $[a,+infinity)$ 上的反常积分，记作 $integral_a^(+infinity)f(x)dif x$，即
 $$
-\int_{a}^{+ \infty}f(x)dx = \lim\limits_{b \rightarrow + \infty}\int_{a}^{b}f(x)dx,
+integral_a^(+infinity)f(x)dif x=lim_(b->+infinity)integral_a^b f(x)dif x,
 $$
-这时也称反常积分 $\int_{a}^{+ \infty}f(x)dx$ 收敛；如果上述极限不存在，函数 $f(x)$ 在无穷区间 $\lbrack a, + \infty)$ 上的反常积分 $\int_{a}^{+ \infty}f(x)dx$ 就没有意义，这时称反常积分 $\int_{a}^{+ \infty}f(x)dx$ 发散。
+这时也称反常积分 $integral_a^(+infinity)f(x)dif x$ 收敛；如果上述极限不存在，函数 $f(x)$ 在无穷区间 $[a,+infinity)$ 上的反常积分 $integral_a^(+infinity)f(x)dif x$ 就没有意义，这时称反常积分 $integral_a^(+infinity)f(x)dif x$ 发散。
 
-（2）定义2　设函数 $f(x)$ 在区间 $( - \infty,b\rbrack$ 上连续，取 $a < b$，如果极限
+（2）定义2　设函数 $f(x)$ 在区间 $(-infinity,b]$ 上连续，取 $a<b$，如果极限
 $$
-\lim\limits_{a \rightarrow - \infty}\int_{a}^{b}f(x)dx
+lim_(a->-infinity)integral_a^b f(x)dif x
 $$
-存在，则称此极限为函数 $f(x)$ 在无穷区间 $( - \infty,b\rbrack$ 上的反常积分，记作 $\int_{- \infty}^{b}f(x)dx$，即
+存在，则称此极限为函数 $f(x)$ 在无穷区间 $(-infinity,b]$ 上的反常积分，记作 $integral_(-infinity)^b f(x)dif x$，即
 $$
-\int_{- \infty}^{b}f(x)dx = \lim\limits_{a \rightarrow - \infty}\int_{a}^{b}f(x)dx,
+integral_(-infinity)^b f(x)dif x=lim_(a->-infinity)integral_a^b f(x)dif x,
 $$
-这时也称反常积分 $\int_{- \infty}^{b}f(x)dx$ 收敛；如果上述极限不存在，就称反常积分 $\int_{- \infty}^{b}f(x)dx$ 发散。
+这时也称反常积分 $integral_(-infinity)^b f(x)dif x$ 收敛；如果上述极限不存在，就称反常积分 $integral_(-infinity)^b f(x)dif x$ 发散。
 
-（3）定义3　设函数 $f(x)$ 在区间 $( - \infty, + \infty)$ 内连续，如果反常积分
+（3）定义3　设函数 $f(x)$ 在区间 $(-infinity,+infinity)$ 内连续，如果反常积分
 $$
-\int_{- \infty}^{c}f(x)dx\quad\text{ 和 }\quad\int_{c}^{+ \infty}f(x)dx
+integral_(-infinity)^c f(x)dif x quad "和" quad integral_c^(+infinity)f(x)dif x
 $$
-都收敛，则称上述两反常积分之和为函数 $f(x)$ 在无穷区间 $( - \infty, + \infty)$ 内的反常积分，记作 $\int_{- \infty}^{+ \infty}f(x)dx$，即
+都收敛，则称上述两反常积分之和为函数 $f(x)$ 在无穷区间 $(-infinity,+infinity)$ 内的反常积分，记作 $integral_(-infinity)^(+infinity)f(x)dif x$，即
 $$
-\begin{array}{r}
-\int_{- \infty}^{+ \infty}f(x)dx = \int_{- \infty}^{c}f(x)dx + \int_{c}^{+ \infty}f(x)dx \\
- = \lim\limits_{a \rightarrow - \infty}\int_{a}^{c}f(x)dx + \lim\limits_{b \rightarrow + \infty}\int_{c}^{b}f(x)dx,
-\end{array}
+integral_(-infinity)^(+infinity)f(x)dif x=integral_(-infinity)^c f(x)dif x + integral_c^(+infinity)f(x)dif x \
+ =lim_(a->-infinity)integral_a^c f(x)dif x + lim_(b->+infinity)integral_c^b f(x)dif x,
 $$
-这时也称反常积分 $\int_{- \infty}^{+ \infty}f(x)dx$ 收敛，否则就称反常积分 $\int_{- \infty}^{+ \infty}f(x)dx$ 发散。
+这时也称反常积分 $integral_(-infinity)^(+infinity)f(x)dif x$ 收敛，否则就称反常积分 $integral_(-infinity)^(+infinity)f(x)dif x$ 发散。
 
 *** 2. 无界函数的反常积分
 
-定义1　设函数 $f(x)$ 在 $\lbrack a,b)$ 上连续，$\lim\limits_{x \rightarrow b^{-}}f(x) = \infty$，取 $\varepsilon > 0$，如果极限
+定义1　设函数 $f(x)$ 在 $[a,b)$ 上连续，$lim_(x->b^-)f(x)=infinity$，取 $epsilon>0$，如果极限
 $$
-\lim\limits_{\varepsilon \rightarrow 0^{+}}\int_{a}^{b - \varepsilon}f(x)dx
+lim_(epsilon->0^+)integral_a^(b - epsilon)f(x)dif x
 $$
-存在，则称此极限为函数 $f(x)$ 在 $\lbrack a,b)$ 上的反常积分，记作 $\int_{a}^{b}f(x)dx$，即
+存在，则称此极限为函数 $f(x)$ 在 $[a,b)$ 上的反常积分，记作 $integral_a^b f(x)dif x$，即
 $$
-\int_{a}^{b}f(x)dx = \lim\limits_{\varepsilon \rightarrow 0^{+}}\int_{a}^{b - \varepsilon}f(x)dx,
+integral_a^b f(x)dif x=lim_(epsilon->0^+)integral_a^(b - epsilon)f(x)dif x,
 $$
-这时也称反常积分 $\int_{a}^{b}f(x)dx$ 收敛；如果上述极限不存在，就称反常积分 $\int_{a}^{b}f(x)dx$ 发散。
+这时也称反常积分 $integral_a^b f(x)dif x$ 收敛；如果上述极限不存在，就称反常积分 $integral_a^b f(x)dif x$ 发散。
 
-定义2　设函数 $f(x)$ 在 $(a,b\rbrack$ 上连续，$\lim\limits_{x \rightarrow a^{+}}f(x) = \infty$，取 $\varepsilon > 0$，如果极限
+定义2　设函数 $f(x)$ 在 $(a,b]$ 上连续，$lim_(x->a^+)f(x)=infinity$，取 $epsilon>0$，如果极限
 $$
-\lim\limits_{\varepsilon \rightarrow 0^{+}}\int_{a + \varepsilon}^{b}f(x)dx
+lim_(epsilon->0^+)integral_(a + epsilon)^b f(x)dif x
 $$
-存在，则称此极限为函数 $f(x)$ 在 $(a,b\rbrack$ 上的反常积分，记作 $\int_{a}^{b}f(x)dx$，即
+存在，则称此极限为函数 $f(x)$ 在 $(a,b]$ 上的反常积分，记作 $integral_a^b f(x)dif x$，即
 $$
-\int_{a}^{b}f(x)dx = \lim\limits_{\varepsilon \rightarrow 0^{+}}\int_{a + \varepsilon}^{b}f(x)dx,
+integral_a^b f(x)dif x=lim_(epsilon->0^+)integral_(a + epsilon)^b f(x)dif x,
 $$
-这时也称反常积分 $\int_{a}^{b}f(x)dx$ 收敛；如果上述极限不存在，就称反常积分 $\int_{a}^{b}f(x)dx$ 发散。
+这时也称反常积分 $integral_a^b f(x)dif x$ 收敛；如果上述极限不存在，就称反常积分 $integral_a^b f(x)dif x$ 发散。
 
-定义3　设函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上除点 $c$（$a < c < b$）外连续，$\lim\limits_{x \rightarrow c}f(x) = \infty$，如果两个反常积分
+定义3　设函数 $f(x)$ 在 $[a,b]$ 上除点 $c$（$a<c<b$）外连续，$lim_(x->c)f(x)=infinity$，如果两个反常积分
 $$
-\int_{a}^{c}f(x)dx\quad\text{ 和 }\quad\int_{c}^{b}f(x)dx
+integral_a^c f(x)dif x quad "和" quad integral_c^b f(x)dif x
 $$
-都收敛，则称上述两个反常积分之和为函数 $f(x)$ 在 $\lbrack a,b\rbrack$ 上的反常积分，记作 $\int_{a}^{b}f(x)dx$，即
+都收敛，则称上述两个反常积分之和为函数 $f(x)$ 在 $[a,b]$ 上的反常积分，记作 $integral_a^b f(x)dif x$，即
 $$
-\begin{array}{r}
-\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx \\
- = \lim\limits_{\varepsilon_{1} \rightarrow 0^{+}}\int_{a}^{c - \varepsilon_{1}}f(x)dx + \lim\limits_{\varepsilon_{2} \rightarrow 0^{+}}\int_{c + \varepsilon_{2}}^{b}f(x)dx,
-\end{array}
+integral_a^b f(x)dif x=integral_a^c f(x)dif x + integral_c^b f(x)dif x \
+ =lim_(epsilon_1->0^+)integral_a^(c - epsilon_1)f(x)dif x + lim_(epsilon_2->0^+)integral_(c + epsilon_2)^b f(x)dif x,
 $$
-这时也称反常积分 $\int_{a}^{b}f(x)dx$ 收敛；否则，则称反常积分 $\int_{a}^{b}f(x)dx$ 发散。
+这时也称反常积分 $integral_a^b f(x)dif x$ 收敛；否则，则称反常积分 $integral_a^b f(x)dif x$ 发散。
 
-主要结果① $\int_{1}^{+ \infty}\frac{dx}{x^{p}} = \begin{cases} \frac{1}{p - 1} & p > 1 \\ + \infty & p \leq 1 \end{cases}$
+主要结果① $integral_1^(+infinity)(dif x)/x^p=cases(1/(p - 1) & p>1,+infinity & p<=1,)$
 
-② $\int_{0}^{b}\frac{dx}{(b - x)^{k}} = \begin{cases} \frac{b^{1 - k}}{1 - k} & 0 < k < 1 \\ + \infty & k \geq 1. \end{cases}$
+② $integral_0^b (dif x)/(b - x)^k=cases(b^(1 - k)/(1 - k) & 0<k<1,+infinity & k>=1.)$

@@ -1,4 +1,5 @@
 #+TITLE: 行列式
+#+TYPST_MATH: t
 
 * 考试内容解析
 
@@ -6,18 +7,13 @@
 
 $n$ 阶行列式是一个数，表示 $n!$ 项的代数和，其定义是
 $$
-\left| \begin{matrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
-a_{21} & a_{22} & \ldots & a_{2n} \\
- \vdots & \vdots & & \vdots \\
-a_{n1} & a_{n2} & \ldots & a_{nn}
-\end{matrix} \right| = {\sum( - 1)}^{t}a_{1p_{1}}a_{2p_{2}}\ldots a_{np_{n}},
+mat(delim: "|",a_(11),a_(12),dots,a_(1n);a_(21),a_(22),dots,a_(2n);dots.v,dots.v,,dots.v;a_(n 1),a_(n 2),dots,a_(n n))=sum(-1)^t a_(1p_1)a_(2p_2)dots a_(n p_n),
 $$
-其中 $p_{1}p_{2}\ldots p_{n}$ 是 $n$ 个数 $1,2,\ldots,n$ 的一个排列，$t$ 为这个排列的逆序数，和号是对所有这样的排列求和，因此是 $n!$ 项的代数和。
+其中 $p_1 p_2 dots p_n$ 是 $n$ 个数 $1,2,dots,n$ 的一个排列，$t$ 为这个排列的逆序数，和号是对所有这样的排列求和，因此是 $n!$ 项的代数和。
 
 ** （二）行列式的性质
 
-1. 行列式 $D$ 与它的转置行列式 $D^{\mathrm{T}}$ 相等，其中 $D^{\mathrm{T}}$ 是指将 $D$ 的行与列按原次序互换所得到的行列式。
+1. 行列式 $D$ 与它的转置行列式 $D^upright(T)$ 相等，其中 $D^upright(T)$ 是指将 $D$ 的行与列按原次序互换所得到的行列式。
 
 2. 互换行列式的两行（列），行列式变号。因此，若行列式有两行（列）完全相同，则此行列式等于零。
 
@@ -27,78 +23,44 @@ $$
 
 5. 若行列式的某一行（列）的元素都是两个数之和，则此行列式等于相应两个行列式之和，即
 $$
-\begin{array}{r}
-\left| \begin{matrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
- \vdots & \vdots & & \vdots \\
-a_{i1} + a'_{i1} & a_{i2} + a'_{i2} & \ldots & a_{in} + a'_{in} \\
- \vdots & \vdots & & \vdots \\
-a_{n1} & a_{n2} & \ldots & a_{nn}
-\end{matrix} \right| \\
- = \left| \begin{matrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
- \vdots & \vdots & & \vdots \\
-a_{i1} & a_{i2} & \ldots & a_{in} \\
- \vdots & \vdots & & \vdots \\
-a_{n1} & a_{n2} & \ldots & a_{nn}
-\end{matrix} \right| + \left| \begin{matrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
- \vdots & \vdots & & \vdots \\
-a'_{i1} & a'_{i2} & \ldots & a'_{in} \\
- \vdots & \vdots & & \vdots \\
-a_{n1} & a_{n2} & \ldots & a_{nn}
-\end{matrix} \right|.
-\end{array}
+mat(delim: "|",a_(11),a_(12),dots,a_(1n);dots.v,dots.v,,dots.v;a_(i 1) + a'_(i 1),a_(i 2) + a'_(i 2),dots,a_(i n) + a'_(i n);dots.v,dots.v,,dots.v;a_(n 1),a_(n 2),dots,a_(n n)) \
+ =mat(delim: "|",a_(11),a_(12),dots,a_(1n);dots.v,dots.v,,dots.v;a_(i 1),a_(i 2),dots,a_(i n);dots.v,dots.v,,dots.v;a_(n 1),a_(n 2),dots,a_(n n)) + mat(delim: "|",a_(11),a_(12),dots,a_(1n);dots.v,dots.v,,dots.v;a'_(i 1),a'_(i 2),dots,a'_(i n);dots.v,dots.v,,dots.v;a_(n 1),a_(n 2),dots,a_(n n)).
 $$
 
 6. 把行列式的某一行（列）的各元素乘以同一数后加到另一行（列）的对应元素上去，该行列式的值不变。
 
 ** （三）行列式按行（列）展开
 
-在 $n$ 阶行列式中，把元素 $a_{ij}$ 所在的第 $i$ 行和第 $j$ 列划去后，留下来的 $n - 1$ 阶行列式叫做元素 $a_{ij}$ 的余子式，记为 $M_{ij}$。而 $A_{ij} = ( - 1)^{i + j}M_{ij}$ 叫做元素 $a_{ij}$ 的代数余子式。
+在 $n$ 阶行列式中，把元素 $a_(i j)$ 所在的第 $i$ 行和第 $j$ 列划去后，留下来的 $n - 1$ 阶行列式叫做元素 $a_(i j)$ 的余子式，记为 $M_(i j)$。而 $A_(i j)=(-1)^(i + j)M_(i j)$ 叫做元素 $a_(i j)$ 的代数余子式。
 
 展开定理　行列式等于它的任一行（列）的各元素与其对应的代数余子式乘积之和，即若 $n$ 阶行列式
 $$
-\left| \begin{matrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
-a_{21} & a_{22} & \ldots & a_{2n} \\
- \vdots & \vdots & & \vdots \\
-a_{n1} & a_{n2} & \ldots & a_{nn}
-\end{matrix} \right|
+mat(delim: "|",a_(11),a_(12),dots,a_(1n);a_(21),a_(22),dots,a_(2n);dots.v,dots.v,,dots.v;a_(n 1),a_(n 2),dots,a_(n n))
 $$
 记为 $D$，则有
 $$
-D = a_{i1}A_{i1} + a_{i2}A_{i2} + \ldots + a_{in}A_{in}\quad(i = 1,2,\ldots,n),
+D=a_(i 1)A_(i 1) + a_(i 2)A_(i 2) + dots + a_(i n)A_(i n)quad (i=1,2,dots,n),
 $$
 或
 $$
-D = a_{1j}A_{1j} + a_{2j}A_{2j} + \ldots + a_{nj}A_{nj}\quad(j = 1,2,\ldots,n).
+D=a_(1j)A_(1j) + a_(2j)A_(2j) + dots + a_(n j)A_(n j)quad (j=1,2,dots,n).
 $$
 由展开定理和行列式的性质2可知：行列式某一行（列）的元素与另一行（列）的对应元素的代数余子式乘积之和等于零，即
 $$
-a_{i1}A_{j1} + a_{i2}A_{j2} + \ldots + a_{in}A_{jn} = 0,i \neq j,
+a_(i 1)A_(j 1) + a_(i 2)A_(j 2) + dots + a_(i n)A_(j n)=0,i!=j,
 $$
 或
 $$
-a_{1i}A_{1j} + a_{2i}A_{2j} + \ldots + a_{ni}A_{nj} = 0,i \neq j.
+a_(1i)A_(1j) + a_(2i)A_(2j) + dots + a_(n i)A_(n j)=0,i!=j.
 $$
 于是，我们得到有关代数余子式的重要性质：
 $$
-\sum_{k = 1}^{n}a_{ik}A_{jk} = D\delta_{ij} = \begin{cases}
-D & \text{ 当 }i = j \\
-0 & \text{ 当 }i \neq j
-\end{cases},
+sum_(k=1)^n a_(i k)A_(j k)=D delta_(i j)=cases(D & "当" i=j,0 & "当" i!=j),
 $$
 $$
-\sum_{k = 1}^{n}a_{ki}A_{kj} = D\delta_{ij} = \begin{cases}
-D & \text{ 当 }i = j \\
-0 & \text{ 当 }i \neq j
-\end{cases},
+sum_(k=1)^n a_(k i)A_(k j)=D delta_(i j)=cases(D & "当" i=j,0 & "当" i!=j),
 $$
 其中
 $$
-\delta_{ij} = \begin{cases}
-1 & \text{ 当 }i = j \\
-0 & \text{ 当 }i \neq j
-\end{cases}.
+delta_(i j)=cases(1 & "当" i=j,0 & "当" i!=j).
 $$
