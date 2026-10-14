@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="black" stroke-width=".8"/></marker></defs>
+<path d="M40 195L170 195L170 169L66 65L40 65Z" fill="#ddd"/>
+<path d="M40 65H170V195H40Z" fill="none" stroke="black" stroke-width="1"/>
+<path d="M40 39L196 195" fill="none" stroke="black" stroke-width="1"/>
+<path d="M20 195H223M40 214V17" fill="none" stroke="black" stroke-width="1" marker-end="url(#arrow)"/>
+<g font-family="serif" font-size="14"><text x="25" y="211">0</text><text x="166" y="213">1</text><text x="23" y="70">1</text><text x="187" y="213">6/5</text><text x="10" y="39">6/5</text><text x="211" y="214" font-style="italic">x</text><text x="49" y="20" font-style="italic">y</text><text x="65" y="44" font-style="italic">x+y=6/5</text><text x="92" y="152" font-style="italic">A</text><text x="150" y="85">Ω</text></g>
+</svg>

@@ -85,6 +85,12 @@ def replace(name, face, codepoint):
         dx = bearing - x0 * scale
         advance = (x1 - x0) * scale + 2 * bearing
         dy = axis - (y0 + y1) / 2 * scale
+    if face in ('italic', 'bolditalic') and codepoint in plain:
+        # Add a small leading sidebearing to italic variables. This also gives
+        # numeric coefficients room without scaling or thinning the outlines.
+        padding = round(upem * 0.04)
+        dx += padding
+        advance += padding
     width = round(advance)
     pen = T2CharStringPen(width, gs)
     convert = Qu2CuPen(pen, max_err=0.5, all_cubic=True)

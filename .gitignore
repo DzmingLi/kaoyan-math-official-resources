@@ -5,9 +5,7 @@
 *.pdf
 !/真题来源存档/**/*.pdf
 
-# Local collections are outside the repository for now.
-/topic-collections/
-/sample-exams/
+# Chapter examples remain local.
 /math-dagang-2007/
 /math-dagang2007/
 .build/
@@ -19,9 +17,8 @@ results-*
 release/
 __pycache__/
 
-# Recent papers remain local until ready for publication.
-/历年真题/2024/
-/历年真题/2025/
-
 # Documentation is being rewritten locally.
 README.org
+
+# Generated collection PDFs stay local.
+/topic-collections/pdf/

@@ -42,8 +42,8 @@
               let
                 relative = lib.removePrefix (toString ./. + "/") (toString path);
                 parts = lib.splitString "/" relative;
-                allowedRoots = [ "历年真题" "scripts" ];
-                excluded = lib.any (part: lib.elem part [ "preview" "backups" ".build" ".git" "output" ]) parts;
+                allowedRoots = [ "历年真题+参考解答" "topic-collections" "scripts" ];
+                excluded = lib.any (part: lib.elem part [ "backups" ".build" ".git" "output" "pdf" ]) parts;
               in
               !excluded && lib.elem (lib.head parts) allowedRoots &&
               (type == "directory" || lib.any (ext: lib.hasSuffix ext relative) [ ".typ" ".py" ".svg" ".png" ".jpg" ".jpeg" ".json" ".toml" ]);
@@ -59,8 +59,19 @@
             '';
             installPhaseCommand = "true";
           };
+          collections = typixLib.mkTypstDerivation {
+            name = "math-topic-collections";
+            inherit src fontPaths;
+            emojiFont = null;
+            unstable_typstPackages = typstPackages;
+            nativeBuildInputs = [ pdfPython ];
+            buildPhaseTypstCommand = ''
+              python3 scripts/build-collections.py --output "$out"
+            '';
+            installPhaseCommand = "true";
+          };
         in {
-          packages = { default = pdfs; inherit pdfs; fonts = founderFonts; math-fonts = mathFonts; };
+          packages = { default = pdfs; inherit pdfs collections; fonts = founderFonts; math-fonts = mathFonts; };
           checks = { inherit pdfs; };
           devShell = typixLib.devShell {
             inherit fontPaths;

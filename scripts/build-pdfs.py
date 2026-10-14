@@ -7,7 +7,7 @@ import sys
 
 from pypdf import PdfReader, PdfWriter, Transformation
 
-ROOTS = ('历年真题',)
+ROOTS = ('历年真题+参考解答',)
 SUBJECTS = {'数学一试卷': '1', '数学二试卷': '2', '数学三试卷': '3',
             '数学四试卷': '4', '数学五试卷': '5', '数学MBA试卷': 'mba'}
 
@@ -22,7 +22,8 @@ def build_booklet(source, target):
     """Place B5 pages at their original size on ISO B4 landscape sheets."""
     reader = PdfReader(source)
     pages = list(reader.pages)
-    pages.insert(1, None)  # The cover back is blank only in the print edition.
+    if not source.stem.endswith('-answers'):
+        pages.insert(1, None)  # The question edition has a cover; answers do not.
     pages.append(None)  # Keep the booklet back cover blank.
     pages.extend([None] * (-len(pages) % 4))
     mm = 72 / 25.4
