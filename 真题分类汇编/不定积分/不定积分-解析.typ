@@ -1,3 +1,5 @@
+#import "../template.typ": collection
+#show: collection.with(title: "积分分类汇编", subject: "不定积分汇编（含解析）")
 #import "@preview/ezexam:0.3.1" as ezexam
 #let choices = ezexam.choices.with(r-gap: 1.3em)
 #let fillin = ezexam.fillin.with(placeholder: [])

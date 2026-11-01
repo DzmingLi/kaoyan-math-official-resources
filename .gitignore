@@ -17,6 +17,5 @@ results-*
 release/
 __pycache__/
 
-# Generated collection entry points and PDFs stay local.
+# Generated collection PDFs stay local.
 /真题分类汇编/pdf/
-/真题分类汇编/preview/

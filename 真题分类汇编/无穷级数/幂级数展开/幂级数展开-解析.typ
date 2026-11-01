@@ -1,3 +1,5 @@
+#import "../../template.typ": collection
+#show: collection.with(title: "幂级数展开分类汇编", subject: "幂级数展开（含解析）")
 #import "@preview/ezexam:0.3.1" as ezexam
 #let choices = ezexam.choices.with(r-gap: 1.3em)
 #let fillin = ezexam.fillin.with(placeholder: [])

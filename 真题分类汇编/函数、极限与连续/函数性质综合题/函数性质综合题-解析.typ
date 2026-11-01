@@ -1,3 +1,5 @@
+#import "../../template.typ": collection
+#show: collection.with(title: "函数性质综合题分类汇编", subject: "函数性质综合题")
 #import "@preview/ezexam:0.3.1" as ezexam
 #import "@preview/cetz:0.5.2"
 #let choices = ezexam.choices.with(r-gap: 1.3em)

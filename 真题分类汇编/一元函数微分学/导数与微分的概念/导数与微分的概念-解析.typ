@@ -1,3 +1,5 @@
+#import "../../template.typ": collection
+#show: collection.with(title: "导数与微分的概念分类汇编", subject: "导数与微分的概念")
 #import "@preview/ezexam:0.3.1" as ezexam
 #import "@preview/cetz:0.5.2"
 #let choices = ezexam.choices.with(r-gap: 1.3em)
