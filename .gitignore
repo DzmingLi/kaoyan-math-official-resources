@@ -17,8 +17,5 @@ results-*
 release/
 __pycache__/
 
-# Documentation is being rewritten locally.
-README.org
-
 # Generated collection PDFs stay local.
 /topic-collections/pdf/
