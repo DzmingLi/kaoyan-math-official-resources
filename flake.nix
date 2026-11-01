@@ -42,7 +42,7 @@
               let
                 relative = lib.removePrefix (toString ./. + "/") (toString path);
                 parts = lib.splitString "/" relative;
-                allowedRoots = [ "历年真题+参考解答" "topic-collections" "scripts" ];
+                allowedRoots = [ "历年真题+参考解答" "真题分类汇编" "scripts" ];
                 excluded = lib.any (part: lib.elem part [ "backups" ".build" ".git" "output" "pdf" ]) parts;
               in
               !excluded && lib.elem (lib.head parts) allowedRoots &&
